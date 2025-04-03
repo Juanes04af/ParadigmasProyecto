@@ -14,5 +14,6 @@ public class Main {
 
         Rutas ruta1= new Rutas(01, "Soacha", "Ricaute",58, horarios);
         ruta1.mostrar();
+        System.out.println("hola");
     }
 }
