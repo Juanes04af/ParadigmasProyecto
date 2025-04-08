@@ -19,4 +19,5 @@ public class Rutas {
     public void mostrar(){
         System.out.println(this.NumeroID + " " + this.Origen + " " + this.Destino + " " + this.Distancia + " " + this.HorariosSalida[0]);
     }
+
 }

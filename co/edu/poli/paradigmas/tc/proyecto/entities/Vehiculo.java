@@ -8,14 +8,13 @@ public class Vehiculo {
     private boolean disponibilidad;
     private boolean disponibilidadConductor;
 
-    public Vehiculo(int numeroPlaca, String modelo, byte numeroPasajeros, Rutas ruta,
-                    boolean disponibilidad, boolean disponibilidadConductor) {
-        this.numeroPlaca = numeroPlaca;
-        this.modelo = modelo;
-        this.numeroPasajeros = numeroPasajeros;
-        this.ruta = ruta;
+    public Vehiculo(boolean disponibilidad, boolean disponibilidadConductor, String modelo, byte numeroPasajeros, int numeroPlaca, co.edu.poli.paradigmas.tc.proyecto.entities.Rutas ruta) {
         this.disponibilidad = disponibilidad;
         this.disponibilidadConductor = disponibilidadConductor;
+        this.modelo = modelo;
+        this.numeroPasajeros = numeroPasajeros;
+        this.numeroPlaca = numeroPlaca;
+        this.ruta = ruta;
     }
 
     public boolean isDisponibilidadConductor() {
