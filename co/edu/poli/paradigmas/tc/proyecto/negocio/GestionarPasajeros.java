@@ -9,33 +9,6 @@ public class GestionarPasajeros {
     static int totalPasajeros = 0;
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        int opcion;
-        do {
-            System.out.println("\n--- MENÚ PRINCIPAL ---");
-            System.out.println("1. Crear pasajero");
-            System.out.println("2. Comprar boleto");
-            System.out.println("3. Ver viajes");
-            System.out.println("4. Eliminar pasajero");
-            System.out.println("5. Listar pasajeros");
-            System.out.println("6. Editar nombre del pasajero");
-            System.out.println("0. Salir");
-            System.out.print("Opción: ");
-            opcion = scanner.nextInt();
-
-            switch (opcion) {
-                case 1: crearPasajero(); break;
-                case 2: comprarBoleto(); break;
-                case 3: verViajes(); break;
-                case 4: eliminarPasajero(); break;
-                case 5: listarPasajeros(); break;
-                case 6: editarNombre(); break;
-                case 0: System.out.println("¡Hasta luego!"); break;
-                default: System.out.println("Opción no válida.");
-            }
-        } while (opcion != 0);
-    }
-
     public static void crearPasajero() {
         if (totalPasajeros >= pasajeros.length) {
             System.out.println("No hay más espacio para nuevos pasajeros.");

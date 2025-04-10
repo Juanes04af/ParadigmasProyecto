@@ -14,10 +14,44 @@ public class Rutas {
         Destino = destino;
         Distancia = distancia;
         HorariosSalida = horariosSalida;
-
     }
-    public void mostrar(){
-        System.out.println(this.NumeroID + " " + this.Origen + " " + this.Destino + " " + this.Distancia + " " + this.HorariosSalida[0]);
+    public long getNumeroID() {
+        return NumeroID;
     }
 
+    public void setNumeroID(long numeroID) {
+        NumeroID = numeroID;
+    }
+
+    public String getOrigen() {
+        return Origen;
+    }
+
+    public void setOrigen(String origen) {
+        Origen = origen;
+    }
+
+    public String getDestino() {
+        return Destino;
+    }
+
+    public void setDestino(String destino) {
+        Destino = destino;
+    }
+
+    public int getDistancia() {
+        return Distancia;
+    }
+
+    public void setDistancia(int distancia) {
+        Distancia = distancia;
+    }
+
+    public String[] getHorariosSalida() {
+        return HorariosSalida;
+    }
+
+    public void setHorariosSalida(String[] horariosSalida) {
+        HorariosSalida = horariosSalida;
+    }
 }

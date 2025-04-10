@@ -1,8 +1,12 @@
 package co.edu.poli.paradigmas.tc.proyecto.presentacion;
 import co.edu.poli.paradigmas.tc.proyecto.entities.*;
+import  co.edu.poli.paradigmas.tc.proyecto.negocio.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+
         Conductor miConductor = new Conductor(true, true, "Principal", "Juan", 12023939);
         miConductor.CambiarEstadoLicencia();
         miConductor.CambiarEstadoLicencia();
@@ -14,6 +18,29 @@ public class Main {
 
         Rutas ruta1= new Rutas(01, "Soacha", "Ricaute",58, horarios);
         ruta1.mostrar();
-        System.out.println("hola");
+        int opcion;
+        do {
+            System.out.println("\n--- MENÚ PRINCIPAL ---");
+            System.out.println("1. Crear pasajero");
+            System.out.println("2. Comprar boleto");
+            System.out.println("3. Ver viajes");
+            System.out.println("4. Eliminar pasajero");
+            System.out.println("5. Listar pasajeros");
+            System.out.println("6. Editar nombre del pasajero");
+            System.out.println("0. Salir");
+            System.out.print("Opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1: GestionarPasajeros.crearPasajero(); break;
+                case 2: GestionarPasajeros.comprarBoleto(); break;
+                case 3: GestionarPasajeros.verViajes(); break;
+                case 4: GestionarPasajeros.eliminarPasajero(); break;
+                case 5: GestionarPasajeros.listarPasajeros(); break;
+                case 6: GestionarPasajeros.editarNombre(); break;
+                case 0: System.out.println("¡Hasta luego!"); break;
+                default: System.out.println("Opción no válida.");
+            }
+        } while (opcion != 0);
     }
 }
