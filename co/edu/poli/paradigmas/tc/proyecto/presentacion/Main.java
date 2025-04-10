@@ -37,9 +37,23 @@ public class Main {
                 case 4: GestionarPasajeros.eliminarPasajero(); break;
                 case 5: GestionarPasajeros.listarPasajeros(); break;
                 case 6: GestionarPasajeros.editarNombre(); break;
-                case 0: System.out.println("¡Hasta luego!"); break;
+                case 0: System.out.println("¡Hasta luego! Gracias por usar el rpograma"); break;
                 default: System.out.println("Opción no válida.");
             }
         } while (opcion != 0);
+    }
+    public static int excepciones (Scanner scanner) {
+        int opcion = -1;
+        boolean valido = false;
+        while (!valido) {
+            try {
+                opcion = scanner.nextInt();
+                valido = true;
+            } catch (Exception e) {
+                System.out.println("Invalido, Intente de nuevo");
+                scanner.nextLine();
+            }
+        }
+        return opcion;
     }
 }
