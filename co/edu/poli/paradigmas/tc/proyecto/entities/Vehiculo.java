@@ -17,12 +17,16 @@ public class Vehiculo {
         this.ruta = ruta;
     }
 
-    public boolean isDisponibilidadConductor() {
-        return disponibilidadConductor;
+    public boolean isDisponibilidad() {
+        return disponibilidad;
     }
 
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    public boolean isDisponibilidadConductor() {
+        return disponibilidadConductor;
     }
 
     public void setDisponibilidadConductor(boolean disponibilidadConductor) {
