@@ -34,7 +34,6 @@ public class MenuGestorVehiculos {
 
                     System.out.print("Ingrese el numero de pasajeros: ");
                     byte numeroPasajeros = excepcionesByte(scanner);
-                    scanner.nextLine();
 
                     System.out.print("Ingrese la ruta por su ID: ");
                     long idRuta = excepcionesLong(scanner);
@@ -42,11 +41,9 @@ public class MenuGestorVehiculos {
                     Rutas rutaSeleccionada = gestorRuta.buscarRutaPorID(idRuta);
                     System.out.print("¿Esta disponible el vehiculo? (true/false): ");
                     boolean disponibilidadVehiculo = excepcionesBoolean(scanner);
-                    scanner.nextLine();
 
                     System.out.print("¿Esta disponible el conductor? (true/false): ");
                     boolean disponibilidadConductor = excepcionesBoolean(scanner);
-                    scanner.nextLine();
 
                     Vehiculo vehiculo = new Vehiculo(placa, modelo, numeroPasajeros, rutaSeleccionada, disponibilidadVehiculo, disponibilidadConductor);
 
@@ -78,11 +75,9 @@ public class MenuGestorVehiculos {
 
                     System.out.print("¿El vehiculo esta en el taller? (true/false): ");
                     boolean estaEnTaller = excepcionesBoolean(scanner);
-                    scanner.nextLine();
 
                     System.out.print("¿El conductor esta disponible? (true/false): ");
                     disponibilidadConductor = excepcionesBoolean(scanner);
-                    scanner.nextLine();
 
                     boolean actualizado = gestor.actualizarVehiculo(placaActualizar, estaEnTaller, disponibilidadConductor);
                     if (actualizado) {
