@@ -31,8 +31,12 @@ public class Main {
             opcion = excepciones(scanner);
 
             switch (opcion) {
-                case 1: GestionarPasajeros.crearPasajero(); break;
-                case 2: GestionarPasajeros.comprarBoleto(); break;
+                case 1:
+                    GestionarPasajeros.crearPasajero();
+                    break;
+                case 2:
+                    GestionarPasajeros.comprarBoleto();
+                    break;
                 case 3: GestionarPasajeros.verViajes(); break;
                 case 4: GestionarPasajeros.eliminarPasajero(); break;
                 case 5: GestionarPasajeros.listarPasajeros(); break;

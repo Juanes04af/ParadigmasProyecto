@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class GestorRutas {
     private ArrayList<Rutas> listaRutas = new ArrayList<>();
 
-
     public void agregarRuta(Rutas ruta) {
         listaRutas.add(ruta);
     }
@@ -59,4 +58,5 @@ public class GestorRutas {
         }
         return null;
     }
+
 }

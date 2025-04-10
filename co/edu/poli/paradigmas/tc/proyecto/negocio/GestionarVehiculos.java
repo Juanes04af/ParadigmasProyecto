@@ -1,5 +1,6 @@
 package co.edu.poli.paradigmas.tc.proyecto.negocio;
 
+import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
 import java.util.ArrayList;
 
@@ -23,6 +24,12 @@ public class GestionarVehiculos {
         } else {
             for (Vehiculo vehiculo : vehiculos) {
                 System.out.println(vehiculo);
+                System.out.println("Numero placa: " + vehiculo.getNumeroPlaca());
+                System.out.println("Modelo: " + vehiculo.getModelo());
+                System.out.println("Numero Pasajeros: " + vehiculo.getNumeroPasajeros());
+                System.out.println("Ruta: " + vehiculo.getRuta());
+                System.out.println("Disponibilidad: " + vehiculo.isDisponibilidad());
+                System.out.println("Disponibilidad del conductor: " + vehiculo.isDisponibilidad());
             }
             System.out.println("\n------------------------");
         }
