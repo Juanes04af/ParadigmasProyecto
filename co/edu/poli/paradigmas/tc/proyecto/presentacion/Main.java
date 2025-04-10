@@ -38,7 +38,7 @@ public class Main {
                 case 4: GestionarPasajeros.eliminarPasajero(); break;
                 case 5: GestionarPasajeros.listarPasajeros(); break;
                 case 6: GestionarPasajeros.editarNombre(); break;
-                case 0: System.out.println("¡Hasta luego!"); break;
+                case 0: System.out.println("¡Hasta luego! Gracias por usar el rpograma"); break;
                 default: System.out.println("Opción no válida.");
             }
         } while (opcion != 0);
