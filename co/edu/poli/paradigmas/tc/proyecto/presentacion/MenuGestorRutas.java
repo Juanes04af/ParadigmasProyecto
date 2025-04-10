@@ -29,17 +29,17 @@ public class MenuGestorRutas {
                     scanner.nextLine();
 
                     System.out.print("Ingrese el origen: ");
-                    String origen = scanner.nextLine();
+                    String origen = excepcionesString(scanner);
 
                     System.out.print("Ingrese el destino: ");
-                    String destino = scanner.nextLine();
+                    String destino = excepcionesString(scanner);
 
                     System.out.print("Ingrese la distancia (en km): ");
                     int distancia = excepciones(scanner);
                     scanner.nextLine();
 
                     System.out.print("Ingrese el horario de salida: "); //***
-                    String horario = scanner.nextLine();
+                    String horario = excepcionesString(scanner);
 
                     String[] horarios = new String[1];
                     horarios[0] = horario;
@@ -76,16 +76,16 @@ public class MenuGestorRutas {
 
                 case 3:
                     System.out.print("Ingrese el ID de la ruta que desea actualizar: ");
-                    long idActualizar = scanner.nextLong();
+                    long idActualizar = excepcionesLong(scanner);
                     scanner.nextLine();
 
                     Rutas rutaActualizar = gestor.buscarRutaPorID(idActualizar);
                     if (rutaActualizar != null) {
                         System.out.print("Ingrese el nuevo origen: ");
-                        String nuevoOrigen = scanner.nextLine();
+                        String nuevoOrigen = excepcionesString(scanner);
 
                         System.out.print("Ingrese el nuevo destino: ");
-                        String nuevoDestino = scanner.nextLine();
+                        String nuevoDestino =excepcionesString(scanner);
 
                         System.out.print("Ingrese la nueva distancia (en km): ");
                         int nuevaDistancia = excepciones(scanner);
@@ -98,7 +98,7 @@ public class MenuGestorRutas {
                         String[] nuevosHorarios = new String[cantidadHorarios]; //***
                         for (int i = 0; i < cantidadHorarios; i++) {
                             System.out.print("Ingrese el horario #" + (i + 1) + ": ");
-                            nuevosHorarios[i] = scanner.nextLine();
+                            nuevosHorarios[i] = excepcionesString(scanner);
                         }
 
                         boolean actualizado = gestor.actualizarRuta(idActualizar, nuevoOrigen, nuevoDestino, nuevaDistancia, nuevosHorarios);
@@ -115,7 +115,7 @@ public class MenuGestorRutas {
 
                 case 4:
                     System.out.print("Ingrese el ID de la ruta que desea eliminar: ");
-                    long idEliminar = scanner.nextLong();
+                    long idEliminar = excepcionesLong(scanner);
                     scanner.nextLine();
 
                     boolean eliminado = gestor.eliminarRuta(idEliminar);
@@ -154,5 +154,42 @@ public class MenuGestorRutas {
             }
         }
         return opcion;
+    }
+
+    public static String excepcionesString(Scanner scanner) {
+        String valor = "";
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            valor = scanner.nextLine().trim();
+
+            if (valor.isEmpty()) {
+                System.out.println("¡La entrada no puede estar vacia! Intente de nuevo.");
+            } else if (valor.matches("\\d+")) {
+                System.out.println("No puede ingresar solo numeros. Intente de nuevo.");
+            } else {
+                entradaValida = true;
+            }
+        }
+        return valor;
+    }
+
+    public static long excepcionesLong(Scanner scanner) {
+        long numero = 0;
+        boolean valido = false;
+        while (!valido) {
+            String entrada = scanner.nextLine();
+            if (entrada.matches("\\d+")) { // Solo acepta números positivos
+                try {
+                    numero = Long.parseLong(entrada);
+                    valido = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Número demasiado grande. Intente nuevamente:");
+                }
+            } else {
+                System.out.println("Entrada inválida. Solo se permiten números. Intente nuevamente:");
+            }
+        }
+        return numero;
     }
 }

@@ -31,7 +31,7 @@ public class GestionarVehiculos {
 
     // Actualizar
     public boolean actualizarVehiculo(String numeroPlaca, boolean estaEnTaller, boolean disponibilidadConductor) {
-        Vehiculo vehiculo = buscarVehiculo(numeroPlaca); // Suponiendo que buscarVehiculo te devuelve un objeto Vehiculo
+        Vehiculo vehiculo = buscarVehiculo(numeroPlaca);
         if (vehiculo != null) {
             vehiculo.setDisponibilidad(!estaEnTaller);
             vehiculo.setDisponibilidadConductor(disponibilidadConductor);

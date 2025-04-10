@@ -27,7 +27,7 @@ public class MenuGestorPasajeros {
                     scanner.nextLine();
 
                     System.out.print("Ingrese el nombre del pasajero: ");
-                    String nombre = scanner.nextLine();
+                    String nombre = excepcionesString(scanner);
 
                     Pasajeros pasajero = new Pasajeros(id, nombre);
 
@@ -57,7 +57,7 @@ public class MenuGestorPasajeros {
                     pasajeroEncontrado = gestor.buscarPasajeroPorId(idActualizar);
                     if (pasajeroEncontrado != null) {
                         System.out.print("Ingrese el nuevo nombre para el pasajero: ");
-                        String nuevoNombre = scanner.nextLine();
+                        String nuevoNombre = excepcionesString(scanner);
                         gestor.actualizarNombrePasajero(idActualizar, nuevoNombre);
                     } else {
                         System.out.println("Pasajero no encontrado.");
@@ -106,5 +106,23 @@ public class MenuGestorPasajeros {
             }
         }
         return opcion;
+    }
+
+    public static String excepcionesString(Scanner scanner) {
+        String valor = "";
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            valor = scanner.nextLine().trim();
+
+            if (valor.isEmpty()) {
+                System.out.println("¡La entrada no puede estar vacia! Intente de nuevo.");
+            } else if (valor.matches("\\d+")) {
+                System.out.println("No puede ingresar solo numeros. Intente de nuevo.");
+            } else {
+                entradaValida = true;
+            }
+        }
+        return valor;
     }
 }

@@ -27,25 +27,25 @@ public class MenuGestorVehiculos {
             switch (opcion) {
                 case 1:
                     System.out.print("Ingrese el numero de placa: ");
-                    String placa = scanner.nextLine();
+                    String placa = excepcionesString(scanner);
 
                     System.out.print("Ingrese el modelo del vehiculo: ");
-                    String modelo = scanner.nextLine();
+                    String modelo = excepcionesString(scanner);
 
                     System.out.print("Ingrese el numero de pasajeros: ");
-                    byte numeroPasajeros = scanner.nextByte();
+                    byte numeroPasajeros = excepcionesByte(scanner);
                     scanner.nextLine();
 
                     System.out.print("Ingrese la ruta por su ID: ");
-                    long idRuta = scanner.nextLong();
+                    long idRuta = excepcionesLong(scanner);
 
                     Rutas rutaSeleccionada = gestorRuta.buscarRutaPorID(idRuta);
                     System.out.print("¿Esta disponible el vehiculo? (true/false): ");
-                    boolean disponibilidadVehiculo = scanner.nextBoolean();
+                    boolean disponibilidadVehiculo = excepcionesBoolean(scanner);
                     scanner.nextLine();
 
                     System.out.print("¿Esta disponible el conductor? (true/false): ");
-                    boolean disponibilidadConductor = scanner.nextBoolean();
+                    boolean disponibilidadConductor = excepcionesBoolean(scanner);
                     scanner.nextLine();
 
                     Vehiculo vehiculo = new Vehiculo(placa, modelo, numeroPasajeros, rutaSeleccionada, disponibilidadVehiculo, disponibilidadConductor);
@@ -56,7 +56,7 @@ public class MenuGestorVehiculos {
 
                 case 2:
                     System.out.print("Ingrese el numero de placa del vehiculo: ");
-                    String placaBuscar = scanner.nextLine();
+                    String placaBuscar = excepcionesString(scanner);
 
                     Vehiculo vehiculoEncontrado = gestor.buscarVehiculo(placaBuscar);
 
@@ -74,14 +74,14 @@ public class MenuGestorVehiculos {
 
                 case 3:
                     System.out.print("Ingrese el numero de placa del vehiculo: ");
-                    String placaActualizar = scanner.nextLine();
+                    String placaActualizar = excepcionesString(scanner);
 
                     System.out.print("¿El vehiculo esta en el taller? (true/false): ");
-                    boolean estaEnTaller = scanner.nextBoolean();
+                    boolean estaEnTaller = excepcionesBoolean(scanner);
                     scanner.nextLine();
 
                     System.out.print("¿El conductor esta disponible? (true/false): ");
-                    disponibilidadConductor = scanner.nextBoolean();
+                    disponibilidadConductor = excepcionesBoolean(scanner);
                     scanner.nextLine();
 
                     boolean actualizado = gestor.actualizarVehiculo(placaActualizar, estaEnTaller, disponibilidadConductor);
@@ -94,7 +94,7 @@ public class MenuGestorVehiculos {
 
                 case 4:
                     System.out.print("Ingrese el numero de placa del vehiculo que quiere eliminar: ");
-                    String placaEliminar = scanner.nextLine();
+                    String placaEliminar = excepcionesString(scanner);
 
                     boolean eliminado = gestor.eliminarVehiculo(placaEliminar);
                     if (eliminado) {
@@ -133,4 +133,80 @@ public class MenuGestorVehiculos {
         }
         return opcion;
     }
+
+    public static String excepcionesString(Scanner scanner) {
+        String valor = "";
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            valor = scanner.nextLine().trim();
+
+            if (valor.isEmpty()) {
+                System.out.println("¡La entrada no puede estar vacia! Intente de nuevo.");
+            } else if (valor.matches("\\d+")) {
+                System.out.println("No puede ingresar solo numeros. Intente de nuevo.");
+            } else {
+                entradaValida = true;
+            }
+        }
+        return valor;
+    }
+
+    public static long excepcionesLong(Scanner scanner) {
+        long numero = 0;
+        boolean valido = false;
+        while (!valido) {
+            String entrada = scanner.nextLine();
+            if (entrada.matches("\\d+")) { // Solo acepta números positivos
+                try {
+                    numero = Long.parseLong(entrada);
+                    valido = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Número demasiado grande. Intente nuevamente:");
+                }
+            } else {
+                System.out.println("Entrada inválida. Solo se permiten números. Intente nuevamente:");
+            }
+        }
+        return numero;
+    }
+
+    public static boolean excepcionesBoolean(Scanner scanner) {
+        boolean valor = false;
+        boolean valido = false;
+        while (!valido) {
+            String entrada = scanner.nextLine().trim().toLowerCase(); // Limpia espacios y pasa a minúsculas
+            if (entrada.equals("true") || entrada.equals("false")) {
+                valor = Boolean.parseBoolean(entrada);
+                valido = true;
+            } else {
+                System.out.println("Entrada inválida. Escriba 'true' o 'false':");
+            }
+        }
+        return valor;
+    }
+
+    public static byte excepcionesByte(Scanner scanner) {
+        byte valor = 0;
+        boolean valido = false;
+
+        while (!valido) {
+            String entrada = scanner.nextLine().trim();
+            try {
+                int temp = Integer.parseInt(entrada);
+                if (temp >= Byte.MIN_VALUE && temp <= Byte.MAX_VALUE) {
+                    valor = (byte) temp;
+                    valido = true;
+                } else {
+                    System.out.println("Número fuera del rango de byte (-128 a 127). Intente de nuevo:");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Ingrese un número válido para byte:");
+            }
+        }
+
+        return valor;
+    }
+
+
 }
