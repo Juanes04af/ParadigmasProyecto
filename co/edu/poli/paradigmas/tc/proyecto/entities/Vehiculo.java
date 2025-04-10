@@ -21,6 +21,10 @@ public class Vehiculo {
         return disponibilidadConductor;
     }
 
+    public void setDisponibilidad(boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
+    }
+
     public void setDisponibilidadConductor(boolean disponibilidadConductor) {
         this.disponibilidadConductor = disponibilidadConductor;
     }

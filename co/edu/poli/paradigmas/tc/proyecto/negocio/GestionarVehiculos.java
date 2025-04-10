@@ -19,7 +19,7 @@ public class GestionarVehiculos {
     // Leer
     public void mostrarVehiculos() {
         if (vehiculos.isEmpty()) {
-            System.out.println("No hay vehículos registrados.");
+            System.out.println("No hay vehiculos registrados.");
         } else {
             for (Vehiculo vehiculo : vehiculos) {
                 System.out.println(vehiculo);
