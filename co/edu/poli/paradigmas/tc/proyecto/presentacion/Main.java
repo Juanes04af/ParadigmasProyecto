@@ -27,9 +27,12 @@ public class Main {
                 case 3:
                     MenuGestorRutas.mostrarMenuRutas(scanner);
                     break;
-            }
 
-        } while (opcion != 3);
+                default:
+                    System.out.println("Opcion no valida.");
+                    break;
+            }
+        } while (opcion != 4);
     }
 
     public static int excepciones (Scanner scanner){
