@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner=new Scanner(System.in);
         GestorRutas gestor = new GestorRutas();
-        /*Conductor miConductor = new Conductor(true, true, "Principal", "Juan", 12023939);
+        Conductor miConductor = new Conductor(true, true, "Principal", "Juan", 12023939);
         miConductor.CambiarEstadoLicencia();
         miConductor.CambiarEstadoLicencia();
         miConductor.CambiarDisponibilidad();
@@ -48,21 +48,20 @@ public class Main {
                 default: System.out.println("Opción no válida.");
             }
         } while (opcion != 0);
-    }*/
+    }
 
-        public static int excepciones (Scanner scanner){
-            int opcion = -1;
-            boolean valido = false;
-            while (!valido) {
-                try {
-                    opcion = scanner.nextInt();
-                    valido = true;
-                } catch (Exception e) {
-                    System.out.println("Invalido, Intente de nuevo");
-                    scanner.nextLine();
-                }
+    public static int excepciones (Scanner scanner) {
+        int opcion = -1;
+        boolean valido = false;
+        while (!valido) {
+            try {
+                opcion = scanner.nextInt();
+                valido = true;
+            } catch (Exception e) {
+                System.out.println("Invalido, Intente de nuevo");
+                scanner.nextLine();
             }
-            return opcion;
         }
+        return opcion;
     }
 }
