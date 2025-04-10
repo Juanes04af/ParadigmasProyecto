@@ -1,42 +1,40 @@
 package co.edu.poli.paradigmas.tc.proyecto.entities;
 
-public class Conductor {
+public class Conductor extends Persona {
 
-    private boolean Licencia;
-    private boolean Disponibilidad;
+    private boolean licencia;
+    private boolean disponibilidad;
     private String TipodeConductor;
-    private String NombredeConductor;
-    private long NumeroID;
+    private String nombre;
+    private long numeroID;
 
     public Conductor(boolean licencia, boolean disponibilidad, String tipodeConductor, String nombredeConductor, long numeroID) {
-        Licencia = licencia;
-        Disponibilidad = disponibilidad;
+        super(numeroID, nombre);
+        licencia = licencia;
+        this.disponibilidad = disponibilidad;
         TipodeConductor = tipodeConductor;
-        NombredeConductor = nombredeConductor;
-        NumeroID = numeroID;
     }
 
 
     public void CambiarEstadoLicencia() {
-
-        if (Licencia) {
-            Disponibilidad = false;
-            Licencia = false;
-            System.out.println("El conductor: " + NombredeConductor + " con numero ID " + NumeroID + "  no esta habilitado");
+        if (licencia) {
+            disponibilidad = false;
+            licencia = false;
+            System.out.println("El conductor: " + nombre + " con numero ID " + numeroID + "  no esta habilitado");
         } else {
-            Disponibilidad=true;
-            System.out.println("El conductor: " + NombredeConductor + " con numero ID " + NumeroID + "  esta habilitado");
+            disponibilidad =true;
+            System.out.println("El conductor: " + nombre + " con numero ID " + numeroID + "  esta habilitado");
         }
     }
 
     public void CambiarDisponibilidad() {
 
-        if (Disponibilidad) {
-            Disponibilidad = false;
-            System.out.println("El conductor: " + NombredeConductor + " con numero ID " + NumeroID + "  no esta disponible");
+        if (disponibilidad) {
+            disponibilidad = false;
+            System.out.println("El conductor: " + nombre + " con numero ID " + numeroID + "  no esta disponible");
         } else {
-            Disponibilidad=true;
-            System.out.println("El conductor: " + NombredeConductor + " con numero ID " + NumeroID + "  esta disponible");
+            disponibilidad =true;
+            System.out.println("El conductor: " + nombre + " con numero ID " + numeroID + "  esta disponible");
         }
     }
 
@@ -45,9 +43,9 @@ public class Conductor {
     }
 
     public void setCambiarDatos(String nombredeConductor, long numeroID) {
-        NombredeConductor=nombredeConductor;
-        NumeroID=numeroID;
-        System.out.println("Los nuevos datos son:  "+NombredeConductor+" Y "+NumeroID);
+        nombre =nombredeConductor;
+        this.numeroID =numeroID;
+        System.out.println("Los nuevos datos son:  "+ nombre +" Y "+ this.numeroID);
     }
 
 }

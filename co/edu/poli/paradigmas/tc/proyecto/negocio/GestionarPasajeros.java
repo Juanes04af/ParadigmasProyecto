@@ -88,7 +88,7 @@ public class GestionarPasajeros {
 
         System.out.println("\n--- Lista de Pasajeros ---");
         for (int i = 0; i < totalPasajeros; i++) {
-            System.out.println("ID: " + pasajeros[i].getId() + ", Nombre: " + pasajeros[i].getNombre());
+            System.out.println("ID: " + pasajeros[i].getNumeroID() + ", Nombre: " + pasajeros[i].getNombre());
         }
     }
 
@@ -112,7 +112,7 @@ public class GestionarPasajeros {
 
     public static int buscarPasajeroPorId(int id) {
         for (int i = 0; i < totalPasajeros; i++) {
-            if (pasajeros[i].getId() == id) {
+            if (pasajeros[i].getNumeroID() == id) {
                 return i;
             }
         }
