@@ -17,7 +17,6 @@ public class Main {
         horarios[0]="7:00am";
 
         Rutas ruta1= new Rutas(01, "Soacha", "Ricaute",58, horarios);
-        ruta1.mostrar();
         int opcion;
         do {
             System.out.println("\n--- MENÚ PRINCIPAL ---");

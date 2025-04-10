@@ -3,8 +3,9 @@ package co.edu.poli.paradigmas.tc.proyecto.entities;
 public class Persona {
     private String nombre;
     private int numeroID;
-
-    public Persona(int id, String nombre) {
+    
+    public Persona() {
+        int id = 0;
         this.numeroID = id;
         this.nombre = nombre;
     }

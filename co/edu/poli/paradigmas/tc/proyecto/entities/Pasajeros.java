@@ -8,7 +8,7 @@ public class Pasajeros extends Persona{
     private int totalBoletos;
 
     public Pasajeros(int id, String nombre) {
-        super(id, nombre);
+        super();
         this.boletos = new String[10]; // Máximo 10 boletos
         this.totalBoletos = 0;
     }
