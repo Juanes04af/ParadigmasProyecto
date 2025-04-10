@@ -6,7 +6,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-
+        GestorRutas gestor = new GestorRutas();
         Conductor miConductor = new Conductor(true, true, "Principal", "Juan", 12023939);
         miConductor.CambiarEstadoLicencia();
         miConductor.CambiarEstadoLicencia();
@@ -17,8 +17,11 @@ public class Main {
         horarios[0]="7:00am";
 
         Rutas ruta1= new Rutas(01, "Soacha", "Ricaute",58, horarios);
-        int opcion;
-        do {
+        gestor.agregarRuta(ruta1);
+        gestor.mostrarRutas();
+        Rutas ruta2 = new Rutas(2, "Cali", "Cartagena", 800, new String[]{"06:00", "20:00"});
+        gestor.agregarRuta(ruta2);
+        int opcion;do {
             System.out.println("\n--- MENÚ PRINCIPAL ---");
             System.out.println("1. Crear pasajero");
             System.out.println("2. Comprar boleto");
@@ -42,6 +45,7 @@ public class Main {
             }
         } while (opcion != 0);
     }
+
     public static int excepciones (Scanner scanner) {
         int opcion = -1;
         boolean valido = false;
