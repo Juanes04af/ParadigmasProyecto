@@ -42,4 +42,18 @@ public class Main {
             }
         } while (opcion != 0);
     }
+    public static int excepciones (Scanner scanner) {
+        int opcion = -1;
+        boolean valido = false;
+        while (!valido) {
+            try {
+                opcion = scanner.nextInt();
+                valido = true;
+            } catch (Exception e) {
+                System.out.println("Invalido, Intente de nuevo");
+                scanner.nextLine();
+            }
+        }
+        return opcion;
+    }
 }

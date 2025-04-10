@@ -8,7 +8,7 @@ public class Conductor extends Persona {
     private String nombre;
     private long numeroID;
 
-    public Conductor(boolean licencia, boolean disponibilidad, String tipodeConductor, String nombredeConductor, long numeroID) {
+    public Conductor(boolean licencia, boolean disponibilidad, String tipodeConductor, String nombre, long numeroID) {
         super();
         licencia = licencia;
         this.disponibilidad = disponibilidad;
