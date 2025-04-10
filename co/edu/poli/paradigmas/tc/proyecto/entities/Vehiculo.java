@@ -1,20 +1,20 @@
 package co.edu.poli.paradigmas.tc.proyecto.entities;
 
 public class Vehiculo {
-    private int numeroPlaca;
+    private String numeroPlaca;
     private String modelo;
     private byte numeroPasajeros;
     private Rutas ruta;
     private boolean disponibilidad;
     private boolean disponibilidadConductor;
 
-    public Vehiculo(boolean disponibilidad, boolean disponibilidadConductor, String modelo, byte numeroPasajeros, int numeroPlaca, co.edu.poli.paradigmas.tc.proyecto.entities.Rutas ruta) {
-        this.disponibilidad = disponibilidad;
-        this.disponibilidadConductor = disponibilidadConductor;
+    public Vehiculo(String placa, String modelo, byte numeroPasajeros, co.edu.poli.paradigmas.tc.proyecto.entities.Rutas ruta, boolean disponibilidad, boolean disponibilidadConductor) {
+        this.numeroPlaca = placa;
         this.modelo = modelo;
         this.numeroPasajeros = numeroPasajeros;
-        this.numeroPlaca = numeroPlaca;
         this.ruta = ruta;
+        this.disponibilidad = disponibilidad;
+        this.disponibilidadConductor = disponibilidadConductor;
     }
 
     public boolean isDisponibilidad() {
@@ -49,12 +49,8 @@ public class Vehiculo {
         this.numeroPasajeros = numeroPasajeros;
     }
 
-    public int getNumeroPlaca() {
+    public String getNumeroPlaca() {
         return numeroPlaca;
-    }
-
-    public void setNumeroPlaca(int numeroPlaca) {
-        this.numeroPlaca = numeroPlaca;
     }
 
     public Rutas getRuta() {

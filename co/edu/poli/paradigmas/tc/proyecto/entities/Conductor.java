@@ -5,11 +5,9 @@ public class Conductor extends Persona {
     private boolean licencia;
     private boolean disponibilidad;
     private String TipodeConductor;
-    private String nombre;
-    private long numeroID;
 
-    public Conductor(boolean licencia, boolean disponibilidad, String tipodeConductor, String nombre, long numeroID) {
-        super();
+    public Conductor(boolean licencia, boolean disponibilidad, String tipodeConductor, String nombre, int id) {
+        super(id, nombre);
         licencia = licencia;
         this.disponibilidad = disponibilidad;
         TipodeConductor = tipodeConductor;
@@ -42,7 +40,7 @@ public class Conductor extends Persona {
         TipodeConductor = tipodeConductor;
     }
 
-    public void setCambiarDatos(String nombredeConductor, long numeroID) {
+    public void setCambiarDatos(String nombredeConductor, int numeroID) {
         nombre =nombredeConductor;
         this.numeroID =numeroID;
         System.out.println("Los nuevos datos son:  "+ nombre +" Y "+ this.numeroID);

@@ -13,7 +13,6 @@ public class GestorPasajeros {
     // Crear
     public void agregarPasajero(Pasajeros pasajero) {
         listaPasajeros.add(pasajero);
-        System.out.println("Pasajero agregado: " + pasajero.getNombre());
     }
 
     // Leer por ID

@@ -2,14 +2,12 @@ package co.edu.poli.paradigmas.tc.proyecto.entities;
 
 //Clase Pasajero
 public class Pasajeros extends Persona{
-    private int id;
-    private String nombre;
     private String[] boletos;
     private int totalBoletos;
 
     public Pasajeros(int id, String nombre) {
-        super();
-        this.boletos = new String[10]; // Máximo 10 boletos
+        super(id, nombre);
+        this.boletos = new String[10];
         this.totalBoletos = 0;
     }
 
@@ -35,7 +33,7 @@ public class Pasajeros extends Persona{
     }
 
     public int getNumeroID() {
-        return id;
+        return numeroID;
     }
 
     public String getNombre() {
