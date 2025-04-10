@@ -24,6 +24,7 @@ public class GestionarVehiculos {
             for (Vehiculo vehiculo : vehiculos) {
                 System.out.println(vehiculo);
             }
+            System.out.println("\n------------------------");
         }
     }
 

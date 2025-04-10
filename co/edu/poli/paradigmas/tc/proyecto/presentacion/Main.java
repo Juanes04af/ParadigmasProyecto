@@ -28,7 +28,7 @@ public class Main {
             System.out.println("6. Editar nombre del pasajero");
             System.out.println("0. Salir");
             System.out.print("Opción: ");
-            opcion = scanner.nextInt();
+            opcion = excepciones(scanner);
 
             switch (opcion) {
                 case 1: GestionarPasajeros.crearPasajero(); break;
@@ -37,7 +37,7 @@ public class Main {
                 case 4: GestionarPasajeros.eliminarPasajero(); break;
                 case 5: GestionarPasajeros.listarPasajeros(); break;
                 case 6: GestionarPasajeros.editarNombre(); break;
-                case 0: System.out.println("¡Hasta luego! Gracias por usar el rpograma"); break;
+                case 0: System.out.println("¡Hasta luego! Gracias por usar el programa"); break;
                 default: System.out.println("Opción no válida.");
             }
         } while (opcion != 0);
