@@ -7,15 +7,20 @@ public class TallerMantenimiento {
     private String fechaIngreso;
     private String fechaSalidaEstimada;
     private String estado;
+    private String observaciones;
 
-    public TallerMantenimiento(int id, Vehiculo vehiculo, String tipoMantenimiento, String fechaIngreso, String fechaSalidaEstimada, String estado) {
+    public TallerMantenimiento(int id, Vehiculo vehiculo, String tipoMantenimiento, String fechaIngreso, String fechaSalidaEstimada, String estado, String observaciones) {
         this.id = id;
         this.vehiculo = vehiculo;
         this.tipoMantenimiento = tipoMantenimiento;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalidaEstimada = fechaSalidaEstimada;
         this.estado = estado;
+        this.observaciones = observaciones;
 
+    }
+
+    public TallerMantenimiento(int id, String tipoMantenimiento, String estado, String observaciones) {
     }
 
     public String getEstado() {
@@ -64,6 +69,14 @@ public class TallerMantenimiento {
 
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 }
 
