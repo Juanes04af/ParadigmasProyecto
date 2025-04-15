@@ -56,7 +56,6 @@ public class Vehiculo {
     public Rutas getRuta() {
         return ruta;
     }
-
     public void setRuta(Rutas ruta) {
         this.ruta = ruta;
     }

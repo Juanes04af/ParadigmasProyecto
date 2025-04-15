@@ -1,10 +1,9 @@
 package co.edu.poli.paradigmas.tc.proyecto.negocio;
 
-import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
 import java.util.ArrayList;
 
-public class GestionarVehiculos {
+public class GestorVehiculos {
     private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 
     //Metodos CRUD

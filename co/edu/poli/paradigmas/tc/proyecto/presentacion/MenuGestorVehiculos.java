@@ -1,14 +1,14 @@
 package co.edu.poli.paradigmas.tc.proyecto.presentacion;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestionarVehiculos;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
 
 import java.util.Scanner;
 
 public class MenuGestorVehiculos {
     public static void mostrarMenuVehiculos(Scanner scanner) {
-        GestionarVehiculos gestor = new GestionarVehiculos();
+        GestorVehiculos gestor = new GestorVehiculos();
         GestorRutas gestorRuta = new GestorRutas();
         boolean volver = false;
 
@@ -152,7 +152,7 @@ public class MenuGestorVehiculos {
         boolean valido = false;
         while (!valido) {
             String entrada = scanner.nextLine();
-            if (entrada.matches("\\d+")) { // Solo acepta números positivos
+            if (entrada.matches("\\d+")) { // Solo acepta numeros positivos
                 try {
                     numero = Long.parseLong(entrada);
                     valido = true;
@@ -170,7 +170,7 @@ public class MenuGestorVehiculos {
         boolean valor = false;
         boolean valido = false;
         while (!valido) {
-            String entrada = scanner.nextLine().trim().toLowerCase(); // Limpia espacios y pasa a minúsculas
+            String entrada = scanner.nextLine().trim().toLowerCase(); // Limpia espacios y pasa a minusculas
             if (entrada.equals("true") || entrada.equals("false")) {
                 valor = Boolean.parseBoolean(entrada);
                 valido = true;
@@ -202,6 +202,5 @@ public class MenuGestorVehiculos {
 
         return valor;
     }
-
 
 }

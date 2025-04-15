@@ -46,4 +46,7 @@ public class Conductor extends Persona {
         System.out.println("Los nuevos datos son:  "+ nombre +" Y "+ this.numeroID);
     }
 
+    public String getTipodeConductor() {
+        return TipodeConductor;
+    }
 }
