@@ -5,22 +5,16 @@ public class TallerMantenimiento {
     private Vehiculo vehiculo;
     private String tipoMantenimiento;
     private String fechaIngreso;
-    private String fechaSalidaEstimada;
     private String estado;
     private String observaciones;
 
-    public TallerMantenimiento(int id, Vehiculo vehiculo, String tipoMantenimiento, String fechaIngreso, String fechaSalidaEstimada, String estado, String observaciones) {
+    public TallerMantenimiento(int id, String tipoMantenimiento, String fechaIngreso, String estado, String observaciones) {
         this.id = id;
-        this.vehiculo = vehiculo;
         this.tipoMantenimiento = tipoMantenimiento;
         this.fechaIngreso = fechaIngreso;
-        this.fechaSalidaEstimada = fechaSalidaEstimada;
         this.estado = estado;
         this.observaciones = observaciones;
 
-    }
-
-    public TallerMantenimiento(int id, String tipoMantenimiento, String estado, String observaciones) {
     }
 
     public String getEstado() {
@@ -39,17 +33,7 @@ public class TallerMantenimiento {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public String getFechaSalidaEstimada() {
-        return fechaSalidaEstimada;
-    }
-
-    public void setFechaSalidaEstimada(String fechaSalidaEstimada) {
-        this.fechaSalidaEstimada = fechaSalidaEstimada;
-    }
-
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     public void setId(int id) {
         this.id = id;
@@ -77,6 +61,16 @@ public class TallerMantenimiento {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id +
+                ", Fecha de Ingreso: " + fechaIngreso +
+                ", Tipo de Mantenimiento: " + tipoMantenimiento +
+                ", Estado: " + estado +
+                ", Observaciones: " + observaciones +
+                ", Vehiculo: " + (vehiculo != null ? vehiculo.toString() : "No asignado");
     }
 }
 

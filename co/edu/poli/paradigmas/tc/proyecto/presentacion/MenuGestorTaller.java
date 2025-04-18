@@ -1,13 +1,14 @@
 package co.edu.poli.paradigmas.tc.proyecto.presentacion;
-import co.edu.poli.paradigmas.tc.proyecto.entities.TallerMantenimiento;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorTaller;
 
+import co.edu.poli.paradigmas.tc.proyecto.entities.TallerMantenimiento;
+import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorTaller;
 
 import java.util.Scanner;
 
-public class MenuGestorTaller{
-    public static void mostrarMenuRutas(Scanner scanner) {
-        GestorTaller gestor = new GestorTaller();
+public class MenuGestorTaller {
+
+    public static void mostrarMenuTaller(Scanner scanner, GestorTaller gestor) {
         boolean volver = false;
 
         while (!volver) {
@@ -26,17 +27,39 @@ public class MenuGestorTaller{
                 case 1:
                     System.out.print("Ingrese ID del mantenimiento: ");
                     int id = excepciones(scanner);
-                    System.out.print("Ingrese el tipo de mantenimiento: ");
-                    String tipoMantenimiento = excepcionesString(scanner);
-                    System.out.print("Ingrese estado del mantenimiento: ");
-                    String estado = excepcionesString(scanner);
-                    System.out.print("Ingrese observaciones: ");
-                    String observaciones = excepcionesString(scanner);
 
-                    TallerMantenimiento nuevoRegistro = new TallerMantenimiento(id, tipoMantenimiento, estado, observaciones);
-                    gestor.agregarRegistro(nuevoRegistro);
+                    if (gestor.buscarMantenimientoId(id) != null) {
+                        System.out.println("¡Error! Ya existe un registro de mantenimiento con ese ID.");
+                    } else {
+                        System.out.print("Ingrese la placa del vehículo: ");
+                        String placa = excepcionesString(scanner);
+                        Vehiculo vehiculo = gestor.buscarVehiculoPorPlaca(placa);
+
+                        if (vehiculo != null) {
+                            System.out.println("Ingrese la fecha de Ingreso al taller: ");
+                            String fechaIngreso = excepcionesString(scanner);
+                            System.out.print("Ingrese el tipo de mantenimiento: ");
+                            String tipoMantenimiento = excepcionesString(scanner);
+                            System.out.print("Ingrese estado del mantenimiento: ");
+                            String estado = excepcionesString(scanner);
+                            System.out.print("Ingrese las observaciones para el vehiculo: ");
+                            String observaciones = excepcionesString(scanner);
+
+                            TallerMantenimiento nuevoRegistro = new TallerMantenimiento(id, fechaIngreso, tipoMantenimiento, estado, observaciones);
+                            nuevoRegistro.setVehiculo(vehiculo);
+
+                            if (estado.equalsIgnoreCase("En Taller")) {
+                                vehiculo.setDisponibilidad(false);
+                                System.out.println("El vehiculo con placa " + placa + " ahora esta en el taller y no esta disponible.");
+                            }
+
+                            gestor.agregarRegistro(nuevoRegistro);
+                            System.out.println("Registro de mantenimiento agregado correctamente.");
+                        } else {
+                            System.out.println("No se encontro un vehiculo con la placa " + placa);
+                        }
+                    }
                     break;
-
 
                 case 2:
                     System.out.print("Ingrese el ID del registro a buscar: ");
@@ -50,17 +73,39 @@ public class MenuGestorTaller{
                     break;
 
                 case 3:
-                    System.out.print("Ingrese ID del vehiculo a cambair el estado: ");
-                    int id = excepciones(scanner);
-                    gestor.actualizarEstado()
+                    System.out.print("Ingrese el ID del mantenimiento: ");
+                    int idMantenimiento = excepciones(scanner);
 
+                    TallerMantenimiento mantenimiento = gestor.buscarMantenimientoId(idMantenimiento);
+                    if (mantenimiento != null) {
+                        System.out.print("Ingrese el nuevo estado del mantenimiento: ");
+                        String nuevoEstado = excepcionesString(scanner);
+
+                        boolean actualizado = gestor.actualizarEstado(idMantenimiento, nuevoEstado);
+                        if (actualizado) {
+                            System.out.println("Estado actualizado correctamente.");
+
+                            Vehiculo vehiculo = mantenimiento.getVehiculo();
+                            if (vehiculo != null) {
+                                boolean estaEnTaller = nuevoEstado.equalsIgnoreCase("En Taller");
+                                vehiculo.setDisponibilidad(!estaEnTaller);
+                                System.out.println("Disponibilidad del vehículo actualizada: " + !estaEnTaller);
+                            } else {
+                                System.out.println("No se encontro vehículo asociado al mantenimiento.");
+                            }
+                        } else {
+                            System.out.println("No se pudo actualizar el estado del mantenimiento.");
+                        }
+                    } else {
+                        System.out.println("No se encontro el mantenimiento con ese ID.");
+                    }
                     break;
 
                 case 4:
                     System.out.print("Ingrese el ID del registro a eliminar: ");
                     int idEliminar = excepciones(scanner);
                     if (gestor.eliminarMantenimiento(idEliminar)) {
-                        gestor.eliminarMantenimiento(idEliminar);
+                        System.out.println("Registro de mantenimiento eliminado correctamente.");
                     } else {
                         System.out.println("No se pudo eliminar el registro.");
                     }
@@ -81,7 +126,7 @@ public class MenuGestorTaller{
         }
     }
 
-    public static int excepciones (Scanner scanner){
+    public static int excepciones(Scanner scanner) {
         int opcion = -1;
         boolean valido = false;
         while (!valido) {
@@ -112,24 +157,5 @@ public class MenuGestorTaller{
             }
         }
         return valor;
-    }
-
-    public static long excepcionesLong(Scanner scanner) {
-        long numero = 0;
-        boolean valido = false;
-        while (!valido) {
-            String entrada = scanner.nextLine();
-            if (entrada.matches("\\d+")) { // Solo acepta números positivos
-                try {
-                    numero = Long.parseLong(entrada);
-                    valido = true;
-                } catch (NumberFormatException e) {
-                    System.out.println("Número demasiado grande. Intente nuevamente:");
-                }
-            } else {
-                System.out.println("Entrada inválida. Solo se permiten números. Intente nuevamente:");
-            }
-        }
-        return numero;
     }
 }

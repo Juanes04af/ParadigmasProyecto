@@ -7,8 +7,7 @@ import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
 import java.util.Scanner;
 
 public class MenuGestorVehiculos {
-    public static void mostrarMenuVehiculos(Scanner scanner) {
-        GestorVehiculos gestor = new GestorVehiculos();
+    public static void mostrarMenuVehiculos(Scanner scanner, GestorVehiculos gestor) {
         GestorRutas gestorRuta = new GestorRutas();
         boolean volver = false;
 
@@ -93,9 +92,9 @@ public class MenuGestorVehiculos {
 
                     boolean eliminado = gestor.eliminarVehiculo(placaEliminar);
                     if (eliminado) {
-                        System.out.println("Vehículo eliminado correctamente.");
+                        System.out.println("Vehiculo eliminado correctamente.");
                     } else {
-                        System.out.println("No se encontró el vehículo con esa placa.");
+                        System.out.println("No se encontro el vehiculo con esa placa.");
                     }
                     break;
 
