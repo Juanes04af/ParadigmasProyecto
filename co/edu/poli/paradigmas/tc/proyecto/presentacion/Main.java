@@ -11,7 +11,6 @@ public class Main {
         GestorVehiculos gestorVehiculos = new GestorVehiculos();
         GestorTaller gestorTaller = new GestorTaller(gestorVehiculos.obtenerListaVehiculos());
 
-
         do {
             System.out.println("=== Sistema Gestion Transporte Publico ===");
             System.out.println("1. Gestionar Pasajeros");

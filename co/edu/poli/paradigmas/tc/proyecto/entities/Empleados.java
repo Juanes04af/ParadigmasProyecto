@@ -4,5 +4,5 @@ public class Empleados extends Persona{
     public Empleados(int id, String nombre) {
         super(id, nombre);
     }
-    
+
 }

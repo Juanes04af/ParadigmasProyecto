@@ -47,7 +47,6 @@ public class MenuGestorTaller {
 
                             TallerMantenimiento nuevoRegistro = new TallerMantenimiento(id, fechaIngreso, tipoMantenimiento, estado, observaciones);
                             nuevoRegistro.setVehiculo(vehiculo);
-
                             if (estado.equalsIgnoreCase("En Taller")) {
                                 vehiculo.setDisponibilidad(false);
                                 System.out.println("El vehiculo con placa " + placa + " ahora esta en el taller y no esta disponible.");
@@ -91,7 +90,7 @@ public class MenuGestorTaller {
                                 vehiculo.setDisponibilidad(!estaEnTaller);
                                 System.out.println("Disponibilidad del vehículo actualizada: " + !estaEnTaller);
                             } else {
-                                System.out.println("No se encontro vehículo asociado al mantenimiento.");
+                                System.out.println("No se encontro vehiculo asociado al mantenimiento.");
                             }
                         } else {
                             System.out.println("No se pudo actualizar el estado del mantenimiento.");
