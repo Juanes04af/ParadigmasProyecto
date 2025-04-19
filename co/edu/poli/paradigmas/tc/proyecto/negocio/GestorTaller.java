@@ -23,7 +23,7 @@ public class GestorTaller {
                 return mantenimientoVehc;
             }
         }
-        System.out.println("No se encontró el mantenimiento con ID: " + id);
+        System.out.println("No se encontro el mantenimiento con ID: " + id);
         return null;
     }
 
@@ -48,9 +48,9 @@ public class GestorTaller {
             if (vehiculo != null) {
                 boolean estaEnTaller = nuevoEstado.equalsIgnoreCase("En Taller");
                 vehiculo.setDisponibilidad(!estaEnTaller);
-                System.out.println("Disponibilidad del vehículo actualizada a: " + !estaEnTaller);
+                System.out.println("Disponibilidad del vehiculo actualizada a: " + !estaEnTaller);
             } else {
-                System.out.println("No hay un vehículo asignado a este mantenimiento.");
+                System.out.println("No hay un vehiculo asignado a este mantenimiento.");
             }
 
             return true;
@@ -74,7 +74,7 @@ public class GestorTaller {
                 return vehiculo;
             }
         }
-        System.out.println("No se encontró un vehículo con la placa: " + placa);
+        System.out.println("No se encontro un vehiculo con la placa: " + placa);
         return null;
     }
 }
