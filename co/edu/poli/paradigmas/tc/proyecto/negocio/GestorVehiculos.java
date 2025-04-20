@@ -22,6 +22,7 @@ public class GestorVehiculos {
             for (Vehiculo vehiculo : listaVehiculos) {
                 System.out.println("Numero placa: " + vehiculo.getNumeroPlaca());
                 System.out.println("Modelo: " + vehiculo.getModelo());
+                System.out.println("Ruta: " + vehiculo.getRuta().getNumeroID());
                 System.out.println("Numero Pasajeros: " + vehiculo.getNumeroPasajeros());
                 System.out.println("Disponibilidad del vehiculo: " + vehiculo.isDisponibilidad());
                 System.out.println("Disponibilidad del conductor: " + vehiculo.isDisponibilidadConductor());
@@ -35,7 +36,7 @@ public class GestorVehiculos {
         Vehiculo vehiculo = buscarVehiculo(numeroPlaca);
         if (vehiculo != null) {
             vehiculo.setDisponibilidad(!estaEnTaller);
-            vehiculo.setDisponibilidadConductor(disponibilidadConductor);
+            vehiculo.setDisponibilidadConductor(disponibilidadConductor);//La disponobilidad del conductor no cambia si el vehiculo no esta disponible, Pero la disponibilidad del vehiculo cambia cuando el conductor cambia
             return true;
         }
         return false;

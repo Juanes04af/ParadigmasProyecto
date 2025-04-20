@@ -10,7 +10,7 @@ public class MenuGestorTaller {
 
     public static void mostrarMenuTaller(Scanner scanner, GestorTaller gestor) {
         boolean volver = false;
-
+        int contador = 1;
         while (!volver) {
             System.out.println("=== Menu Taller ===");
             System.out.println("1. Agregar Registro Mantenimiento");
@@ -25,9 +25,8 @@ public class MenuGestorTaller {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese ID del mantenimiento: ");
-                    int id = excepciones(scanner);
-
+                    int id;
+                    id=contador++;
                     if (gestor.buscarMantenimientoId(id) != null) {
                         System.out.println("¡Error! Ya existe un registro de mantenimiento con ese ID.");
                     } else {
@@ -45,7 +44,7 @@ public class MenuGestorTaller {
                             System.out.print("Ingrese las observaciones para el vehiculo: ");
                             String observaciones = excepcionesString(scanner);
 
-                            TallerMantenimiento nuevoRegistro = new TallerMantenimiento(id, fechaIngreso, tipoMantenimiento, estado, observaciones);
+                            TallerMantenimiento nuevoRegistro = new TallerMantenimiento(id, tipoMantenimiento, fechaIngreso, estado, observaciones, vehiculo);
                             nuevoRegistro.setVehiculo(vehiculo);
                             if (estado.equalsIgnoreCase("En Taller")) {
                                 vehiculo.setDisponibilidad(false);
@@ -54,8 +53,6 @@ public class MenuGestorTaller {
 
                             gestor.agregarRegistro(nuevoRegistro);
                             System.out.println("Registro de mantenimiento agregado correctamente.");
-                        } else {
-                            System.out.println("No se encontro un vehiculo con la placa " + placa);
                         }
                     }
                     break;
@@ -95,9 +92,8 @@ public class MenuGestorTaller {
                         } else {
                             System.out.println("No se pudo actualizar el estado del mantenimiento.");
                         }
-                    } else {
-                        System.out.println("No se encontro el mantenimiento con ese ID.");
                     }
+
                     break;
 
                 case 4:

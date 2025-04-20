@@ -4,10 +4,11 @@ import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorPasajeros;
 import java.util.Scanner;
 
 public class MenuGestorPasajeros {
+    int ID = 0;
     public static void mostrarMenuPasajeros(Scanner scanner) {
         GestorPasajeros gestor = new GestorPasajeros();
         boolean volver = false;
-
+        int contador = 1;
         while (!volver) {
             System.out.println("=== Menu Pasajeros ===");
             System.out.println("1. Agregar pasajero");
@@ -18,13 +19,11 @@ public class MenuGestorPasajeros {
             System.out.println("0. Volver al menu principal");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
-            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese el ID del pasajero: ");
-                    int id = excepciones(scanner);
-                    scanner.nextLine();
+                    int id;
+                    id=contador++;
 
                     System.out.print("Ingrese el nombre del pasajero: ");
                     String nombre = excepcionesString(scanner);
@@ -33,6 +32,8 @@ public class MenuGestorPasajeros {
 
                     gestor.agregarPasajero(pasajero);
                     System.out.println("Pasajero agregado exitosamente.");
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 2:
@@ -45,9 +46,9 @@ public class MenuGestorPasajeros {
                         System.out.println("Pasajero encontrado:");
                         System.out.println("ID: " + pasajeroEncontrado.getNumeroID());
                         System.out.println("Nombre: " + pasajeroEncontrado.getNombre());
-                    } else {
-                        System.out.println("Pasajero no encontrado.");
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 3:
@@ -62,6 +63,8 @@ public class MenuGestorPasajeros {
                     } else {
                         System.out.println("Pasajero no encontrado.");
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 4:
@@ -72,14 +75,17 @@ public class MenuGestorPasajeros {
                     Pasajeros pasajeroEliminar = gestor.buscarPasajeroPorId(idEliminar);
                     if (pasajeroEliminar != null) {
                         gestor.eliminarPasajero(idEliminar);
-                        System.out.println("Pasajero eliminado.");
                     } else {
                         System.out.println("Pasajero no encontrado.");
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 5:
                     gestor.mostrarTodosLosPasajeros();
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 0:
@@ -92,7 +98,6 @@ public class MenuGestorPasajeros {
             }
         }
     }
-
     public static int excepciones (Scanner scanner){
         int opcion = -1;
         boolean valido = false;

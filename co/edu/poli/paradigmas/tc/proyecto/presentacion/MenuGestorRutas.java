@@ -1,13 +1,11 @@
 package co.edu.poli.paradigmas.tc.proyecto.presentacion;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
-
-
-import java.util.Scanner;
+import java.util.*;
 
 public class MenuGestorRutas {
-    public static void mostrarMenuRutas(Scanner scanner) {
-        GestorRutas gestor = new GestorRutas();
+    public static void mostrarMenuRutas(Scanner scanner, GestorRutas gestorRutas) {
+
         boolean volver = false;
 
         while (!volver) {
@@ -24,39 +22,39 @@ public class MenuGestorRutas {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese el ID de la ruta: ");
-                    long idRuta = scanner.nextLong();
-                    scanner.nextLine();
+                    String Ruta = menuDestinos();
+                    String idRuta = IDRUTAS(Ruta);
+
 
                     System.out.print("Ingrese el origen: ");
                     String origen = excepcionesString(scanner);
 
-                    System.out.print("Ingrese el destino: ");
-                    String destino = excepcionesString(scanner);
+                    String destino = DESTINOS(Ruta);
 
                     System.out.print("Ingrese la distancia (en km): ");
                     int distancia = excepciones(scanner);
                     scanner.nextLine();
 
-                    System.out.print("Ingrese el horario de salida: "); //***
+                    System.out.print("Ingrese el horario de salida: "); //CAMABIAR SISTEMA DE HORARIOS
                     String horario = excepcionesString(scanner);
 
                     String[] horarios = new String[1];
                     horarios[0] = horario;
 
                     Rutas nuevaRuta = new Rutas(idRuta, origen, destino, distancia, horarios);
-                    gestor.agregarRuta(nuevaRuta);
+                    gestorRutas.agregarRuta(nuevaRuta);
 
-                    System.out.println("Ruta agregada exitosamente.");
+                    System.out.println("Ruta agregada exitosamente.Su ID es: " + idRuta + ".\nEscriba enterpara continuar");
+                    scanner.nextLine();
                     break;
 
 
                 case 2:
                     System.out.print("Ingrese el ID de la ruta: ");
-                    long idBuscar = scanner.nextLong();
-                    scanner.nextLine();
+                    String idBuscar = excepcionesString(scanner).toUpperCase();
 
-                    Rutas rutaEncontrada = gestor.buscarRutaPorID(idBuscar);
+
+                    Rutas rutaEncontrada = gestorRutas.buscarRutaPorID(idBuscar);
 
                     if (rutaEncontrada != null) {
                         System.out.println("Ruta encontrada:");
@@ -72,20 +70,18 @@ public class MenuGestorRutas {
                     } else {
                         System.out.println("Ruta no encontrada con ID: " + idBuscar);
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 3:
                     System.out.print("Ingrese el ID de la ruta que desea actualizar: ");
-                    long idActualizar = excepcionesLong(scanner);
-                    scanner.nextLine();
+                    String idActualizar = excepcionesString(scanner).toUpperCase();
 
-                    Rutas rutaActualizar = gestor.buscarRutaPorID(idActualizar);
+                    Rutas rutaActualizar = gestorRutas.buscarRutaPorID(idActualizar);
                     if (rutaActualizar != null) {
                         System.out.print("Ingrese el nuevo origen: ");
                         String nuevoOrigen = excepcionesString(scanner);
-
-                        System.out.print("Ingrese el nuevo destino: ");
-                        String nuevoDestino =excepcionesString(scanner);
 
                         System.out.print("Ingrese la nueva distancia (en km): ");
                         int nuevaDistancia = excepciones(scanner);
@@ -95,13 +91,13 @@ public class MenuGestorRutas {
                         int cantidadHorarios = excepciones(scanner);
                         scanner.nextLine();
 
-                        String[] nuevosHorarios = new String[cantidadHorarios]; //***
+                        String[] nuevosHorarios = new String[cantidadHorarios];
                         for (int i = 0; i < cantidadHorarios; i++) {
                             System.out.print("Ingrese el horario #" + (i + 1) + ": ");
                             nuevosHorarios[i] = excepcionesString(scanner);
                         }
 
-                        boolean actualizado = gestor.actualizarRuta(idActualizar, nuevoOrigen, nuevoDestino, nuevaDistancia, nuevosHorarios);
+                        boolean actualizado = gestorRutas.actualizarRuta(idActualizar, nuevoOrigen, nuevaDistancia, nuevosHorarios);
 
                         if (actualizado) {
                             System.out.println("Ruta actualizada exitosamente.");
@@ -111,23 +107,29 @@ public class MenuGestorRutas {
                     } else {
                         System.out.println("Ruta no encontrada");
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 4:
                     System.out.print("Ingrese el ID de la ruta que desea eliminar: ");
-                    long idEliminar = excepcionesLong(scanner);
-                    scanner.nextLine();
+                    String idEliminar = excepcionesString(scanner);
 
-                    boolean eliminado = gestor.eliminarRuta(idEliminar);
+
+                    boolean eliminado = gestorRutas.eliminarRuta(idEliminar);
                     if (eliminado) {
                         System.out.println("Ruta eliminada exitosamente.");
                     } else {
                         System.out.println("No se pudo encontrar la ruta con ID: " + idEliminar);
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 5:
-                    gestor.mostrarRutas();
+                    gestorRutas.mostrarRutas();
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 0:
@@ -140,7 +142,29 @@ public class MenuGestorRutas {
             }
         }
     }
-
+    public static String IDRUTAS(String LugarRuta){
+        Random random = new Random();
+        int numero = random.nextInt(90) + 10;
+        String IDRuta = LugarRuta + numero;
+        return IDRuta;
+    }
+    public static String DESTINOS(String Ruta){
+        if(Ruta.equals("J")){
+            return "Centro de bogota";
+        }else if(Ruta.equals("D")){
+            return "Portal 80";
+        }else if(Ruta.equals("B")){
+            return "Portal Norte";
+        }else if(Ruta.equals("G")){
+            return "Portal Sur";
+        }
+        return null;
+    }
+    public static String menuDestinos (){
+        System.out.println("Ingrese una de las sigientes letras para elegir el destino de la ruta: \n J - Centro de Bogota \n D - Portal 80 \n B - Portal Norte \n G - Portal Sur \nEscriba la letra correspondiente: ");
+        String destino = excepcionesString(new Scanner(System.in));
+        return destino.toUpperCase();
+    }
     public static int excepciones (Scanner scanner){
         int opcion = -1;
         boolean valido = false;

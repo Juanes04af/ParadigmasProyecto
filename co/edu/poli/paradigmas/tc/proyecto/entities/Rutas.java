@@ -2,12 +2,12 @@ package co.edu.poli.paradigmas.tc.proyecto.entities;
 
 public class Rutas {
 
-    private long NumeroID;
+    private String NumeroID;
     private String Origen;
     private String Destino;
     private int Distancia;
     private String [] HorariosSalida;
-    public Rutas(long numeroID, String origen, String destino, int distancia, String[] horariosSalida) {
+    public Rutas(String numeroID, String origen, String destino, int distancia, String[] horariosSalida) {
         super();
         NumeroID = numeroID;
         Origen = origen;
@@ -15,11 +15,11 @@ public class Rutas {
         Distancia = distancia;
         HorariosSalida = horariosSalida;
     }
-    public long getNumeroID() {
+    public String getNumeroID() {
         return NumeroID;
     }
 
-    public void setNumeroID(long numeroID) {
+    public void setNumeroID(String numeroID) {
         NumeroID = numeroID;
     }
 
@@ -54,4 +54,5 @@ public class Rutas {
     public void setHorariosSalida(String[] horariosSalida) {
         HorariosSalida = horariosSalida;
     }
+
 }

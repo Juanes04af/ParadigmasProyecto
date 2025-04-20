@@ -10,13 +10,15 @@ public class Main {
 
         GestorVehiculos gestorVehiculos = new GestorVehiculos();
         GestorTaller gestorTaller = new GestorTaller(gestorVehiculos.obtenerListaVehiculos());
-
+        GestorRutas gestorRutas = new GestorRutas();
+        GestorConductores gestorConductores = new GestorConductores();
         do {
             System.out.println("=== Sistema Gestion Transporte Publico ===");
             System.out.println("1. Gestionar Pasajeros");
             System.out.println("2. Gestionar Vehiculos");
             System.out.println("3. Gestionar Rutas");
             System.out.println("4. Gestionar Taller de Mantenimiento");
+            System.out.println("5. Gestionar Conductores");
             System.out.print("Seleccione una opción: ");
             opcion = excepciones(scanner);
             scanner.nextLine();
@@ -26,19 +28,21 @@ public class Main {
                     MenuGestorPasajeros.mostrarMenuPasajeros(scanner);
                     break;
                 case 2:
-                    MenuGestorVehiculos.mostrarMenuVehiculos(scanner, gestorVehiculos);
+                    MenuGestorVehiculos.mostrarMenuVehiculos(scanner, gestorVehiculos, gestorRutas);
                     break;
                 case 3:
-                    MenuGestorRutas.mostrarMenuRutas(scanner);
+                    MenuGestorRutas.mostrarMenuRutas(scanner, gestorRutas);
                     break;
                 case 4:
                     MenuGestorTaller.mostrarMenuTaller(scanner, gestorTaller);
                     break;
+                case 5:
+                    MenuGestorConductores.mostrarMenuConductores(scanner, gestorConductores, gestorVehiculos);
                 default:
                     System.out.println("Opcion no valida.");
                     break;
             }
-        } while (opcion != 5);
+        } while (opcion != 6);
     }
 
     public static int excepciones (Scanner scanner){

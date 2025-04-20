@@ -1,6 +1,6 @@
 package co.edu.poli.paradigmas.tc.proyecto.negocio;
 
-import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
+import co.edu.poli.paradigmas.tc.proyecto.entities.*;
 
 import java.util.ArrayList;
 
@@ -26,11 +26,10 @@ public class GestorRutas {
         }
     }
 
-    public boolean actualizarRuta(long id, String nuevoOrigen, String nuevoDestino, int nuevaDistancia, String[] nuevosHorarios) {
+    public boolean actualizarRuta(String id, String nuevoOrigen, int nuevaDistancia, String[] nuevosHorarios){
         for (Rutas ruta : listaRutas) {
-            if (ruta.getNumeroID() == id) {
+            if (ruta.getNumeroID().equals(id)) {
                 ruta.setOrigen(nuevoOrigen);
-                ruta.setDestino(nuevoDestino);
                 ruta.setDistancia(nuevaDistancia);
                 ruta.setHorariosSalida(nuevosHorarios);
                 return true;
@@ -40,9 +39,9 @@ public class GestorRutas {
     }
 
 
-    public boolean eliminarRuta(long id) {
+    public boolean eliminarRuta(String id) {
         for (Rutas ruta : listaRutas) {
-            if (ruta.getNumeroID() == id) {
+            if (ruta.getNumeroID().equals(id)) {
                 listaRutas.remove(ruta);
                 return true;
             }
@@ -50,9 +49,10 @@ public class GestorRutas {
         return false;
     }
 
-    public Rutas buscarRutaPorID(long id) {
+    public Rutas buscarRutaPorID(String id) {
         for (Rutas ruta : listaRutas) {
-            if (ruta.getNumeroID() == id) {
+
+            if (ruta.getNumeroID().equals(id)) {
                 return ruta;
             }
         }

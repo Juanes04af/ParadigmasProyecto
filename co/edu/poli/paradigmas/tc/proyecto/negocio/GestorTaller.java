@@ -3,7 +3,7 @@ package co.edu.poli.paradigmas.tc.proyecto.negocio;
 import co.edu.poli.paradigmas.tc.proyecto.entities.TallerMantenimiento;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class GestorTaller {
     private ArrayList<TallerMantenimiento> registrosMantenimiento = new ArrayList<>();
@@ -23,7 +23,6 @@ public class GestorTaller {
                 return mantenimientoVehc;
             }
         }
-        System.out.println("No se encontro el mantenimiento con ID: " + id);
         return null;
     }
 
@@ -31,10 +30,8 @@ public class GestorTaller {
         TallerMantenimiento mantenimiento = buscarMantenimientoId(id);
         if (mantenimiento != null) {
             registrosMantenimiento.remove(mantenimiento);
-            System.out.println("Registro de mantenimiento eliminado correctamente.");
             return true;
         }
-        System.out.println("No se pudo eliminar el mantenimiento, no existe.");
         return false;
     }
 

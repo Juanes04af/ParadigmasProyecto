@@ -59,4 +59,6 @@ public class Vehiculo {
     public void setRuta(Rutas ruta) {
         this.ruta = ruta;
     }
+
+
 }

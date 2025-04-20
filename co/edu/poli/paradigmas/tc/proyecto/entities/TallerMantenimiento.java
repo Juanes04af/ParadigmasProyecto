@@ -8,12 +8,13 @@ public class TallerMantenimiento {
     private String estado;
     private String observaciones;
 
-    public TallerMantenimiento(int id, String tipoMantenimiento, String fechaIngreso, String estado, String observaciones) {
+    public TallerMantenimiento(int id, String tipoMantenimiento, String fechaIngreso, String estado, String observaciones, Vehiculo vehiculo) {
         this.id = id;
         this.tipoMantenimiento = tipoMantenimiento;
         this.fechaIngreso = fechaIngreso;
         this.estado = estado;
         this.observaciones = observaciones;
+        this.vehiculo = vehiculo;
 
     }
 
@@ -70,7 +71,7 @@ public class TallerMantenimiento {
                 ", Tipo de Mantenimiento: " + tipoMantenimiento +
                 ", Estado: " + estado +
                 ", Observaciones: " + observaciones +
-                ", Vehiculo: " + (vehiculo != null ? vehiculo.toString() : "No asignado");
+                ", Vehiculo: " + vehiculo.getNumeroPlaca();
     }
 }
 

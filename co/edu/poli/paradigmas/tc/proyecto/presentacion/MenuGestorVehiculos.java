@@ -7,8 +7,7 @@ import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
 import java.util.Scanner;
 
 public class MenuGestorVehiculos {
-    public static void mostrarMenuVehiculos(Scanner scanner, GestorVehiculos gestor) {
-        GestorRutas gestorRuta = new GestorRutas();
+    public static void mostrarMenuVehiculos(Scanner scanner, GestorVehiculos gestor, GestorRutas gestorRuta) {
         boolean volver = false;
 
         while (!volver) {
@@ -21,7 +20,6 @@ public class MenuGestorVehiculos {
             System.out.println("0. Volver al menu principal");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
-            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -35,21 +33,28 @@ public class MenuGestorVehiculos {
                     byte numeroPasajeros = excepcionesByte(scanner);
 
                     System.out.print("Ingrese la ruta por su ID: ");
-                    long idRuta = excepcionesLong(scanner);
+                    String idRuta = excepcionesString(scanner);
 
                     Rutas rutaSeleccionada = gestorRuta.buscarRutaPorID(idRuta);
-                    System.out.print("¿Esta disponible el vehiculo? (true/false): ");
-                    boolean disponibilidadVehiculo = excepcionesBoolean(scanner);
+                    boolean disponibilidadConductor;
+                    if (rutaSeleccionada != null) {
+                        System.out.print("¿Esta disponible el vehiculo? (true/false): ");
+                        boolean disponibilidadVehiculo = excepcionesBoolean(scanner);
 
-                    System.out.print("¿Esta disponible el conductor? (true/false): ");
-                    boolean disponibilidadConductor = excepcionesBoolean(scanner);
+                        System.out.print("¿Esta disponible el conductor? (true/false): ");
+                        disponibilidadConductor = excepcionesBoolean(scanner);
 
-                    Vehiculo vehiculo = new Vehiculo(placa, modelo, numeroPasajeros, rutaSeleccionada, disponibilidadVehiculo, disponibilidadConductor);
+                        Vehiculo vehiculo = new Vehiculo(placa, modelo, numeroPasajeros, rutaSeleccionada, disponibilidadVehiculo, disponibilidadConductor);
 
-                    gestor.agregarVehiculo(vehiculo);
-                    System.out.println("Vehiculo agregado correctamente.");
-                    break;
-
+                        gestor.agregarVehiculo(vehiculo);
+                        System.out.println("Vehiculo agregado correctamente.");
+                        System.out.println("Escriba enter para continuar.");
+                        scanner.nextLine();
+                        break;
+                    } else {
+                        System.out.println("Ruta no encontrada con ID: " + idRuta + ". Vuelva a intentarlo.");
+                        break;
+                    }
                 case 2:
                     System.out.print("Ingrese el numero de placa del vehiculo: ");
                     String placaBuscar = excepcionesString(scanner);
@@ -66,6 +71,8 @@ public class MenuGestorVehiculos {
                     } else {
                         System.out.println("Vehiculo no encontrado.");
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 3:
@@ -84,6 +91,8 @@ public class MenuGestorVehiculos {
                     } else {
                         System.out.println("No se encontro un vehiculo con esa placa.");
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 4:
@@ -96,10 +105,14 @@ public class MenuGestorVehiculos {
                     } else {
                         System.out.println("No se encontro el vehiculo con esa placa.");
                     }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 5:
                     gestor.mostrarVehiculos();
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 0:
