@@ -73,12 +73,6 @@ public class GestorConductores {
         return null;
     }
 
-    public void AñadirConductores(int ID, Vehiculo vehiculo){
-        Conductor conductor = buscarConductorPorID(ID);
-        if(conductor!=null){
-            conductor.agregarVehiculo(vehiculo);
-        }
-    }
 
     public void EliminarVehiculo(int ID, String Placa){
         Conductor conductor=buscarConductorPorID(ID);

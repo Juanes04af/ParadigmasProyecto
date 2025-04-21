@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
-
+        GestorPasajeros gestorPasajeros = new GestorPasajeros();
         GestorVehiculos gestorVehiculos = new GestorVehiculos();
         GestorTaller gestorTaller = new GestorTaller(gestorVehiculos.obtenerListaVehiculos());
         GestorRutas gestorRutas = new GestorRutas();
@@ -26,7 +26,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    MenuGestorPasajeros.mostrarMenuPasajeros(scanner);
+                    MenuGestorPasajeros.mostrarMenuPasajeros(scanner, gestorPasajeros);
                     break;
                 case 2:
                     MenuGestorVehiculos.mostrarMenuVehiculos(scanner, gestorVehiculos, gestorRutas);
@@ -40,7 +40,7 @@ public class Main {
                 case 5:
                     MenuGestorConductores.mostrarMenuConductores(scanner, gestorConductores, gestorVehiculos);
                 case 6:
-                    MenuGestorBoletos.mostrarMenuBoleto(scanner, gestorBoleto);
+                    MenuGestorBoletos.mostrarMenuBoleto(scanner, gestorBoleto, gestorRutas, gestorPasajeros);
                 default:
                     System.out.println("Opcion no valida.");
                     break;

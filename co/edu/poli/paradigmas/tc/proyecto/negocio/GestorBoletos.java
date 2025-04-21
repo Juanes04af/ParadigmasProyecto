@@ -1,5 +1,6 @@
 package co.edu.poli.paradigmas.tc.proyecto.negocio;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Boleto;
+import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
 
 import java.util.ArrayList;
 
@@ -38,14 +39,13 @@ public class GestorBoletos {
     }
 
     // Actualizar
-    public void actualizarBoleto(int id, String nuevoNombre, boolean compraBoleto, String ruta, double precio) {
+    public void actualizarBoleto(int id, String nuevoNombre, boolean compraBoleto, Rutas ruta, double precio) {
         Boleto b = buscarBoletoPorId(id);
         if (b != null) {
             b.setNombre(nuevoNombre);
             b.setCompraBoletos(compraBoleto);
             b.setRuta(ruta);
             b.setPrecio(precio);
-            b.setEnCarrito(!compraBoleto);
 
             System.out.println("Boleto actualizado.");
         } else {

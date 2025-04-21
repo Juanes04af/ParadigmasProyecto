@@ -1,16 +1,27 @@
 package co.edu.poli.paradigmas.tc.proyecto.negocio;
 
+import co.edu.poli.paradigmas.tc.proyecto.entities.Boleto;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Pasajeros;
+import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorBoletos;
 import java.util.ArrayList;
 
 public class GestorPasajeros {
-    private ArrayList<Pasajeros> listaPasajeros;
+    private ArrayList<Pasajeros> listaPasajeros=new ArrayList<>();
+    private ArrayList<String> listaBoletos=new ArrayList<>();
 
-    public GestorPasajeros() {
-        listaPasajeros = new ArrayList<>();
+    public ArrayList<String> getListaBoletos() {
+        return listaBoletos;
+    }
+
+    public void agregarBoleto(String boleto) {
+        listaBoletos.add(boleto);
     }
 
     // Crear
+    public ArrayList<Pasajeros> getListaPasajeros() {
+        return listaPasajeros;
+    }
     public void agregarPasajero(Pasajeros pasajero) {
         listaPasajeros.add(pasajero);
     }
@@ -23,6 +34,15 @@ public class GestorPasajeros {
             }
         }
         System.out.println("Pasajero con ID " + id + " no encontrado.");
+        return null;
+    }
+    public Pasajeros buscarPasajeroPorNombre(String nombre) {
+        for (Pasajeros p : listaPasajeros) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
+                return p;
+            }
+        }
+        System.out.println("Pasajero con nombre " + nombre + " no encontrado.");
         return null;
     }
 
@@ -52,6 +72,15 @@ public class GestorPasajeros {
             System.out.println("Lista de pasajeros:");
             for (Pasajeros p : listaPasajeros) {
                 System.out.println("ID: " + p.getNumeroID() + ", Nombre: " + p.getNombre());
+            }
+        }
+    }
+
+    public void mostrarBoletos(GestorBoletos gestorBoletos){
+        for (String boleto : listaBoletos) {
+            Boleto boletoBuscado = gestorBoletos.buscarBoletoPorId(Integer.parseInt(boleto));
+            if (boletoBuscado != null) {
+
             }
         }
     }

@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class MenuGestorPasajeros {
     int ID = 0;
-    public static void mostrarMenuPasajeros(Scanner scanner) {
-        GestorPasajeros gestor = new GestorPasajeros();
+    public static void mostrarMenuPasajeros(Scanner scanner, GestorPasajeros gestorPasajeros) {
+
         boolean volver = false;
         int contador = 1;
         while (!volver) {
@@ -16,6 +16,7 @@ public class MenuGestorPasajeros {
             System.out.println("3. Actualizar pasajero");
             System.out.println("4. Eliminar pasajero");
             System.out.println("5. Mostrar todos los pasajeros");
+            System.out.println("6. Mostrar Boletos de pasajero por pasajero");
             System.out.println("0. Volver al menu principal");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
@@ -30,7 +31,7 @@ public class MenuGestorPasajeros {
 
                     Pasajeros pasajero = new Pasajeros(id, nombre);
 
-                    gestor.agregarPasajero(pasajero);
+                    gestorPasajeros.agregarPasajero(pasajero);
                     System.out.println("Pasajero agregado exitosamente.");
                     System.out.println("Escriba enter para continuar.");
                     scanner.nextLine();
@@ -41,7 +42,7 @@ public class MenuGestorPasajeros {
                     id = excepciones(scanner);
                     scanner.nextLine();
 
-                    Pasajeros pasajeroEncontrado = gestor.buscarPasajeroPorId(id);
+                    Pasajeros pasajeroEncontrado = gestorPasajeros.buscarPasajeroPorId(id);
                     if (pasajeroEncontrado != null) {
                         System.out.println("Pasajero encontrado:");
                         System.out.println("ID: " + pasajeroEncontrado.getNumeroID());
@@ -55,11 +56,11 @@ public class MenuGestorPasajeros {
                     System.out.print("Ingrese el ID del pasajero a actualizar: ");
                     int idActualizar = excepciones(scanner);
                     scanner.nextLine();
-                    pasajeroEncontrado = gestor.buscarPasajeroPorId(idActualizar);
+                    pasajeroEncontrado = gestorPasajeros.buscarPasajeroPorId(idActualizar);
                     if (pasajeroEncontrado != null) {
                         System.out.print("Ingrese el nuevo nombre para el pasajero: ");
                         String nuevoNombre = excepcionesString(scanner);
-                        gestor.actualizarNombrePasajero(idActualizar, nuevoNombre);
+                        gestorPasajeros.actualizarNombrePasajero(idActualizar, nuevoNombre);
                     } else {
                         System.out.println("Pasajero no encontrado.");
                     }
@@ -72,9 +73,9 @@ public class MenuGestorPasajeros {
                     int idEliminar = excepciones(scanner);
                     scanner.nextLine();
 
-                    Pasajeros pasajeroEliminar = gestor.buscarPasajeroPorId(idEliminar);
+                    Pasajeros pasajeroEliminar = gestorPasajeros.buscarPasajeroPorId(idEliminar);
                     if (pasajeroEliminar != null) {
-                        gestor.eliminarPasajero(idEliminar);
+                        gestorPasajeros.eliminarPasajero(idEliminar);
                     } else {
                         System.out.println("Pasajero no encontrado.");
                     }
@@ -83,11 +84,19 @@ public class MenuGestorPasajeros {
                     break;
 
                 case 5:
-                    gestor.mostrarTodosLosPasajeros();
+                    gestorPasajeros.mostrarTodosLosPasajeros();
                     System.out.println("Escriba enter para continuar.");
                     scanner.nextLine();
                     break;
-
+                case 6:
+                    System.out.println("Ingrese el ID del pasajero: ");
+                    int idBuscar = excepciones(scanner);
+                    Pasajeros pasajeroBuscar = gestorPasajeros.buscarPasajeroPorId(idBuscar);
+                    if (pasajeroBuscar != null) {
+                        pasajeroBuscar.mostrarBoletos();
+                    }
+                    System.out.println("Escriba enter para continuar.");
+                    scanner.nextLine();
                 case 0:
                     volver = true;
                     break;

@@ -1,13 +1,15 @@
 package co.edu.poli.paradigmas.tc.proyecto.presentacion;
 
 import co.edu.poli.paradigmas.tc.proyecto.entities.Boleto;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorBoletos;
+import co.edu.poli.paradigmas.tc.proyecto.entities.Pasajeros;
+import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuGestorBoletos {
-    public static void mostrarMenuBoleto(Scanner scanner, GestorBoletos gestor) {
+    public static void mostrarMenuBoleto(Scanner scanner, GestorBoletos gestor, GestorRutas gestorRutas, GestorPasajeros gestorPasajeros) {
         boolean volver = false;
         int contador = 1;
         while (!volver) {
@@ -32,13 +34,18 @@ public class MenuGestorBoletos {
                     boolean compra = (boolean) validarEntrada(scanner, "boolean");
 
                     System.out.print("Ingrese ruta: ");
-                    String ruta = (String) validarEntrada(scanner, "string");
+                    gestorRutas.mostrarRutas();
+                    String rutaID = (String) validarEntrada(scanner, "string");
+                    Rutas ruta = gestorRutas.buscarRutaPorID(rutaID);
 
                     double precio = compra ? GestorBoletos.getPrecioFijo() : 0.0;
                     boolean enCarrito = !compra;
 
-                    Boleto boleto = new Boleto(compra, nombre, id, ruta, precio, enCarrito);
+                    Boleto boleto = new Boleto(compra, nombre, id, ruta, precio);
                     gestor.crearBoleto(boleto);
+
+                    Pasajeros pasajero = gestorPasajeros.buscarPasajeroPorNombre(nombre);
+                    pasajero.agregarBoleto(boleto);
 
                     if (enCarrito) {
                         System.out.println("Boleto añadido al carrito.");
@@ -71,7 +78,9 @@ public class MenuGestorBoletos {
                         boolean nuevaCompra = (boolean) validarEntrada(scanner, "boolean");
 
                         System.out.print("Nueva ruta: ");
-                        String nuevaRuta = (String) validarEntrada(scanner, "string");
+                        gestorRutas.mostrarRutas();
+                        rutaID = (String) validarEntrada(scanner, "string");
+                        Rutas nuevaRuta = gestorRutas.buscarRutaPorID(rutaID);
 
                         double precioFijo = nuevaCompra ? GestorBoletos.getPrecioFijo() : 0.0;
                         gestor.actualizarBoleto(idActualizar, nuevoNombre, nuevaCompra, nuevaRuta, precioFijo);

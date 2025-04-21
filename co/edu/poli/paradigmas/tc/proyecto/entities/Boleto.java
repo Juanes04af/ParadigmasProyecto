@@ -5,26 +5,18 @@ public class Boleto {
     private int NumeroID;
     private String Nombre;
     private boolean CompraBoletos;
-    private String ruta;
+    private Rutas ruta;
     private double precio;
-    private boolean enCarrito;
 
-    public Boleto(boolean compraBoletos, String nombre, int numeroID, String ruta, double precio, boolean enCarrito) {
+    public Boleto(boolean compraBoletos, String nombre, int numeroID, Rutas ruta, double precio) {
         this.CompraBoletos = compraBoletos;
         this.Nombre = nombre;
         this.NumeroID = numeroID;
         this.ruta = ruta;
         this.precio = precio;
-        this.enCarrito = enCarrito;
+
     }
 
-    public boolean isEnCarrito() {
-        return enCarrito;
-    }
-
-    public void setEnCarrito(boolean enCarrito) {
-        this.enCarrito = enCarrito;
-    }
 
     public double getPrecio() {
         return precio;
@@ -34,11 +26,14 @@ public class Boleto {
         this.precio = precio;
     }
 
-    public String getRuta() {
+    public Rutas getRuta() {
         return ruta;
     }
+    public String getRutaString() {
+        return ruta.getOrigen()+"-"+ruta.getDestino();
+    }
 
-    public void setRuta(String ruta) {
+    public void setRuta(Rutas ruta) {
         this.ruta = ruta;
     }
 
