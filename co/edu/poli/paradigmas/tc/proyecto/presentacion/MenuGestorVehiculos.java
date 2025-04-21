@@ -20,7 +20,7 @@ public class MenuGestorVehiculos {
             System.out.println("0. Volver al menu principal");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
-
+            scanner.nextLine();
             switch (opcion) {
                 case 1:
                     System.out.print("Ingrese el numero de placa: ");
@@ -33,7 +33,7 @@ public class MenuGestorVehiculos {
                     byte numeroPasajeros = excepcionesByte(scanner);
 
                     System.out.print("Ingrese la ruta por su ID: ");
-                    String idRuta = excepcionesString(scanner);
+                    String idRuta = excepcionesString(scanner).toUpperCase();
 
                     Rutas rutaSeleccionada = gestorRuta.buscarRutaPorID(idRuta);
                     boolean disponibilidadConductor;

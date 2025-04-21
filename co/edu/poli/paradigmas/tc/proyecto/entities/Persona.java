@@ -19,7 +19,7 @@ public class Persona {
         } else {
             System.out.println("Boletos asignados:");
             for (Boleto p : Boletos) {
-                System.out.println("Nombre: " + p.getNombre()+"\n ID: "+p.getNumeroID()+"Ruta: "+p.getRutaString());
+                System.out.println("Nombre: " + p.getNombre()+"\n ID: "+p.getNumeroID()+"\nRuta: "+p.getRutaString()+"\nNumero de Ruta: "+p.getNumeroID());
             }
         }
     }

@@ -23,7 +23,7 @@ public class GestorBoletos {
             System.out.println("No hay boletos registrados.");
         } else {
             for (Boleto b : boletos) {
-                System.out.println("ID: " + b.getNumeroID() + ", Nombre: " + b.getNombre() + ", Compra: " + b.isCompraBoletos() + ", Ruta: " + b.getRuta());
+                System.out.println("ID: " + b.getNumeroID() + ", Nombre: " + b.getNombre() + ", Compra: " + b.isCompraBoletos() + ", Ruta: " + b.getRutaString());
             }
         }
     }

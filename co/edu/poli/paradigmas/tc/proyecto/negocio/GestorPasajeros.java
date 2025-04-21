@@ -76,12 +76,4 @@ public class GestorPasajeros {
         }
     }
 
-    public void mostrarBoletos(GestorBoletos gestorBoletos){
-        for (String boleto : listaBoletos) {
-            Boleto boletoBuscado = gestorBoletos.buscarBoletoPorId(Integer.parseInt(boleto));
-            if (boletoBuscado != null) {
-
-            }
-        }
-    }
 }

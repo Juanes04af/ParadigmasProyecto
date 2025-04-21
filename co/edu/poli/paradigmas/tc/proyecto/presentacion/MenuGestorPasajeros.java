@@ -4,7 +4,6 @@ import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorPasajeros;
 import java.util.Scanner;
 
 public class MenuGestorPasajeros {
-    int ID = 0;
     public static void mostrarMenuPasajeros(Scanner scanner, GestorPasajeros gestorPasajeros) {
 
         boolean volver = false;
@@ -20,7 +19,7 @@ public class MenuGestorPasajeros {
             System.out.println("0. Volver al menu principal");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
-
+            scanner.nextLine();
             switch (opcion) {
                 case 1:
                     int id;

@@ -105,7 +105,7 @@ public class MenuGestorBoletos {
                 case 5:
                     gestor.mostrarBoletos();
                     System.out.println("Escriba enter para continuar.");
-                    scanner.nextInt();
+                    scanner.nextLine();
                     break;
 
                 case 0:
