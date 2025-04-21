@@ -7,7 +7,7 @@ public class GestorVehiculos {
     private ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
 
     /**
-     * Metodo para pasarle la lista de vehiculos al gestor de 'talelr' en el main
+     * Metodo para pasarle la lista de vehiculos al gestor de 'taller' en el main
      * @return La lista de los vehiculos agregados.
      */
     public ArrayList<Vehiculo> obtenerListaVehiculos() {

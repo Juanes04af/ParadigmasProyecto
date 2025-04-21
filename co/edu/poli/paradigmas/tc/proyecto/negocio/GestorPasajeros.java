@@ -1,9 +1,6 @@
 package co.edu.poli.paradigmas.tc.proyecto.negocio;
 
-import co.edu.poli.paradigmas.tc.proyecto.entities.Boleto;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Pasajeros;
-import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorBoletos;
 import java.util.ArrayList;
 
 public class GestorPasajeros {
@@ -75,5 +72,4 @@ public class GestorPasajeros {
             }
         }
     }
-
 }
