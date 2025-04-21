@@ -39,7 +39,6 @@ public class MenuGestorBoletos {
                     Rutas ruta = gestorRutas.buscarRutaPorID(rutaID);
 
                     double precio = compra ? GestorBoletos.getPrecioFijo() : 0.0;
-                    boolean enCarrito = !compra;
 
                     Boleto boleto = new Boleto(compra, nombre, id, ruta, precio);
                     gestor.crearBoleto(boleto);
@@ -47,11 +46,7 @@ public class MenuGestorBoletos {
                     Pasajeros pasajero = gestorPasajeros.buscarPasajeroPorNombre(nombre);
                     pasajero.agregarBoleto(boleto);
 
-                    if (enCarrito) {
-                        System.out.println("Boleto añadido al carrito.");
-                    } else {
-                        System.out.println("Boleto comprado exitosamente.");
-                    }
+                    System.out.println("Boleto comprado exitosamente.");
                     break;
 
                 case 2:

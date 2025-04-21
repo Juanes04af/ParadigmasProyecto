@@ -17,7 +17,6 @@ public class Boleto {
 
     }
 
-
     public double getPrecio() {
         return precio;
     }
