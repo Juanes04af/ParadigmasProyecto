@@ -1,6 +1,5 @@
 package co.edu.poli.paradigmas.tc.proyecto.entities;
 
-//Clase Pasajero
 public class Pasajeros extends Persona{
     private String[] boletos;
     private int totalBoletos;
@@ -10,6 +9,22 @@ public class Pasajeros extends Persona{
         this.boletos = new String[10];
         this.totalBoletos = 0;
     }
+
+    // Getters & Setters
+
+    public int getNumeroID() {
+        return numeroID;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nuevoNombre) {
+        this.nombre = nuevoNombre;
+    }
+
+    //Otros Metodos...
 
     public void comprarBoleto(String viaje) {
         if (totalBoletos < boletos.length) {
@@ -30,17 +45,5 @@ public class Pasajeros extends Persona{
                 System.out.println((i + 1) + ". " + boletos[i]);
             }
         }
-    }
-
-    public int getNumeroID() {
-        return numeroID;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nuevoNombre) {
-        this.nombre = nuevoNombre;
     }
 }

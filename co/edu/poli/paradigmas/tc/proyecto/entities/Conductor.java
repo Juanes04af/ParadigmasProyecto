@@ -17,15 +17,15 @@ public class Conductor extends Persona {
         this.vehiculos = new ArrayList<>();
     }
 
+    // Getters & Setters
+
     public boolean isLicencia() {
         return licencia;
     }
 
-
     public boolean isDisponibilidad() {
         return disponibilidad;
     }
-
 
     public String getTipodeConductor() {
         return TipodeConductor;
@@ -38,6 +38,8 @@ public class Conductor extends Persona {
     public ArrayList<Vehiculo> getVehiculos() {
         return vehiculos;
     }
+
+    //Otros Metodos...
 
     public void agregarVehiculo(Vehiculo v) {
         vehiculos.add(v);
@@ -77,6 +79,4 @@ public class Conductor extends Persona {
             System.out.println("El conductor: " + getNombre() + " con numero ID " + getNumeroID() + "  esta disponible");
         }
     }
-
-
 }

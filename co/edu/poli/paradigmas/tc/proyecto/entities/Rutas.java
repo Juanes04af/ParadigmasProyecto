@@ -7,6 +7,7 @@ public class Rutas {
     private String Destino;
     private int Distancia;
     private String [] HorariosSalida;
+
     public Rutas(String numeroID, String origen, String destino, int distancia, String[] horariosSalida) {
         super();
         NumeroID = numeroID;
@@ -15,6 +16,9 @@ public class Rutas {
         Distancia = distancia;
         HorariosSalida = horariosSalida;
     }
+
+    // Getters & Setters
+
     public String getNumeroID() {
         return NumeroID;
     }

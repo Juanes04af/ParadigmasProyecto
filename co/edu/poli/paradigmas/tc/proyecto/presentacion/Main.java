@@ -6,12 +6,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
+
         GestorPasajeros gestorPasajeros = new GestorPasajeros();
         GestorVehiculos gestorVehiculos = new GestorVehiculos();
         GestorTaller gestorTaller = new GestorTaller(gestorVehiculos.obtenerListaVehiculos());
         GestorRutas gestorRutas = new GestorRutas();
         GestorConductores gestorConductores = new GestorConductores();
         GestorBoletos gestorBoleto= new GestorBoletos();
+
         do {
             System.out.println("=== Sistema Gestion Transporte Publico ===");
             System.out.println("1. Gestionar Pasajeros");

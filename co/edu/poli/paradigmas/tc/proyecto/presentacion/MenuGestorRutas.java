@@ -25,7 +25,6 @@ public class MenuGestorRutas {
                     String Ruta = menuDestinos();
                     String idRuta = idRutas(Ruta);
 
-
                     System.out.print("Ingrese el origen: ");
                     String origen = excepcionesString(scanner);
 
@@ -35,7 +34,7 @@ public class MenuGestorRutas {
                     int distancia = excepciones(scanner);
                     scanner.nextLine();
 
-                    System.out.print("Ingrese el horario de salida: "); //Cambiar sistema de horarios
+                    System.out.print("Ingrese el horario de salida (HH:mm): "); //Cambiar sistema de horarios
                     String horario = excepcionesString(scanner);
 
                     String[] horarios = new String[1];
@@ -44,15 +43,12 @@ public class MenuGestorRutas {
                     Rutas nuevaRuta = new Rutas(idRuta, origen, destino, distancia, horarios);
                     gestorRutas.agregarRuta(nuevaRuta);
 
-                    System.out.println("Ruta agregada exitosamente.Su ID es: " + idRuta + ".\nPulse 'enter' para continuar");
+                    System.out.println("Ruta agregada exitosamente. Su ID es: " + idRuta + ".\nPulse 'enter' para continuar");
                     scanner.nextLine();
                     break;
-
-
                 case 2:
                     System.out.print("Ingrese el ID de la ruta: ");
                     String idBuscar = excepcionesString(scanner).toUpperCase();
-
 
                     Rutas rutaEncontrada = gestorRutas.buscarRutaPorID(idBuscar);
 
@@ -66,14 +62,14 @@ public class MenuGestorRutas {
                         for (String horarioS : rutaEncontrada.getHorariosSalida()) {
                             System.out.print(horarioS + " ");
                         }
-                        System.out.println();
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Ruta no encontrada con ID: " + idBuscar);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 3:
                     System.out.print("Ingrese el ID de la ruta que desea actualizar: ");
                     String idActualizar = excepcionesString(scanner).toUpperCase();
@@ -101,43 +97,46 @@ public class MenuGestorRutas {
 
                         if (actualizado) {
                             System.out.println("Ruta actualizada exitosamente.");
+                            System.out.println("Pulse 'enter' para continuar.");
+                            scanner.nextLine();
                         } else {
                             System.out.println("No se pudo actualizar la ruta.");
+                            System.out.println("Pulse 'enter' para continuar.");
+                            scanner.nextLine();
                         }
                     } else {
                         System.out.println("Ruta no encontrada");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 4:
                     System.out.print("Ingrese el ID de la ruta que desea eliminar: ");
                     String idEliminar = excepcionesString(scanner);
 
-
                     boolean eliminado = gestorRutas.eliminarRuta(idEliminar);
                     if (eliminado) {
                         System.out.println("Ruta eliminada exitosamente.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("No se pudo encontrar la ruta con ID: " + idEliminar);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 5:
                     gestorRutas.mostrarRutas();
                     System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
-
                 case 0:
                     volver = true;
                     break;
-
                 default:
                     System.out.println("Opción no válida.");
+                    System.out.println("Pulse 'enter' para continuar.");
+                    scanner.nextLine();
                     break;
             }
         }

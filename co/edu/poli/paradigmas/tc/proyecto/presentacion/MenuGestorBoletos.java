@@ -33,7 +33,7 @@ public class MenuGestorBoletos {
                     System.out.print("¿Ha comprado boleto? (true/false): ");
                     boolean compra = (boolean) validarEntrada(scanner, "boolean");
 
-                    System.out.print("Ingrese la ruta: ");
+                    System.out.print("Ingrese la ruta: \n");
                     gestorRutas.mostrarRutas();
                     String rutaID = (String) validarEntrada(scanner, "string");
                     Rutas ruta = gestorRutas.buscarRutaPorID(rutaID);
@@ -44,22 +44,31 @@ public class MenuGestorBoletos {
                     gestor.crearBoleto(boleto);
 
                     Pasajeros pasajero = gestorPasajeros.buscarPasajeroPorNombre(nombre);
-                    pasajero.agregarBoleto(boleto);
-
-                    System.out.println("Boleto comprado exitosamente.");
+                    if (pasajero != null) {
+                        pasajero.agregarBoleto(boleto);
+                        System.out.println("Boleto comprado exitosamente.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
+                    } else {
+                        System.out.println("No se encontro el pasajero con ese nombre. No se pudo asignar el boleto.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
+                    }
                     break;
-
                 case 2:
                     System.out.print("Ingrese el ID del boleto a buscar: ");
                     int idBuscar = (int) validarEntrada(scanner, "int");
                     Boleto boletoBuscar = gestor.buscarBoletoPorId(idBuscar);
                     if (boletoBuscar != null) {
                         System.out.println("Boleto encontrado: " + boletoBuscar);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Boleto no encontrado.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
                     break;
-
                 case 3:
                     System.out.print("Ingrese el ID del boleto a actualizar: ");
                     int idActualizar = (int) validarEntrada(scanner, "int");
@@ -79,36 +88,40 @@ public class MenuGestorBoletos {
 
                         double precioFijo = nuevaCompra ? GestorBoletos.getPrecioFijo() : 0.0;
                         gestor.actualizarBoleto(idActualizar, nuevoNombre, nuevaCompra, nuevaRuta, precioFijo);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Boleto no encontrado.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
                     break;
-
                 case 4:
                     System.out.print("Ingrese el ID del boleto a eliminar: ");
                     int idEliminar = (int) validarEntrada(scanner, "int");
                     Boleto boletoEliminar = gestor.buscarBoletoPorId(idEliminar);
                     if (boletoEliminar != null) {
                         gestor.eliminarBoleto(idEliminar);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Boleto no encontrado.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 5:
                     gestor.mostrarBoletos();
                     System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
-
                 case 0:
                     volver = true;
                     break;
-
                 default:
                     System.out.println("Opción no válida.");
+                    System.out.println("Pulse 'enter' para continuar.");
+                    scanner.nextLine();
                     break;
             }
         }

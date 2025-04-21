@@ -35,7 +35,6 @@ public class MenuGestorPasajeros {
                     System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
-
                 case 2:
                     System.out.println("Ingrese el ID del pasajero que desea buscar: ");
                     id = excepciones(scanner);
@@ -46,11 +45,10 @@ public class MenuGestorPasajeros {
                         System.out.println("Pasajero encontrado:");
                         System.out.println("ID: " + pasajeroEncontrado.getNumeroID());
                         System.out.println("Nombre: " + pasajeroEncontrado.getNombre());
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 3:
                     System.out.print("Ingrese el ID del pasajero a actualizar: ");
                     int idActualizar = excepciones(scanner);
@@ -60,13 +58,14 @@ public class MenuGestorPasajeros {
                         System.out.print("Ingrese el nuevo nombre para el pasajero: ");
                         String nuevoNombre = excepcionesString(scanner);
                         gestorPasajeros.actualizarNombrePasajero(idActualizar, nuevoNombre);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Pasajero no encontrado.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 4:
                     System.out.println("Ingrese el ID del pasajero que desea eliminar: ");
                     int idEliminar = excepciones(scanner);
@@ -75,13 +74,14 @@ public class MenuGestorPasajeros {
                     Pasajeros pasajeroEliminar = gestorPasajeros.buscarPasajeroPorId(idEliminar);
                     if (pasajeroEliminar != null) {
                         gestorPasajeros.eliminarPasajero(idEliminar);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Pasajero no encontrado.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 5:
                     gestorPasajeros.mostrarTodosLosPasajeros();
                     System.out.println("Pulse 'enter' para continuar.");
@@ -93,15 +93,17 @@ public class MenuGestorPasajeros {
                     Pasajeros pasajeroBuscar = gestorPasajeros.buscarPasajeroPorId(idBuscar);
                     if (pasajeroBuscar != null) {
                         pasajeroBuscar.mostrarBoletos();
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
+                    break;
                 case 0:
                     volver = true;
                     break;
-
                 default:
                     System.out.println("Opción no válida.");
+                    System.out.println("Pulse 'enter' para continuar.");
+                    scanner.nextLine();
                     break;
             }
         }

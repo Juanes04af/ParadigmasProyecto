@@ -50,11 +50,12 @@ public class MenuGestorVehiculos {
                         System.out.println("Vehiculo agregado correctamente.");
                         System.out.println("Pulse 'enter' para continuar.");
                         scanner.nextLine();
-                        break;
                     } else {
                         System.out.println("Ruta no encontrada con ID: " + idRuta + ". Vuelva a intentarlo.");
-                        break;
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
+                    break;
                 case 2:
                     System.out.print("Ingrese el numero de placa del vehiculo: ");
                     String placaBuscar = excepcionesString(scanner);
@@ -68,13 +69,14 @@ public class MenuGestorVehiculos {
                         System.out.println("Numero de pasajeros: " + vehiculoEncontrado.getNumeroPasajeros());
                         System.out.println("Disponibilidad del vehiculo: " + vehiculoEncontrado.isDisponibilidad());
                         System.out.println("Disponibilidad del conductor: " + vehiculoEncontrado.isDisponibilidadConductor());
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Vehiculo no encontrado.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 3:
                     System.out.print("Ingrese el numero de placa del vehiculo: ");
                     String placaActualizar = excepcionesString(scanner);
@@ -88,13 +90,14 @@ public class MenuGestorVehiculos {
                     boolean actualizado = gestor.actualizarVehiculo(placaActualizar, estaEnTaller, disponibilidadConductor);
                     if (actualizado) {
                         System.out.println("Disponibilidad del vehiculo y del conductor actualizada.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("No se encontro ningun vehiculo con esa placa.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 4:
                     System.out.print("Ingrese el numero de placa del vehiculo que quiere eliminar: ");
                     String placaEliminar = excepcionesString(scanner);
@@ -102,13 +105,14 @@ public class MenuGestorVehiculos {
                     boolean eliminado = gestor.eliminarVehiculo(placaEliminar);
                     if (eliminado) {
                         System.out.println("Vehiculo eliminado correctamente.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("No se encontro el vehiculo con esa placa.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 5:
                     gestor.mostrarVehiculos();
                     System.out.println("Pulse 'enter' para continuar.");
@@ -121,6 +125,8 @@ public class MenuGestorVehiculos {
 
                 default:
                     System.out.println("Opción no válida.");
+                    System.out.println("Pulse 'enter' para continuar.");
+                    scanner.nextLine();
                     break;
             }
         }

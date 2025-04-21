@@ -29,6 +29,8 @@ public class MenuGestorTaller {
                     id=contador++;
                     if (gestor.buscarMantenimientoId(id) != null) {
                         System.out.println("¡Error! Ya existe un registro de mantenimiento con ese ID.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.print("Ingrese la placa del vehículo: ");
                         String placa = excepcionesString(scanner);
@@ -49,25 +51,30 @@ public class MenuGestorTaller {
                             if (estado.equalsIgnoreCase("En Taller")) {
                                 vehiculo.setDisponibilidad(false);
                                 System.out.println("El vehiculo con placa " + placa + " ahora esta en el taller y no esta disponible.");
+                                System.out.println("Pulse 'enter' para continuar.");
+                                scanner.nextLine();
                             }
-
                             gestor.agregarRegistro(nuevoRegistro);
                             System.out.println("Registro de mantenimiento agregado correctamente.");
+                            System.out.println("Pulse 'enter' para continuar.");
+                            scanner.nextLine();
                         }
                     }
                     break;
-
                 case 2:
                     System.out.print("Ingrese el ID del registro a buscar: ");
                     int idBuscar = excepciones(scanner);
                     TallerMantenimiento taller = gestor.buscarMantenimientoId(idBuscar);
                     if (taller != null) {
                         System.out.println("Registro encontrado: " + taller);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("Registro no encontrado.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
                     break;
-
                 case 3:
                     System.out.print("Ingrese el ID del mantenimiento: ");
                     int idMantenimiento = excepciones(scanner);
@@ -86,26 +93,33 @@ public class MenuGestorTaller {
                                 boolean estaEnTaller = nuevoEstado.equalsIgnoreCase("En Taller");
                                 vehiculo.setDisponibilidad(!estaEnTaller);
                                 System.out.println("Disponibilidad del vehículo actualizada: " + !estaEnTaller);
+                                System.out.println("Pulse 'enter' para continuar.");
+                                scanner.nextLine();
                             } else {
                                 System.out.println("No se encontro ningun vehiculo asociado al mantenimiento.");
+                                System.out.println("Pulse 'enter' para continuar.");
+                                scanner.nextLine();
                             }
                         } else {
                             System.out.println("No se pudo actualizar el estado del mantenimiento.");
+                            System.out.println("Pulse 'enter' para continuar.");
+                            scanner.nextLine();
                         }
                     }
-
                     break;
-
                 case 4:
                     System.out.print("Ingrese el ID del registro a eliminar: ");
                     int idEliminar = excepciones(scanner);
                     if (gestor.eliminarMantenimiento(idEliminar)) {
                         System.out.println("Registro de mantenimiento eliminado correctamente.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("No se pudo eliminar el registro.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
                     break;
-
                 case 5:
                     gestor.mostrarTodos();
                     System.out.println("Pulse 'enter' para continuar.");
@@ -118,6 +132,8 @@ public class MenuGestorTaller {
 
                 default:
                     System.out.println("Opción no válida.");
+                    System.out.println("Pulse 'enter' para continuar.");
+                    scanner.nextLine();
                     break;
             }
         }

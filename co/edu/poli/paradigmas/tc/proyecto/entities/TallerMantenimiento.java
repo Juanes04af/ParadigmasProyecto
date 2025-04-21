@@ -8,6 +8,15 @@ public class TallerMantenimiento {
     private String estado;
     private String observaciones;
 
+    /**
+     * Metodo constructor de la clase TallerMantenimiento con sus respectivos atributos.
+     * @param id El identificador unico del registro de mantenimiento.
+     * @param tipoMantenimiento Informacion del tipo de mantenimiento realizado.
+     * @param fechaIngreso La fecha en la que el vehiculo ingreso al taller
+     * @param estado El estado actual del vehiculo ('En Taller' o 'Mantenimiento Completo')
+     * @param observaciones Comentarios o informcacion adicionales sobre el mantenimiento o el vehiculo.
+     * @param vehiculo El vehiculo asociado al registro de mantenimiento
+     */
     public TallerMantenimiento(int id, String tipoMantenimiento, String fechaIngreso, String estado, String observaciones, Vehiculo vehiculo) {
         this.id = id;
         this.tipoMantenimiento = tipoMantenimiento;
@@ -17,6 +26,8 @@ public class TallerMantenimiento {
         this.vehiculo = vehiculo;
 
     }
+
+    // Getters & Setters
 
     public String getEstado() {
         return estado;
@@ -64,6 +75,10 @@ public class TallerMantenimiento {
         this.observaciones = observaciones;
     }
 
+    /**
+     * Devuelve una representacion en texto del registro de mantenimiento.
+     * @return una cadena con la informacion resumida del registro de mantenimiento.
+     */
     @Override
     public String toString() {
         return "ID: " + id +

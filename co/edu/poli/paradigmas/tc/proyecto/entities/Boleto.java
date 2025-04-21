@@ -17,6 +17,8 @@ public class Boleto {
 
     }
 
+    // Getters & Setters
+
     public double getPrecio() {
         return precio;
     }
@@ -28,6 +30,7 @@ public class Boleto {
     public Rutas getRuta() {
         return ruta;
     }
+
     public String getRutaString() {
         return ruta.getOrigen()+"-"+ruta.getDestino();
     }
@@ -60,8 +63,12 @@ public class Boleto {
         NumeroID = numeroID;
     }
 
+    /**
+     * Devuelve una representacion en texto de la informacion del objeto Boleto.
+     * @return La informacion con los datos principales del boleto.
+     */
     @Override
     public String toString() {
-        return "[ID: " + NumeroID + ", Nombre: " + Nombre + ", Ruta: " + ruta + ", Compra: " + CompraBoletos + ", Precio: " + precio + "]";
+        return "[ID: " + NumeroID + ", Nombre: " + Nombre + ", Ruta: " + ruta.getOrigen() + "-" + ruta.getDestino() + ", Compra: " + CompraBoletos + ", Precio: " + precio + "]";
     }
 }

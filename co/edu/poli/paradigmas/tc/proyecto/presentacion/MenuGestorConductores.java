@@ -50,7 +50,6 @@ public class MenuGestorConductores {
                     System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
-
                 case 2:
                     System.out.print("Ingrese el número de ID del conductor: ");
                     int idBuscar = excepcionesInt(scanner);
@@ -62,13 +61,14 @@ public class MenuGestorConductores {
                         System.out.println("Licencia: " + encontrado.isLicencia());
                         System.out.println("Tipo: " + encontrado.getTipodeConductor());
                         System.out.println("Disponible: " + encontrado.isDisponibilidad());
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     } else {
                         System.out.println("No se encontró ningún conductor con ese ID.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 3:
                     System.out.println("Ingrese el ID del conductor en el que va añadir el vehiculo");
                     int idConductor = excepcionesInt(scanner);
@@ -80,18 +80,21 @@ public class MenuGestorConductores {
                         if (vehiculo!=null){
                             gestorConductores.agregarVehiculo(vehiculo);
                             System.out.println("Vehiculo "+ vehiculo.getNumeroPlaca()+"Fue añadido al conductor "+ conductor.getNombre());
+                            System.out.println("Pulse 'enter' para continuar.");
+                            scanner.nextLine();
                         }else{
                             System.out.println("No se encontro ningun vehiculo con esa placa.");
+                            System.out.println("Pulse 'enter' para continuar.");
+                            scanner.nextLine();
                             break;
                         }
 
                     }else {
                         System.out.println("No se encontró ningún conductor con ese ID.");
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
                     break;
-
                 case 4:
                     System.out.println("Ingrese el ID del conductor en el que va eliminar el vehiculo: ");
                     int idEliminarVehiculo = excepcionesInt(scanner);
@@ -100,9 +103,10 @@ public class MenuGestorConductores {
                         System.out.println("Ingrese la placa del vehiculo que va eliminar: ");
                         String Placa= excepcionesString(scanner);
                         gestorConductores.EliminarVehiculo(idEliminarVehiculo, Placa);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
-                    System.out.println("Pulse 'enter' para continuar.");
-                    scanner.nextLine();
+                    break;
                 case 5:
                     System.out.println("Ingrese ID del conductor en el que se van a mostrar los vehiculos: ");
                     int idVehiculos = excepcionesInt(scanner);
@@ -110,7 +114,10 @@ public class MenuGestorConductores {
                     if (conductorVehiculos != null) {
                         System.out.println("Vehiculos del conductor "+ conductorVehiculos.getNombre());
                         gestorConductores.MostrarVehiculos(idVehiculos);
+                        System.out.println("Pulse 'enter' para continuar.");
+                        scanner.nextLine();
                     }
+                    break;
                 case 6:
                     System.out.print("Ingrese el número de ID del conductor a actualizar: ");
                     int idActualizar = excepcionesInt(scanner);
@@ -119,10 +126,9 @@ public class MenuGestorConductores {
                     String nuevoTipo = excepcionesString(scanner);
 
                     gestorConductores.ActualizarConductores(nuevoTipo, idActualizar);
-                    System.out.println("Pulse 'enter' para continuar.");
+                    System.out.println("Conductor Actualizado. Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
-
                 case 7:
                     System.out.print("Ingrese el número de ID del conductor a eliminar: ");
                     int idEliminar = excepcionesInt(scanner);
@@ -131,19 +137,18 @@ public class MenuGestorConductores {
                     System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
-
                 case 8:
                     gestorConductores.MostrarConductores();
                     System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
-
                 case 0:
                     volver = true;
                     break;
-
                 default:
                     System.out.println("Opción no válida.");
+                    System.out.println("Pulse 'enter' para continuar.");
+                    scanner.nextLine();
                     break;
             }
         }
