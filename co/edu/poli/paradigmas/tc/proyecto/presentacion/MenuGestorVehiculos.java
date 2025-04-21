@@ -12,12 +12,12 @@ public class MenuGestorVehiculos {
 
         while (!volver) {
             System.out.println("=== Menu Vehiculos ===");
-            System.out.println("1. Agregar Vehiculo");
-            System.out.println("2. Buscar Vehiculo");
-            System.out.println("3. Actualizar Estado Vehiculo");
-            System.out.println("4. Eliminar Vehiculo");
-            System.out.println("5. Mostrar todos los Vehiculos");
-            System.out.println("0. Volver al menu principal");
+            System.out.println("1. Agregar Vehiculo.");
+            System.out.println("2. Buscar Vehiculo.");
+            System.out.println("3. Actualizar Estado Vehiculo.");
+            System.out.println("4. Eliminar Vehiculo.");
+            System.out.println("5. Mostrar todos los Vehiculos.");
+            System.out.println("0. Volver al menu principal.");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
             scanner.nextLine();
@@ -48,7 +48,7 @@ public class MenuGestorVehiculos {
 
                         gestor.agregarVehiculo(vehiculo);
                         System.out.println("Vehiculo agregado correctamente.");
-                        System.out.println("Escriba enter para continuar.");
+                        System.out.println("Pulse 'enter' para continuar.");
                         scanner.nextLine();
                         break;
                     } else {
@@ -71,7 +71,7 @@ public class MenuGestorVehiculos {
                     } else {
                         System.out.println("Vehiculo no encontrado.");
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -89,9 +89,9 @@ public class MenuGestorVehiculos {
                     if (actualizado) {
                         System.out.println("Disponibilidad del vehiculo y del conductor actualizada.");
                     } else {
-                        System.out.println("No se encontro un vehiculo con esa placa.");
+                        System.out.println("No se encontro ningun vehiculo con esa placa.");
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -105,13 +105,13 @@ public class MenuGestorVehiculos {
                     } else {
                         System.out.println("No se encontro el vehiculo con esa placa.");
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
                 case 5:
                     gestor.mostrarVehiculos();
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 

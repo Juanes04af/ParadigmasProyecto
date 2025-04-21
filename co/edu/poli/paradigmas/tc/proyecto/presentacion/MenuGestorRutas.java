@@ -10,12 +10,12 @@ public class MenuGestorRutas {
 
         while (!volver) {
             System.out.println("=== Menu Rutas ===");
-            System.out.println("1. Agregar Ruta");
-            System.out.println("2. Buscar Ruta");
-            System.out.println("3. Actualizar Ruta");
-            System.out.println("4. Eliminar Ruta");
-            System.out.println("5. Mostrar todas las Rutas");
-            System.out.println("0. Volver al menu principal");
+            System.out.println("1. Agregar Ruta.");
+            System.out.println("2. Buscar Ruta.");
+            System.out.println("3. Actualizar Ruta.");
+            System.out.println("4. Eliminar Ruta.");
+            System.out.println("5. Mostrar todas las Rutas.");
+            System.out.println("0. Volver al menu principal.");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
             scanner.nextLine();
@@ -23,19 +23,19 @@ public class MenuGestorRutas {
             switch (opcion) {
                 case 1:
                     String Ruta = menuDestinos();
-                    String idRuta = IDRUTAS(Ruta);
+                    String idRuta = idRutas(Ruta);
 
 
                     System.out.print("Ingrese el origen: ");
                     String origen = excepcionesString(scanner);
 
-                    String destino = DESTINOS(Ruta);
+                    String destino = destinos(Ruta);
 
                     System.out.print("Ingrese la distancia (en km): ");
                     int distancia = excepciones(scanner);
                     scanner.nextLine();
 
-                    System.out.print("Ingrese el horario de salida: "); //CAMABIAR SISTEMA DE HORARIOS
+                    System.out.print("Ingrese el horario de salida: "); //Cambiar sistema de horarios
                     String horario = excepcionesString(scanner);
 
                     String[] horarios = new String[1];
@@ -44,7 +44,7 @@ public class MenuGestorRutas {
                     Rutas nuevaRuta = new Rutas(idRuta, origen, destino, distancia, horarios);
                     gestorRutas.agregarRuta(nuevaRuta);
 
-                    System.out.println("Ruta agregada exitosamente.Su ID es: " + idRuta + ".\nEscriba enterpara continuar");
+                    System.out.println("Ruta agregada exitosamente.Su ID es: " + idRuta + ".\nPulse 'enter' para continuar");
                     scanner.nextLine();
                     break;
 
@@ -70,7 +70,7 @@ public class MenuGestorRutas {
                     } else {
                         System.out.println("Ruta no encontrada con ID: " + idBuscar);
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -107,7 +107,7 @@ public class MenuGestorRutas {
                     } else {
                         System.out.println("Ruta no encontrada");
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -122,13 +122,13 @@ public class MenuGestorRutas {
                     } else {
                         System.out.println("No se pudo encontrar la ruta con ID: " + idEliminar);
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
                 case 5:
                     gestorRutas.mostrarRutas();
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -142,21 +142,21 @@ public class MenuGestorRutas {
             }
         }
     }
-    public static String IDRUTAS(String LugarRuta){
+    public static String idRutas(String LugarRuta){
         Random random = new Random();
         int numero = random.nextInt(90) + 10;
         String IDRuta = LugarRuta + numero;
         return IDRuta;
     }
-    public static String DESTINOS(String Ruta){
+    public static String destinos(String Ruta){
         if(Ruta.equals("J")){
-            return "Centro de bogota";
+            return "Centro de bogota.";
         }else if(Ruta.equals("D")){
-            return "Portal 80";
+            return "Portal 80.";
         }else if(Ruta.equals("B")){
-            return "Portal Norte";
+            return "Portal Norte.";
         }else if(Ruta.equals("G")){
-            return "Portal Sur";
+            return "Portal Sur.";
         }
         return null;
     }

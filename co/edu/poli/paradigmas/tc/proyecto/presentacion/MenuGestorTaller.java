@@ -13,12 +13,12 @@ public class MenuGestorTaller {
         int contador = 1;
         while (!volver) {
             System.out.println("=== Menu Taller ===");
-            System.out.println("1. Agregar Registro Mantenimiento");
-            System.out.println("2. Buscar Registro Mantenimiento");
-            System.out.println("3. Actualizar Estado Mantenimiento");
-            System.out.println("4. Eliminar Registro Mantenimiento");
-            System.out.println("5. Mostrar Registros de Mantenimiento");
-            System.out.println("0. Volver al menu principal");
+            System.out.println("1. Agregar Registro Mantenimiento.");
+            System.out.println("2. Buscar Registro Mantenimiento.");
+            System.out.println("3. Actualizar Estado Mantenimiento.");
+            System.out.println("4. Eliminar Registro Mantenimiento.");
+            System.out.println("5. Mostrar Registros de Mantenimiento.");
+            System.out.println("0. Volver al menu principal.");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
             scanner.nextLine();
@@ -35,11 +35,11 @@ public class MenuGestorTaller {
                         Vehiculo vehiculo = gestor.buscarVehiculoPorPlaca(placa);
 
                         if (vehiculo != null) {
-                            System.out.println("Ingrese la fecha de Ingreso al taller: ");
+                            System.out.println("Ingrese la fecha de Ingreso al taller (dd/MM/yyyy): ");
                             String fechaIngreso = excepcionesString(scanner);
                             System.out.print("Ingrese el tipo de mantenimiento: ");
                             String tipoMantenimiento = excepcionesString(scanner);
-                            System.out.print("Ingrese estado del mantenimiento: ");
+                            System.out.print("Ingrese estado del mantenimiento (En taller - Mantenimiento Completo): ");
                             String estado = excepcionesString(scanner);
                             System.out.print("Ingrese las observaciones para el vehiculo: ");
                             String observaciones = excepcionesString(scanner);
@@ -74,7 +74,7 @@ public class MenuGestorTaller {
 
                     TallerMantenimiento mantenimiento = gestor.buscarMantenimientoId(idMantenimiento);
                     if (mantenimiento != null) {
-                        System.out.print("Ingrese el nuevo estado del mantenimiento: ");
+                        System.out.print("Ingrese el nuevo estado del mantenimiento (En taller - Mantenimiento Completo): ");
                         String nuevoEstado = excepcionesString(scanner);
 
                         boolean actualizado = gestor.actualizarEstado(idMantenimiento, nuevoEstado);
@@ -87,7 +87,7 @@ public class MenuGestorTaller {
                                 vehiculo.setDisponibilidad(!estaEnTaller);
                                 System.out.println("Disponibilidad del vehículo actualizada: " + !estaEnTaller);
                             } else {
-                                System.out.println("No se encontro vehiculo asociado al mantenimiento.");
+                                System.out.println("No se encontro ningun vehiculo asociado al mantenimiento.");
                             }
                         } else {
                             System.out.println("No se pudo actualizar el estado del mantenimiento.");
@@ -108,6 +108,8 @@ public class MenuGestorTaller {
 
                 case 5:
                     gestor.mostrarTodos();
+                    System.out.println("Pulse 'enter' para continuar.");
+                    scanner.nextLine();
                     break;
 
                 case 0:

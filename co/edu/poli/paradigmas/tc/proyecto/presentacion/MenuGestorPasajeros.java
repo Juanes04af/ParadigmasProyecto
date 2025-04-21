@@ -10,13 +10,13 @@ public class MenuGestorPasajeros {
         int contador = 1;
         while (!volver) {
             System.out.println("=== Menu Pasajeros ===");
-            System.out.println("1. Agregar pasajero");
-            System.out.println("2. Buscar pasajeros");
-            System.out.println("3. Actualizar pasajero");
-            System.out.println("4. Eliminar pasajero");
-            System.out.println("5. Mostrar todos los pasajeros");
-            System.out.println("6. Mostrar Boletos de pasajero por pasajero");
-            System.out.println("0. Volver al menu principal");
+            System.out.println("1. Agregar pasajero.");
+            System.out.println("2. Buscar pasajeros.");
+            System.out.println("3. Actualizar pasajero.");
+            System.out.println("4. Eliminar pasajero.");
+            System.out.println("5. Mostrar todos los pasajeros.");
+            System.out.println("6. Mostrar Boletos de pasajero por pasajero.");
+            System.out.println("0. Volver al menu principal.");
             System.out.print("Seleccione una opción: ");
             int opcion = excepciones(scanner);
             scanner.nextLine();
@@ -32,7 +32,7 @@ public class MenuGestorPasajeros {
 
                     gestorPasajeros.agregarPasajero(pasajero);
                     System.out.println("Pasajero agregado exitosamente.");
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -47,7 +47,7 @@ public class MenuGestorPasajeros {
                         System.out.println("ID: " + pasajeroEncontrado.getNumeroID());
                         System.out.println("Nombre: " + pasajeroEncontrado.getNombre());
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -63,7 +63,7 @@ public class MenuGestorPasajeros {
                     } else {
                         System.out.println("Pasajero no encontrado.");
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
@@ -78,13 +78,13 @@ public class MenuGestorPasajeros {
                     } else {
                         System.out.println("Pasajero no encontrado.");
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
                 case 5:
                     gestorPasajeros.mostrarTodosLosPasajeros();
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
                 case 6:
@@ -94,7 +94,7 @@ public class MenuGestorPasajeros {
                     if (pasajeroBuscar != null) {
                         pasajeroBuscar.mostrarBoletos();
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                 case 0:
                     volver = true;

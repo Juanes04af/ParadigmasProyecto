@@ -14,12 +14,12 @@ public class MenuGestorBoletos {
         int contador = 1;
         while (!volver) {
             System.out.println("=== Menu Boletos ===");
-            System.out.println("1. Agregar Boleto");
-            System.out.println("2. Buscar Boleto");
-            System.out.println("3. Actualizar Boleto");
-            System.out.println("4. Eliminar Boleto");
-            System.out.println("5. Mostrar todos los Boletos");
-            System.out.println("0. Volver al menu principal");
+            System.out.println("1. Agregar Boleto.");
+            System.out.println("2. Buscar Boleto.");
+            System.out.println("3. Actualizar Boleto.");
+            System.out.println("4. Eliminar Boleto.");
+            System.out.println("5. Mostrar todos los Boletos.");
+            System.out.println("0. Volver al menu principal.");
             System.out.print("Seleccione una opción: ");
             int opcion = (int) validarEntrada(scanner, "int");
 
@@ -27,13 +27,13 @@ public class MenuGestorBoletos {
                 case 1:
                     int id;
                     id = contador++;
-                    System.out.print("Ingrese nombre: ");
+                    System.out.print("Ingrese el nombre del pasajero: ");
                     String nombre = (String) validarEntrada(scanner, "string");
 
                     System.out.print("¿Ha comprado boleto? (true/false): ");
                     boolean compra = (boolean) validarEntrada(scanner, "boolean");
 
-                    System.out.print("Ingrese ruta: ");
+                    System.out.print("Ingrese la ruta: ");
                     gestorRutas.mostrarRutas();
                     String rutaID = (String) validarEntrada(scanner, "string");
                     Rutas ruta = gestorRutas.buscarRutaPorID(rutaID);
@@ -93,13 +93,13 @@ public class MenuGestorBoletos {
                     } else {
                         System.out.println("Boleto no encontrado.");
                     }
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
                 case 5:
                     gestor.mostrarBoletos();
-                    System.out.println("Escriba enter para continuar.");
+                    System.out.println("Pulse 'enter' para continuar.");
                     scanner.nextLine();
                     break;
 
