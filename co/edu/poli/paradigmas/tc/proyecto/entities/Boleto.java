@@ -8,6 +8,14 @@ public class Boleto {
     private Rutas ruta;
     private double precio;
 
+    /**
+     * Metodo constructor de la clase Boleto con sus respectivos atributos.
+     * @param compraBoletos Indica si el boleto ha sido comprado.
+     * @param nombre Nombre del pasajero asociado al boleto.
+     * @param numeroID Identificador único del boleto.
+     * @param ruta Ruta asignada al boleto.
+     * @param precio Precio del boleto.
+     */
     public Boleto(boolean compraBoletos, String nombre, int numeroID, Rutas ruta, double precio) {
         this.CompraBoletos = compraBoletos;
         this.Nombre = nombre;

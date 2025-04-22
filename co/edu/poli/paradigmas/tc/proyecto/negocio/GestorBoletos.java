@@ -8,16 +8,25 @@ public class GestorBoletos {
     private ArrayList<Boleto> boletos = new ArrayList<>();
     private static final double precioFijo = 3500.0;
 
+    /**
+     * Metodo que retorna el precio fijo establecido para un boleto.
+     * @return Precio fijo del boleto.
+     */
     public static double getPrecioFijo() {
         return precioFijo;
     }
 
-    // Crear
+    /**
+     * CRUD Crear - Agrega un nuevo boleto a la lista de boletos.
+     * @param boleto Objeto de tipo Boleto a agregar.
+     */
     public void crearBoleto(Boleto boleto) {
         boletos.add(boleto);
     }
 
-    // Leer
+    /**
+     * CRUD Mostrar - Muestra todos los boletos registrados en consola.
+     */
     public void mostrarBoletos() {
         if (boletos.isEmpty()) {
             System.out.println("No hay boletos registrados.");
@@ -28,6 +37,11 @@ public class GestorBoletos {
         }
     }
 
+    /**
+     * CRUD Leer - Busca un boleto por su número de ID.
+     * @param id Número de identificación del boleto.
+     * @return El objeto Boleto si se encuentra, de lo contrario null.
+     */
     public Boleto buscarBoletoPorId(int id) {
         for (Boleto b : boletos) {
             if (b.getNumeroID() == id) {
@@ -38,7 +52,14 @@ public class GestorBoletos {
         return null;
     }
 
-    // Actualizar
+    /**
+     * CRUD Actualizar - Actualiza los datos de un boleto existente.
+     * @param id Número de identificación del boleto.
+     * @param nuevoNombre Nuevo nombre del pasajero asociado al boleto.
+     * @param compraBoleto Indica si se realizó la compra del boleto.
+     * @param ruta Ruta asociada al boleto.
+     * @param precio Precio actualizado del boleto.
+     */
     public void actualizarBoleto(int id, String nuevoNombre, boolean compraBoleto, Rutas ruta, double precio) {
         Boleto b = buscarBoletoPorId(id);
         if (b != null) {
@@ -53,7 +74,10 @@ public class GestorBoletos {
         }
     }
 
-    // Eliminar
+    /**
+     * CRUD Eliminar - Elimina un boleto de la lista a partir de su ID.
+     * @param id Número de identificación del boleto a eliminar.
+     */
     public void eliminarBoleto(int id) {
         for (int i = 0; i < boletos.size(); i++) {
             if (boletos.get(i).getNumeroID() == id) {

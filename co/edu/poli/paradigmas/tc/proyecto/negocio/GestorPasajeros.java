@@ -5,16 +5,23 @@ import java.util.ArrayList;
 
 public class GestorPasajeros {
     private ArrayList<Pasajeros> listaPasajeros=new ArrayList<>();
-
-    // Crear
     public ArrayList<Pasajeros> getListaPasajeros() {
         return listaPasajeros;
     }
+
+    /**
+     * CRUD Crear - Agrega un nuevo pasajero a la lista.
+     * @param pasajero Objeto de tipo Pasajeros a agregar.
+     */
     public void agregarPasajero(Pasajeros pasajero) {
         listaPasajeros.add(pasajero);
     }
 
-    // Leer por ID
+    /**
+     * CRUD Leer - Busca un pasajero por su número de ID.
+     * @param id Número de identificación del pasajero.
+     * @return El objeto Pasajeros si se encuentra, de lo contrario null.
+     */
     public Pasajeros buscarPasajeroPorId(int id) {
         for (Pasajeros p : listaPasajeros) {
             if (p.getNumeroID() == id) {
@@ -24,6 +31,12 @@ public class GestorPasajeros {
         System.out.println("Pasajero con ID " + id + " no encontrado.");
         return null;
     }
+
+    /**
+     * CRUD Leer - Busca un pasajero por su nombre.
+     * @param nombre Nombre del pasajero a buscar.
+     * @return El objeto Pasajeros si se encuentra, de lo contrario null.
+     */
     public Pasajeros buscarPasajeroPorNombre(String nombre) {
         for (Pasajeros p : listaPasajeros) {
             if (p.getNombre().equalsIgnoreCase(nombre)) {
@@ -34,7 +47,11 @@ public class GestorPasajeros {
         return null;
     }
 
-    // Actualizar nombre
+    /**
+     * CRUD Actualizar - Actualiza el nombre de un pasajero dado su ID.
+     * @param id Número de identificación del pasajero.
+     * @param nuevoNombre Nuevo nombre que se asignará al pasajero.
+     */
     public void actualizarNombrePasajero(int id, String nuevoNombre) {
         Pasajeros p = buscarPasajeroPorId(id);
         if (p != null) {
@@ -43,7 +60,10 @@ public class GestorPasajeros {
         }
     }
 
-    // Eliminar
+    /**
+     * CRUD Eliminar - Elimina un pasajero de la lista a partir de su ID.
+     * @param id Número de identificación del pasajero a eliminar.
+     */
     public void eliminarPasajero(int id) {
         Pasajeros p = buscarPasajeroPorId(id);
         if (p != null) {
@@ -52,7 +72,9 @@ public class GestorPasajeros {
         }
     }
 
-    // Mostrar todos
+    /**
+     * CRUD Mostrar - Muestra todos los pasajeros registrados.
+     */
     public void mostrarTodosLosPasajeros() {
         if (listaPasajeros.isEmpty()) {
             System.out.println("No hay pasajeros registrados.");
