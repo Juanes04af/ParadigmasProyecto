@@ -40,11 +40,10 @@ public class MenuGestorBoletos {
 
                     double precio = compra ? GestorBoletos.getPrecioFijo() : 0.0;
 
-                    Boleto boleto = new Boleto(compra, nombre, id, ruta, precio);
-                    gestor.crearBoleto(boleto);
-
                     Pasajeros pasajero = gestorPasajeros.buscarPasajeroPorNombre(nombre);
                     if (pasajero != null) {
+                        Boleto boleto = new Boleto(compra, nombre, id, ruta, precio);
+                        gestor.crearBoleto(boleto);
                         pasajero.agregarBoleto(boleto);
                         System.out.println("Boleto comprado exitosamente.");
                         System.out.println("Pulse 'enter' para continuar.");

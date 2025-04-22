@@ -5,19 +5,19 @@ import java.util.ArrayList;
 public class Persona {
     String nombre;
     int numeroID;
-    ArrayList<Boleto> boletos = new ArrayList<>();
 
+    /**
+     * Costructor de la Super-Clase persona
+     * @param id Id unico para cada persona
+     * @param nombre Nombre unico para cada persona
+     */
     public Persona(int id, String nombre) {
         this.numeroID = id;
         this.nombre = nombre;
-        this.boletos = new ArrayList<>();
+
     }
 
     // Getters & Setters
-
-    public ArrayList<Boleto> getBoletos() {
-        return boletos;
-    }
 
     public int getNumeroID() {
         return numeroID;
@@ -31,20 +31,4 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    // Otros Metodos...
-
-    public void agregarBoleto(Boleto p) {
-        boletos.add(p);
-    }
-
-    public void mostrarBoletos() {
-        if (boletos.isEmpty()) {
-            System.out.println("Este pasajero no tiene boletos asignados.");
-        } else {
-            System.out.println("Boletos asignados:");
-            for (Boleto p : boletos) {
-                System.out.println("Nombre: " + p.getNombre()+"\n ID: "+p.getNumeroID()+"\nRuta: "+p.getRutaString()+"\nNumero de Ruta: "+p.getNumeroID());
-            }
-        }
-    }
 }

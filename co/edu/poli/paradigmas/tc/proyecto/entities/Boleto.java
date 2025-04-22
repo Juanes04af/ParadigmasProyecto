@@ -31,9 +31,6 @@ public class Boleto {
         return ruta;
     }
 
-    public String getRutaString() {
-        return ruta.getOrigen()+"-"+ruta.getDestino();
-    }
 
     public void setRuta(Rutas ruta) {
         this.ruta = ruta;
@@ -61,6 +58,10 @@ public class Boleto {
 
     public void setNumeroID(int numeroID) {
         NumeroID = numeroID;
+    }
+
+    public String getRutaString() {
+        return ruta.getRutaString();
     }
 
     /**

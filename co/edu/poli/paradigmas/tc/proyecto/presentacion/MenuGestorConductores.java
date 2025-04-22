@@ -78,7 +78,7 @@ public class MenuGestorConductores {
                         String placaBucar= excepcionesString(scanner);
                         Vehiculo vehiculo = gestorVehiculos.buscarVehiculo(placaBucar);
                         if (vehiculo!=null){
-                            gestorConductores.agregarVehiculo(vehiculo);
+                            conductor.agregarVehiculo(vehiculo);
                             System.out.println("Vehiculo "+ vehiculo.getNumeroPlaca()+"Fue añadido al conductor "+ conductor.getNombre());
                             System.out.println("Pulse 'enter' para continuar.");
                             scanner.nextLine();
@@ -102,9 +102,11 @@ public class MenuGestorConductores {
                     if (conductorEliminarVehiculo != null) {
                         System.out.println("Ingrese la placa del vehiculo que va eliminar: ");
                         String Placa= excepcionesString(scanner);
-                        gestorConductores.EliminarVehiculo(idEliminarVehiculo, Placa);
+                        gestorConductores.EliminarVehiculo(conductorEliminarVehiculo, Placa);
                         System.out.println("Pulse 'enter' para continuar.");
                         scanner.nextLine();
+                    }else {
+                        System.out.println("Conductor no encontrado con ese ID.");
                     }
                     break;
                 case 5:

@@ -1,49 +1,45 @@
 package co.edu.poli.paradigmas.tc.proyecto.entities;
 
-public class Pasajeros extends Persona{
-    private String[] boletos;
-    private int totalBoletos;
+import java.util.ArrayList;
 
+public class Pasajeros extends Persona{
+    ArrayList<Boleto> boletos = new ArrayList<>();
+
+    /**
+     * Metodo Constructor de pasajero que hereda de persona
+     * @param id ID unico para cada pasajero
+     * @param nombre Nombre Unico para cada pasajero
+     */
     public Pasajeros(int id, String nombre) {
         super(id, nombre);
-        this.boletos = new String[10];
-        this.totalBoletos = 0;
+        this.boletos = new ArrayList<>();
     }
 
-    // Getters & Setters
+    public ArrayList<Boleto> getBoletos() {
+        return boletos;
+    }
+    // Otros Metodos...
 
-    public int getNumeroID() {
-        return numeroID;
+    /**
+     * Metodo encargado de agregar los boletos a la lista de boletos de cada Pasajero
+     * @param p Boleto que se va añadir a la lista de cada persona
+     */
+    public void agregarBoleto(Boleto p) {
+        boletos.add(p);
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nuevoNombre) {
-        this.nombre = nuevoNombre;
-    }
-
-    //Otros Metodos...
-
-    public void comprarBoleto(String viaje) {
-        if (totalBoletos < boletos.length) {
-            boletos[totalBoletos] = viaje;
-            totalBoletos++;
-            System.out.println(nombre + " compró boleto para: " + viaje);
+    /**
+     * Metodo que mostrara a todos los boletos de cada usuario
+     */
+    public void mostrarBoletos() {
+        if (boletos.isEmpty()) {
+            System.out.println("Este pasajero no tiene boletos asignados.");
         } else {
-            System.out.println("No puedes comprar más boletos.");
-        }
-    }
-
-    public void mostrarViajes() {
-        if (totalBoletos == 0) {
-            System.out.println(nombre + " no tiene viajes.");
-        } else {
-            System.out.println("Viajes de " + nombre + ":");
-            for (int i = 0; i < totalBoletos; i++) {
-                System.out.println((i + 1) + ". " + boletos[i]);
+            System.out.println("Boletos asignados:");
+            for (Boleto p : boletos) {
+                System.out.println("Nombre: " + p.getNombre()+"\n ID: "+p.getNumeroID()+"\nRuta: "+p.getRutaString()+"\nNumero de Ruta: "+p.getNumeroID());
             }
         }
     }
+
 }

@@ -5,15 +5,6 @@ import java.util.ArrayList;
 
 public class GestorPasajeros {
     private ArrayList<Pasajeros> listaPasajeros=new ArrayList<>();
-    private ArrayList<String> listaBoletos=new ArrayList<>();
-
-    public ArrayList<String> getListaBoletos() {
-        return listaBoletos;
-    }
-
-    public void agregarBoleto(String boleto) {
-        listaBoletos.add(boleto);
-    }
 
     // Crear
     public ArrayList<Pasajeros> getListaPasajeros() {
