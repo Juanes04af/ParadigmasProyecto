@@ -50,6 +50,11 @@ public class Main {
         } while (opcion != 7);
     }
 
+    /**
+     * Metodo para atrapar excepciones en scanners de tipo int.
+     * @param scanner Ingresa el parametro scanner.
+     * @return En caso de que la excepcion no se active retorna el dato ingresado de tipo int.
+     */
     public static int excepciones (Scanner scanner){
         int opcion = -1;
         boolean valido = false;
