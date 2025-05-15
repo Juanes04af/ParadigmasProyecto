@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.gui.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="98.0" fitWidth="161.0" layoutX="220.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagenes/poli.png" />
+         </image>
+      </ImageView>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="64.0" layoutY="200.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Pasajeros">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/person_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="237.0" layoutY="200.0" mnemonicParsing="false" onAction="#gestionarVehiculos" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Vehiculos">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/bus_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="407.0" layoutY="200.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Rutas">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/path_road_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="65.0" layoutY="278.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Taller">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/fix_repair_setting_setup_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="237.0" layoutY="278.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Conductores">
+         <font>
+            <Font name="Times New Roman Bold" size="11.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/id_card_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="147.0" prefHeight="35.0" prefWidth="465.0" style="-fx-background-color: #deecf4;" text="== Sistema De Gestion De Transporte Publico ==" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="407.0" layoutY="278.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Conductores">
+         <font>
+            <Font name="Times New Roman Bold" size="11.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/ticket_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
