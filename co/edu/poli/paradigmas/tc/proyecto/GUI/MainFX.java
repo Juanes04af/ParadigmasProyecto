@@ -1,4 +1,4 @@
-package co.edu.poli.paradigmas.tc.proyecto.gui;
+package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
 import javafx.application.Application;
@@ -17,7 +17,7 @@ public class MainFX extends Application {
             gestorVehiculos = new GestorVehiculos();
 
             // Cargar FXML principal
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/gui/MenuPrincipal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/MenuPrincipal.fxml"));
             Parent root = loader.load();
 
             // poner el gestor en el controlador principal si lo necesita
