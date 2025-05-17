@@ -13,13 +13,9 @@ import javafx.scene.Node;
 
 public class MenuPrincipalController {
 
-    private GestorVehiculos gestorVehiculos;
     private GestorRutas gestorRutas;
 
-    // trae gestorVehiculos desde MainFX
-    public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
-        this.gestorVehiculos = gestorVehiculos;
-    }
+    // trae gestores desde MainFX
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
     }
