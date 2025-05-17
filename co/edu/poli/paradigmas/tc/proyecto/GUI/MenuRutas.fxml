@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="426.0" prefWidth="339.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.MenuVehiculosController">
+    <children>
+        <ImageView fitHeight="58.0" fitWidth="96.0" layoutX="212.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@imagenes/poli.png" />
+            </image>
+        </ImageView>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="34.0" prefHeight="65.0" prefWidth="182.0" text="Menu Gestor Rutas" wrapText="true">
+            <font>
+                <Font name="Times New Roman Bold" size="25.0" />
+            </font>
+        </Label>
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="37.0" layoutY="118.0" mnemonicParsing="false" onAction="#agregarVehiculo" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Agregar Vehiculo">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@imagenes/queue_icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="37.0" layoutY="203.0" mnemonicParsing="false" onAction="#actualizarEstado" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Actualizar Estado ">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@imagenes/update_arrow_icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="182.0" layoutY="118.0" mnemonicParsing="false" onAction="#buscarVehiculo" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Buscar Vehiculo">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@imagenes/search_zoom_icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="182.0" layoutY="203.0" mnemonicParsing="false" onAction="#eliminarVehiculo" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Eliminar Vehiculo">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@imagenes/delete_remove_icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="111.0" layoutY="288.0" mnemonicParsing="false" onAction="#mostrarTodos" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Mostrar Todos">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@imagenes/view_icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="174.0" layoutY="380.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" text="Volver Al Menu Principal">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

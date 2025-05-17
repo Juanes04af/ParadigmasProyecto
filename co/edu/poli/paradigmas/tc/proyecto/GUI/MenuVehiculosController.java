@@ -1,11 +1,10 @@
-package co.edu.poli.paradigmas.tc.proyecto.gui;
+package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextInputDialog;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
@@ -48,7 +47,7 @@ public class MenuVehiculosController {
     private void volverMenuPrincipal(ActionEvent event) {
         try {
             // Cargar el archivo FXML del menu principal
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/gui/MenuPrincipal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/MenuPrincipal.fxml"));
             Parent root = loader.load();  // Cargar la jerarquía de nodos del archivo FXML
 
             MenuPrincipalController controller = loader.getController();  // Obtener el controlador asociado al archivo FXML del menu
