@@ -1,5 +1,7 @@
 package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
+import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,32 +14,35 @@ import javafx.scene.Node;
 public class MenuPrincipalController {
 
     private GestorVehiculos gestorVehiculos;
+    private GestorRutas gestorRutas;
 
     // trae gestorVehiculos desde MainFX
     public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
         this.gestorVehiculos = gestorVehiculos;
     }
+    public void setGestorRutas(GestorRutas gestorRutas) {
+        this.gestorRutas = gestorRutas;
+    }
 
     @FXML
-    private void gestionarVehiculos(ActionEvent event) {
-        try {
-            // Cargar el archivo FXML del menú de vehículos
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/MenuVehiculos.fxml"));
+    private void irAMenuRutas(ActionEvent event) { // se crea el metodo de cada gestor para poder acceder a el con el boton (debe iniciarse en el onAction del scene builder del menu principal)
+        try { // se debe poner el try-catch para excepciones por errores del fmxl o controlador
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuRutas.fxml"));
             Parent root = loader.load();
 
-            // Obtener el controlador de la vista
-            MenuVehiculosController controller = loader.getController();
+            // Obtener el controlador de rutas
+            MenuRutasController controller = loader.getController();
 
-            // se ponen (comparten) los datos del gestor vehiculo
-            controller.setGestorVehiculos(gestorVehiculos);
+            // Compartir el gestor de rutas
+            controller.setGestorRutas(gestorRutas);
 
-            // Crear y mostrar una nueva ventana
+            // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
-            stage.setTitle("Gestión de Vehículos");
+            stage.setTitle("Gestión de Rutas");
             stage.setScene(new Scene(root));
             stage.show();
 
-            // cerrar la ventana de menu principal
+            // Cerrar ventana actual
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.close();
 

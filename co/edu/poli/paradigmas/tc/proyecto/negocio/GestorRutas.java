@@ -24,7 +24,7 @@ public class GestorRutas {
             System.out.println("ID: " + ruta.getNumeroID());
             System.out.println("Origen: " + ruta.getOrigen());
             System.out.println("Destino: " + ruta.getDestino());
-            System.out.println("Distancia: " + ruta.getDistancia());
+            System.out.println("Distancia: " + ruta.getDistancia() + " km.");
             System.out.print("Horarios: ");
             for (String horario : ruta.getHorariosSalida()) {
                 System.out.print(horario + " ");
@@ -82,6 +82,26 @@ public class GestorRutas {
             }
         }
         return null;
+    }
+
+    public String obtenerListadoRutas() {
+        if (listaRutas.isEmpty()) {
+            return "";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Rutas ruta : listaRutas) {
+            sb.append("ID: ").append(ruta.getNumeroID()).append("\n");
+            sb.append("Origen: ").append(ruta.getOrigen()).append("\n");
+            sb.append("Destino: ").append(ruta.getDestino()).append("\n");
+            sb.append("Distancia (km): ").append(ruta.getDistancia()).append("\n");
+            sb.append("Horarios: ");
+            for (String horario : ruta.getHorariosSalida()) {
+                sb.append(horario).append(" ");
+            }
+            sb.append("\n------------------------\n");
+        }
+        return sb.toString();
     }
 
 }
