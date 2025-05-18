@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.MenuPrincipalController">
+<AnchorPane prefHeight="376.0" prefWidth="555.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.MenuPrincipalController">
    <children>
-      <ImageView fitHeight="98.0" fitWidth="161.0" layoutX="220.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagenes/poli.png" />
-         </image>
-      </ImageView>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="64.0" layoutY="200.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Pasajeros">
-         <graphic>
-            <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagenes/person_icon.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="Times New Roman Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="237.0" layoutY="200.0" mnemonicParsing="false" onAction="#mostrarMenuVehiculos" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Vehiculos">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="31.0" layoutY="201.0" mnemonicParsing="false" onAction="#mostrarMenuVehiculos" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Vehiculos">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -36,7 +20,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="407.0" layoutY="200.0" mnemonicParsing="false" onAction="#irAMenuRutas" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Rutas">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="168.0" layoutY="286.0" mnemonicParsing="false" onAction="#irAMenuRutas" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Rutas">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -48,19 +32,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="65.0" layoutY="278.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Taller">
-         <font>
-            <Font name="Times New Roman Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagenes/fix_repair_setting_setup_icon.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="237.0" layoutY="278.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Conductores">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="168.0" layoutY="119.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Conductores">
          <font>
             <Font name="Times New Roman Bold" size="11.0" />
          </font>
@@ -72,12 +44,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="147.0" prefHeight="35.0" prefWidth="465.0" style="-fx-background-color: #deecf4;" text="== Sistema De Gestion De Transporte Publico ==" textAlignment="JUSTIFY">
-         <font>
-            <Font name="Times New Roman Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="407.0" layoutY="278.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Boletos">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="31.0" layoutY="286.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Boletos">
          <font>
             <Font name="Times New Roman Bold" size="11.0" />
          </font>
@@ -89,5 +56,48 @@
             </ImageView>
          </graphic>
       </Button>
+      <AnchorPane layoutX="345.0" prefHeight="383.0" prefWidth="210.0" style="-fx-background-color: #c6eefe 8;">
+         <children>
+            <ImageView fitHeight="217.0" fitWidth="247.0" layoutX="-37.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/Captura_de_pantalla_2025-05-18_115417-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="158.0" layoutX="20.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/poli.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Pasajeros">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/person_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="168.0" layoutY="201.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Taller">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/fix_repair_setting_setup_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="70.0" fitWidth="247.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/Captura_de_pantalla_2025-05-18_120306-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="426.0" prefWidth="339.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController">
+<AnchorPane prefHeight="448.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController">
     <children>
-        <ImageView fitHeight="58.0" fitWidth="96.0" layoutX="212.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../imagenes/poli.png" />
-            </image>
-        </ImageView>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="34.0" prefHeight="65.0" prefWidth="182.0" text="Menu Gestor Rutas" wrapText="true">
-            <font>
-                <Font name="Times New Roman Bold" size="25.0" />
-            </font>
-        </Label>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="37.0" layoutY="118.0" mnemonicParsing="false" onAction="#agregarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Agregar Ruta">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="27.0" mnemonicParsing="false" onAction="#agregarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Agregar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -31,7 +20,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="37.0" layoutY="203.0" mnemonicParsing="false" onAction="#actualizarEstadoRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Actualizar Ruta">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="107.0" mnemonicParsing="false" onAction="#actualizarEstadoRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Actualizar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -43,7 +32,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="182.0" layoutY="118.0" mnemonicParsing="false" onAction="#buscarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Buscar Ruta">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="187.0" mnemonicParsing="false" onAction="#buscarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Buscar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -55,7 +44,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="182.0" layoutY="203.0" mnemonicParsing="false" onAction="#eliminarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Eliminar Ruta">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="266.0" mnemonicParsing="false" onAction="#eliminarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Eliminar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -67,7 +56,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="111.0" layoutY="288.0" mnemonicParsing="false" onAction="#mostrarRutas" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Mostrar Todos">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="350.0" mnemonicParsing="false" onAction="#mostrarRutas" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Mostrar Todos">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -79,10 +68,24 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="174.0" layoutY="380.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" text="Volver Al Menu Principal">
-            <font>
-                <Font name="Times New Roman Bold" size="12.0" />
-            </font>
-        </Button>
+      <AnchorPane prefHeight="441.0" prefWidth="187.0" style="-fx-background-color: #AAF9FE;">
+         <children>
+              <ImageView fitHeight="91.0" fitWidth="144.0" layoutX="20.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../imagenes/poli.png" />
+                  </image>
+              </ImageView>
+              <Button layoutX="19.0" layoutY="137.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #87d0ec;" text="Volver Al Menu Principal">
+                  <font>
+                      <Font name="Times New Roman Bold" size="12.0" />
+                  </font>
+              </Button>
+            <ImageView fitHeight="253.0" fitWidth="301.0" layoutX="1.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/1.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

@@ -48,6 +48,7 @@ public class MenuPrincipalController {
             Stage stage = new Stage();
             stage.setTitle("Gestión de Rutas");
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.show();
 
             // Cerrar ventana actual
@@ -70,7 +71,11 @@ public class MenuPrincipalController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Menú de Vehículos");
+            stage.setResizable(false);
             stage.show();
+
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

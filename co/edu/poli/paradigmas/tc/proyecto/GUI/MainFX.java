@@ -29,6 +29,7 @@ public class MainFX extends Application {
 
             primaryStage.setTitle("Menú Principal");
             primaryStage.setScene(new Scene(root));
+            primaryStage.setResizable(false);
             primaryStage.show();
 
         } catch (Exception e) {
