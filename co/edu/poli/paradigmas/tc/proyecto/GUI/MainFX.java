@@ -11,6 +11,7 @@ public class MainFX extends Application {
     private GestorRutas gestorRutas; // unica instancia compartida para el gestor rutas
     private  GestorConductores gestorConductores;
     private GestorVehiculos gestorVehiculos;
+    private GestorPasajeros gestorPasajeros;
 
     @Override
     public void start(Stage primaryStage) {
@@ -18,6 +19,7 @@ public class MainFX extends Application {
             gestorRutas = new GestorRutas();
             gestorConductores = new GestorConductores();
             gestorVehiculos = new GestorVehiculos();
+            gestorPasajeros= new GestorPasajeros();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuPrincipal.fxml"));
             Parent root = loader.load();
@@ -26,6 +28,7 @@ public class MainFX extends Application {
             System.out.println("GestorVehiculos en MainFX antes de pasar: " + gestorVehiculos);
             mainController.setGestorRutas(gestorRutas);
             mainController.setGestorVehiculos(gestorVehiculos); // Pasar GestorVehiculos
+            mainController.setGestorPasajeros(gestorPasajeros);
 
             primaryStage.setTitle("Menú Principal");
             primaryStage.setScene(new Scene(root));

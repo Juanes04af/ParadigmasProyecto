@@ -56,21 +56,21 @@
             </ImageView>
          </graphic>
       </Button>
-      <AnchorPane layoutX="345.0" prefHeight="383.0" prefWidth="210.0" style="-fx-background-color: #c6eefe 8;">
+      <AnchorPane layoutX="345.0" prefHeight="383.0" prefWidth="205.0" style="-fx-background-color: #c6eefe 8;">
          <children>
-            <ImageView fitHeight="217.0" fitWidth="247.0" layoutX="-37.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="220.0" fitWidth="265.0" layoutX="-40.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/Captura_de_pantalla_2025-05-18_115417-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="158.0" layoutX="20.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="158.0" layoutX="26.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/poli.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Pasajeros">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" onAction="#irAMenuPasajero" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Pasajeros">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -94,7 +94,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="70.0" fitWidth="247.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="70.0" fitWidth="247.0" layoutX="38.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/Captura_de_pantalla_2025-05-18_120306-removebg-preview.png" />
          </image>

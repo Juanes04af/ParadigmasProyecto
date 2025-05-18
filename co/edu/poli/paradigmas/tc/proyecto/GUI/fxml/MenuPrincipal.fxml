@@ -70,7 +70,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Pasajeros">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" onAction="#irAMenuPasajero" prefHeight="70.0" prefWidth="126.0" style="-fx-background-color: #deecf4;" text="Gestionar Pasajeros">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>

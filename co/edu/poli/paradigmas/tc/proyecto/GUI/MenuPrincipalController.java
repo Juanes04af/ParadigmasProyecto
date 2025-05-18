@@ -1,9 +1,11 @@
 package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
+import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuPasajerosController;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuVehiculosController;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorPasajeros;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +18,7 @@ public class MenuPrincipalController {
 
     private GestorRutas gestorRutas;
     private GestorVehiculos gestorVehiculos; // Declarar GestorVehiculos
+    private GestorPasajeros gestorPasajeros;
 
     // trae gestores desde MainFX
     public void setGestorRutas(GestorRutas gestorRutas) {
@@ -28,6 +31,8 @@ public class MenuPrincipalController {
         System.out.println("setGestorVehiculos llamado en MenuPrincipalController con: " + gestorVehiculos);
 
     }
+
+    public void setGestorPasajeros(GestorPasajeros gestorPasajeros) { this.gestorPasajeros = gestorPasajeros; }
 
     @FXML
     private void irAMenuRutas(ActionEvent event) {
@@ -76,6 +81,31 @@ public class MenuPrincipalController {
 
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void irAMenuPasajero(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuPasajero.fxml"));
+            Parent root = loader.load();
+
+            MenuPasajerosController Pcontroller = loader.getController();
+            Pcontroller.setGestorPasajeros(gestorPasajeros);
+
+            // Mostrar nueva ventana para el menu de rutas
+            Stage stage = new Stage();
+            stage.setTitle("Gestión de Pasajeros");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+
+            // Cerrar ventana actual
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

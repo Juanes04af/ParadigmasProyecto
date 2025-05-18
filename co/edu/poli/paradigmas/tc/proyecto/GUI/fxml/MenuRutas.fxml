@@ -6,9 +6,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="448.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController">
+<AnchorPane prefHeight="543.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController">
     <children>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="27.0" mnemonicParsing="false" onAction="#agregarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Agregar Ruta">
+      <AnchorPane prefHeight="518.0" prefWidth="220.0" style="-fx-background-color: #d2f4f7;">
+         <children>
+              <ImageView fitHeight="101.0" fitWidth="163.0" layoutX="28.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../imagenes/poli.png" />
+                  </image>
+              </ImageView>
+              <Button layoutX="28.0" layoutY="268.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="32.0" prefWidth="163.0" style="-fx-background-color: #87d0ec;" text="Volver Al Menu Principal">
+                  <font>
+                      <Font name="Times New Roman Bold" size="13.0" />
+                  </font>
+              </Button>
+            <ImageView fitHeight="94.0" fitWidth="163.0" layoutX="33.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/image-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="28.0" layoutY="145.0" prefHeight="3.0" prefWidth="163.0" style="-fx-background-color: #87d0ec;" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="217.0" fitWidth="413.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/rutas-removebg-preview.png" />
+         </image>
+      </ImageView>
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="244.0" layoutY="27.0" mnemonicParsing="false" onAction="#agregarRuta" prefHeight="70.0" prefWidth="118.0" style="-fx-background-color: #deecf4;" text="Agregar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -20,7 +45,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="107.0" mnemonicParsing="false" onAction="#actualizarEstadoRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Actualizar Ruta">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="245.0" layoutY="107.0" mnemonicParsing="false" onAction="#actualizarEstadoRuta" prefHeight="70.0" prefWidth="118.0" style="-fx-background-color: #deecf4;" text="Actualizar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -32,7 +57,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="187.0" mnemonicParsing="false" onAction="#buscarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Buscar Ruta">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="245.0" layoutY="271.0" mnemonicParsing="false" onAction="#buscarRuta" prefHeight="70.0" prefWidth="118.0" style="-fx-background-color: #deecf4;" text="Buscar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -44,7 +69,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="266.0" mnemonicParsing="false" onAction="#eliminarRuta" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Eliminar Ruta">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="245.0" layoutY="188.0" mnemonicParsing="false" onAction="#eliminarRuta" prefHeight="70.0" prefWidth="118.0" style="-fx-background-color: #deecf4;" text="Eliminar Ruta">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -56,7 +81,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="217.0" layoutY="350.0" mnemonicParsing="false" onAction="#mostrarRutas" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Mostrar Todos">
+        <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="245.0" layoutY="354.0" mnemonicParsing="false" onAction="#mostrarRutas" prefHeight="70.0" prefWidth="118.0" style="-fx-background-color: #deecf4;" text="Mostrar Todos">
             <font>
                 <Font name="Times New Roman Bold" size="12.0" />
             </font>
@@ -68,24 +93,5 @@
                 </ImageView>
             </graphic>
         </Button>
-      <AnchorPane prefHeight="441.0" prefWidth="187.0" style="-fx-background-color: #AAF9FE;">
-         <children>
-              <ImageView fitHeight="91.0" fitWidth="144.0" layoutX="20.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                      <Image url="@../imagenes/poli.png" />
-                  </image>
-              </ImageView>
-              <Button layoutX="19.0" layoutY="137.0" mnemonicParsing="false" onAction="#volverMenuPrincipal" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #87d0ec;" text="Volver Al Menu Principal">
-                  <font>
-                      <Font name="Times New Roman Bold" size="12.0" />
-                  </font>
-              </Button>
-            <ImageView fitHeight="253.0" fitWidth="301.0" layoutX="1.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagenes/1.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
     </children>
 </AnchorPane>
