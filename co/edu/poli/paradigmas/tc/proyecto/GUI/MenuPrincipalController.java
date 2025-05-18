@@ -34,6 +34,7 @@ public class MenuPrincipalController {
 
     public void setGestorPasajeros(GestorPasajeros gestorPasajeros) { this.gestorPasajeros = gestorPasajeros; }
 
+
     @FXML
     private void irAMenuRutas(ActionEvent event) {
         try {
@@ -94,6 +95,8 @@ public class MenuPrincipalController {
 
             MenuPasajerosController Pcontroller = loader.getController();
             Pcontroller.setGestorPasajeros(gestorPasajeros);
+            Pcontroller.setGestorRutas(gestorRutas);
+            Pcontroller.setGestorVehiculos(gestorVehiculos);
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
