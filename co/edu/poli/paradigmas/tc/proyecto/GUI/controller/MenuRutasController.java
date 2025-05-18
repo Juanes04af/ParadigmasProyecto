@@ -84,7 +84,7 @@ public class MenuRutasController {
     private void eliminarRuta(ActionEvent event) {
         Optional<String> id = pedirInput("Eliminar Ruta", "Ingrese el ID de la ruta a eliminar:");
         if (id.isPresent()) {
-            String valor = id.get().trim();
+            String valor = id.get().trim().toUpperCase();
             if (!valor.isEmpty()) {
                 if (gestorRutas.eliminarRuta(valor)) {
                     mostrarMensaje("Exito", "Ruta eliminada exitosamente.");
@@ -102,7 +102,8 @@ public class MenuRutasController {
     @FXML
     private void buscarRuta(ActionEvent event) {
         Optional<String> id = pedirInput("Buscar Ruta", "Ingrese el ID de la ruta a buscar:");
-        id.ifPresent(valor -> {
+        if(id.isPresent()){
+            String valor= id.get().trim().toUpperCase();
             if (!valor.trim().isEmpty()) {
                 Rutas ruta = gestorRutas.buscarRutaPorID(valor.trim());
                 if (ruta != null) {
@@ -118,7 +119,7 @@ public class MenuRutasController {
             } else {
                 mostrarMensaje("Error", "El ID no puede estar vacío.");
             }
-        });
+        };
     }
 
     @FXML
@@ -130,7 +131,7 @@ public class MenuRutasController {
 
         if (idInput.isPresent() && origenInput.isPresent() && distanciaInput.isPresent() && horariosInput.isPresent()) {
 
-            String id = idInput.get().trim();
+            String id = idInput.get().trim().toUpperCase();
             String origen = origenInput.get().trim();
             String distanciaStr = distanciaInput.get().trim();
             String horariosStr = horariosInput.get().trim();
