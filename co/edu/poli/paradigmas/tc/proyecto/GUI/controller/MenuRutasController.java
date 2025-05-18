@@ -1,8 +1,8 @@
 package co.edu.poli.paradigmas.tc.proyecto.GUI.controller;
 
-import co.edu.poli.paradigmas.tc.proyecto.GUI.MenuPrincipalController;
-import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
+import co.edu.poli.paradigmas.tc.proyecto.GUI.*;
+import co.edu.poli.paradigmas.tc.proyecto.entities.*;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +18,18 @@ import java.util.Random;
 
 public class MenuRutasController {
 
-    private GestorRutas gestorRutas = new GestorRutas();
+    private GestorRutas gestorRutas;
+    private GestorVehiculos gestorVehiculos; // Añade esta línea
 
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
     }
+
+    // Añade este método para recibir el GestorVehiculos
+    public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
+        this.gestorVehiculos = gestorVehiculos;
+    }
+
 
     @FXML
     private void agregarRuta(ActionEvent event) {
@@ -89,7 +96,7 @@ public class MenuRutasController {
     private void eliminarRuta(ActionEvent event) {
         Optional<String> id = pedirInput("Eliminar Ruta", "Ingrese el ID de la ruta a eliminar:");
         if (id.isPresent()) {
-            String valor = id.get().trim();
+            String valor = id.get().trim().toUpperCase();
             if (!valor.isEmpty()) {
                 if (gestorRutas.eliminarRuta(valor)) {
                     mostrarMensaje("Exito", "Ruta eliminada exitosamente.");
@@ -108,7 +115,7 @@ public class MenuRutasController {
     private void buscarRuta(ActionEvent event) {
         Optional<String> id = pedirInput("Buscar Ruta", "Ingrese el ID de la ruta a buscar:");
         if (id.isPresent()) {
-            String valor = id.get().trim();
+            String valor = id.get().trim().toUpperCase();
             if (!valor.isEmpty()) {
                 Rutas ruta = gestorRutas.buscarRutaPorID(valor);
                 if (ruta != null) {
@@ -136,7 +143,7 @@ public class MenuRutasController {
 
         if (idInput.isPresent() && origenInput.isPresent() && distanciaInput.isPresent() && horariosInput.isPresent()) {
 
-            String id = idInput.get().trim();
+            String id = idInput.get().trim().toUpperCase();
             String origen = origenInput.get().trim();
             String distanciaStr = distanciaInput.get().trim();
             String horariosStr = horariosInput.get().trim();
@@ -178,6 +185,7 @@ public class MenuRutasController {
 
             MenuPrincipalController controller = loader.getController(); // carga el controlador del menu principal fxml
             controller.setGestorRutas(gestorRutas); // pasa el gestorRutas actual al nuevo controlador del menu principal para que los datos queden ahi guardados
+            controller.setGestorVehiculos(gestorVehiculos);
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow(); // Obtiene la ventana actual
             stage.setScene(new Scene(root)); // la cambia por la del menu principal

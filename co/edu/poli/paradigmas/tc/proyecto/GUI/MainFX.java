@@ -1,6 +1,6 @@
 package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,22 +9,25 @@ import javafx.stage.Stage;
 
 public class MainFX extends Application {
     private GestorRutas gestorRutas; // unica instancia compartida para el gestor rutas
+    private  GestorConductores gestorConductores;
+    private GestorVehiculos gestorVehiculos;
 
     @Override
     public void start(Stage primaryStage) {
         try {
-            // Inicializar los gestores para que se compartan y guarden los datos en caso de que se quierzn usar en otro gestor
             gestorRutas = new GestorRutas();
+            gestorConductores = new GestorConductores();
+            gestorVehiculos = new GestorVehiculos();
 
-            // Cargar FXML del menu principal
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuPrincipal.fxml"));
             Parent root = loader.load();
 
-            // poner el gestor en el controlador principal si lo necesita
-            MenuPrincipalController controller = loader.getController();
-            controller.setGestorRutas(gestorRutas); // le pasa al controlador una instancia de gestor rutas
+            MenuPrincipalController mainController = loader.getController();
+            System.out.println("GestorVehiculos en MainFX antes de pasar: " + gestorVehiculos);
+            mainController.setGestorRutas(gestorRutas);
+            mainController.setGestorVehiculos(gestorVehiculos); // Pasar GestorVehiculos
 
-            primaryStage.setTitle("Menu Principal"); // titulo de la ventana
+            primaryStage.setTitle("Menú Principal");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
 
