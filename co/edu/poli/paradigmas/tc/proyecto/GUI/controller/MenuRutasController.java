@@ -20,14 +20,17 @@ public class MenuRutasController {
 
     private GestorRutas gestorRutas;
     private GestorVehiculos gestorVehiculos; // Añade esta línea
+    private GestorPasajeros gestorPasajeros;
 
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
     }
-
     // Añade este método para recibir el GestorVehiculos
     public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
         this.gestorVehiculos = gestorVehiculos;
+    }
+    public void setGestorPasajeros(GestorPasajeros gestorPasajeros) {
+        this.gestorPasajeros = gestorPasajeros;
     }
 
 
@@ -186,6 +189,7 @@ public class MenuRutasController {
             MenuPrincipalController controller = loader.getController(); // carga el controlador del menu principal fxml
             controller.setGestorRutas(gestorRutas); // pasa el gestorRutas actual al nuevo controlador del menu principal para que los datos queden ahi guardados
             controller.setGestorVehiculos(gestorVehiculos);
+            controller.setGestorPasajeros(gestorPasajeros);
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow(); // Obtiene la ventana actual
             stage.setScene(new Scene(root)); // la cambia por la del menu principal

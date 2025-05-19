@@ -49,6 +49,7 @@ public class MenuPrincipalController {
             System.out.println("GestorRutas in MenuPrincipal: " + gestorRutas); // Debug
             Rcontroller.setGestorRutas(gestorRutas);
             Rcontroller.setGestorVehiculos(gestorVehiculos);
+            Rcontroller.setGestorPasajeros(gestorPasajeros);
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
@@ -74,6 +75,7 @@ public class MenuPrincipalController {
             MenuVehiculosController controller = loader.getController();
             controller.setGestorRutas(gestorRutas); // Pasar GestorRutas (si es necesario)
             controller.setGestorVehiculos(gestorVehiculos); // Pasar GestorVehiculos
+            controller.setGestorPasajeros(gestorPasajeros);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Menú de Vehículos");

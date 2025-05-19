@@ -85,4 +85,17 @@ public class GestorPasajeros {
             }
         }
     }
+    public int generarIdPasajero() {
+        if (listaPasajeros.isEmpty()) {
+            return 1; // Comenzamos desde 1
+        } else {
+            int maxId = 0;
+            for (Pasajeros p : listaPasajeros) {
+                if (p.getNumeroID() > maxId) {
+                    maxId = p.getNumeroID();
+                }
+            }
+            return maxId + 1;
+        }
+    }
 }

@@ -23,7 +23,7 @@
             <Font name="Times New Roman Bold" size="10.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="29.0" layoutY="94.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Agregar Pasajero">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="29.0" layoutY="94.0" mnemonicParsing="false" onAction="#agregarPasajero" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Agregar Pasajero">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -35,7 +35,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="270.0" layoutY="94.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Eliminar Pasajero">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="270.0" layoutY="94.0" mnemonicParsing="false" onAction="#eliminarPasajero" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Eliminar Pasajero">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -47,7 +47,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="149.0" layoutY="94.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Buscar Pasajero">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="149.0" layoutY="94.0" mnemonicParsing="false" onAction="#buscarPasajero" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Buscar Pasajero">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -59,7 +59,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="150.0" layoutY="172.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Mostrar todos los pasajeros" textAlignment="CENTER" wrapText="true">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="150.0" layoutY="172.0" mnemonicParsing="false" onAction="#mostrarTodosPasajeros" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Mostrar todos los pasajeros" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -71,7 +71,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="29.0" layoutY="172.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Actualizar Pasajero" textAlignment="CENTER" wrapText="true">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="29.0" layoutY="172.0" mnemonicParsing="false" onAction="#actualizarPasajero" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Actualizar Pasajero" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
@@ -83,7 +83,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="270.0" layoutY="172.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Mostrar boletos de pasajero" textAlignment="CENTER" wrapText="true">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="270.0" layoutY="172.0" mnemonicParsing="false" onAction="#mostrarBoletosPasajero" prefHeight="70.0" prefWidth="111.0" style="-fx-background-color: #deecf4;" text="Mostrar boletos de pasajero" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
