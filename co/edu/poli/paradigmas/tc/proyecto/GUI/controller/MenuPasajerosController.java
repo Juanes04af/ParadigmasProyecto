@@ -205,13 +205,34 @@ public class MenuPasajerosController {
         }
     }
 
-    // Métodos utilitarios
     private Optional<String> pedirInput(String titulo, String mensaje) {
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle(titulo);
-        dialog.setHeaderText(null);
-        dialog.setContentText(mensaje);
-        return dialog.showAndWait();
+        while (true) {
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle(titulo);
+            dialog.setHeaderText(mensaje);
+            Optional<String> resultado = dialog.showAndWait();
+
+            if (resultado.isPresent()) {
+                String valor = resultado.get().trim();
+                if (!valor.isEmpty()) {
+                    return Optional.of(valor);
+                } else {
+                    mostrarMensaje("Campo requerido", "Este campo no puede estar vacío. Por favor, ingrese un valor.");
+                }
+            } else {
+                // Confirmacion para cancelar todo
+                Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmacion.setTitle("Cancelar");
+                confirmacion.setHeaderText("¿Estás seguro que deseas cancelar?");
+                confirmacion.setContentText("Si confirmas, se cancelará todo el proceso.");
+
+                Optional<ButtonType> opcion = confirmacion.showAndWait();
+                if (opcion.isPresent() && opcion.get() == ButtonType.OK) {
+                    return Optional.empty(); // Se cancela todo
+                }
+                // Si elige Cancelar en la confirmación, se repite el input
+            }
+        }
     }
 
     private void mostrarMensaje(String titulo, String mensaje) {
