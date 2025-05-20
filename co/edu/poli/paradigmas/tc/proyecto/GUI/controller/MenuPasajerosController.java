@@ -29,7 +29,7 @@ public class MenuPasajerosController {
     public void setGestorPasajeros(GestorPasajeros gestorPasajeros) {
         this.gestorPasajeros = gestorPasajeros;
         if (this.gestorPasajeros == null) {
-            System.err.println("Alerta: GestorPasajeros no se inicializó correctamente.");
+            System.err.println("Alerta: GestorPasajeros no se inicializo correctamente.");
         }
     }
 
@@ -44,7 +44,7 @@ public class MenuPasajerosController {
     @FXML
     private void agregarPasajero(ActionEvent event) {
         if (gestorPasajeros == null) {
-            mostrarMensaje("Error", "El gestor de pasajeros no está inicializado.");
+            mostrarMensaje("Error", "El gestor de pasajeros no esta inicializado.");
             return;
         }
         Optional<String> nombreInput = pedirInput("Agregar Pasajero", "Ingrese el nombre del pasajero:");
@@ -53,7 +53,7 @@ public class MenuPasajerosController {
             int id = gestorPasajeros.generarIdPasajero();
             Pasajeros nuevoPasajero = new Pasajeros(id, nombre);
             gestorPasajeros.agregarPasajero(nuevoPasajero);
-            mostrarMensaje("Éxito", "Pasajero agregado correctamente con ID: " + id);
+            mostrarMensaje("Exito", "Pasajero agregado correctamente con ID: " + id);
         }
     }
 
@@ -71,10 +71,10 @@ public class MenuPasajerosController {
                 if (pasajero != null) {
                     mostrarMensaje("Pasajero Encontrado", "ID: " + pasajero.getNumeroID() + "\nNombre: " + pasajero.getNombre());
                 } else {
-                    mostrarMensaje("No encontrado", "No se encontró ningún pasajero con ese ID.");
+                    mostrarMensaje("No encontrado", "No se encontro ningun pasajero con ese ID.");
                 }
             } catch (NumberFormatException e) {
-                mostrarMensaje("Error", "ID inválido. Debe ser un número.");
+                mostrarMensaje("Error", "ID inválido. Debe ser un numero.");
             }
         }
     }
@@ -82,7 +82,7 @@ public class MenuPasajerosController {
     @FXML
     private void actualizarPasajero(ActionEvent event) {
         if (gestorPasajeros == null) {
-            mostrarMensaje("Error", "El gestor de pasajeros no está inicializado.");
+            mostrarMensaje("Error", "El gestor de pasajeros no esta inicializado.");
             return;
         }
         Optional<String> idInput = pedirInput("Actualizar Pasajero", "Ingrese el ID del pasajero a actualizar:");
@@ -94,13 +94,13 @@ public class MenuPasajerosController {
                     Optional<String> nuevoNombre = pedirInput("Actualizar Nombre", "Ingrese el nuevo nombre del pasajero:");
                     if (nuevoNombre.isPresent()) {
                         gestorPasajeros.actualizarNombrePasajero(id, nuevoNombre.get());
-                        mostrarMensaje("Éxito", "Nombre del pasajero actualizado correctamente.");
+                        mostrarMensaje("Exito", "Nombre del pasajero actualizado correctamente.");
                     }
                 } else {
                     mostrarMensaje("No encontrado", "No se encontró ningún pasajero con ese ID.");
                 }
             } catch (NumberFormatException e) {
-                mostrarMensaje("Error", "ID inválido. Debe ser un número.");
+                mostrarMensaje("Error", "ID inválido. Debe ser un numero.");
             }
         }
     }
@@ -118,12 +118,12 @@ public class MenuPasajerosController {
                 Pasajeros pasajero = gestorPasajeros.buscarPasajeroPorId(id);
                 if (pasajero != null) {
                     gestorPasajeros.eliminarPasajero(id);
-                    mostrarMensaje("Éxito", "Pasajero eliminado correctamente.");
+                    mostrarMensaje("Exito", "Pasajero eliminado correctamente.");
                 } else {
-                    mostrarMensaje("No encontrado", "No se encontró ningún pasajero con ese ID.");
+                    mostrarMensaje("No encontrado", "No se encontro ningun pasajero con ese ID.");
                 }
             } catch (NumberFormatException e) {
-                mostrarMensaje("Error", "ID inválido. Debe ser un número.");
+                mostrarMensaje("Error", "ID invalido. Debe ser un numero.");
             }
         }
     }
@@ -131,7 +131,7 @@ public class MenuPasajerosController {
     @FXML
     private void mostrarTodosPasajeros(ActionEvent event) {
         if (gestorPasajeros == null) {
-            mostrarMensaje("Error", "El gestor de pasajeros no está inicializado.");
+            mostrarMensaje("Error", "El gestor de pasajeros no esta inicializado.");
             return;
         }
         List<Pasajeros> listaPasajeros = gestorPasajeros.getListaPasajeros();
@@ -140,20 +140,20 @@ public class MenuPasajerosController {
             return;
         }
 
-        StringBuilder mensaje = new StringBuilder("Lista de Pasajeros:\n\n");
+        String mensaje = "Lista de Pasajeros:\n\n";
         for (Pasajeros p : listaPasajeros) {
-            mensaje.append("ID: ").append(p.getNumeroID())
-                    .append("\nNombre: ").append(p.getNombre()).append("\n\n");
+            mensaje += "ID: " + p.getNumeroID() + "\nNombre: " + p.getNombre() + "\n\n";
         }
-        mostrarMensaje("Lista de Pasajeros", mensaje.toString());
+        mostrarMensaje("Lista de Pasajeros", mensaje);
     }
 
     @FXML
     private void mostrarBoletosPasajero(ActionEvent event) {
         if (gestorPasajeros == null) {
-            mostrarMensaje("Error", "El gestor de pasajeros no está inicializado.");
+            mostrarMensaje("Error", "El gestor de pasajeros no esta inicializado.");
             return;
         }
+
         Optional<String> idInput = pedirInput("Boletos de Pasajero", "Ingrese el ID del pasajero:");
         if (idInput.isPresent()) {
             try {
@@ -164,14 +164,14 @@ public class MenuPasajerosController {
                     if (boletos == null || boletos.isEmpty()) {
                         mostrarMensaje("Boletos", "Este pasajero no tiene boletos.");
                     } else {
-                        StringBuilder mensaje = new StringBuilder("Boletos de " + pasajero.getNombre() + ":\n\n");
+                        String mensaje = "Boletos de " + pasajero.getNombre() + ":\n\n";
                         for (Boleto b : boletos) {
-                            mensaje.append(b.toString()).append("\n\n");
+                            mensaje += b.toString() + "\n\n";
                         }
-                        mostrarMensaje("Boletos del Pasajero", mensaje.toString());
+                        mostrarMensaje("Boletos del Pasajero", mensaje);
                     }
                 } else {
-                    mostrarMensaje("No encontrado", "No se encontró ningún pasajero con ese ID.");
+                    mostrarMensaje("No encontrado", "No se encontro ningun pasajero con ese ID.");
                 }
             } catch (NumberFormatException e) {
                 mostrarMensaje("Error", "ID inválido. Debe ser un número.");
@@ -192,7 +192,7 @@ public class MenuPasajerosController {
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Menú Principal");
+            stage.setTitle("Menu Principal");
             stage.setResizable(false);
             stage.show();
 
@@ -201,7 +201,7 @@ public class MenuPasajerosController {
             currentStage.close();
 
         } catch (IOException e) {
-            mostrarMensaje("Error", "No se pudo cargar el menú principal: " + e.getMessage());
+            mostrarMensaje("Error", "No se pudo cargar el menu principal: " + e.getMessage());
         }
     }
 
@@ -220,7 +220,6 @@ public class MenuPasajerosController {
                     mostrarMensaje("Campo requerido", "Este campo no puede estar vacío. Por favor, ingrese un valor.");
                 }
             } else {
-                // Confirmacion para cancelar todo
                 Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
                 confirmacion.setTitle("Cancelar");
                 confirmacion.setHeaderText("¿Estás seguro que deseas cancelar?");
@@ -230,7 +229,6 @@ public class MenuPasajerosController {
                 if (opcion.isPresent() && opcion.get() == ButtonType.OK) {
                     return Optional.empty(); // Se cancela todo
                 }
-                // Si elige Cancelar en la confirmación, se repite el input
             }
         }
     }
