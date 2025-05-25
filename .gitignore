@@ -1,0 +1,14 @@
+# Directorios y archivos de compilación de Java y IDEs
+*.class
+/bin/
+/out/
+/target/
+.idea/
+.project
+.classpath
+.settings/
+
+# Otros archivos ignorables
+*.log
+*.temp
+temp/
