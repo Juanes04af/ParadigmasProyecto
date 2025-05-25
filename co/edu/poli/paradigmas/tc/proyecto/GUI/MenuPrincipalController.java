@@ -1,8 +1,10 @@
 package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
+import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuConductoresController;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuPasajerosController;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuVehiculosController;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorConductores;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorPasajeros;
@@ -19,6 +21,7 @@ public class MenuPrincipalController {
     private GestorRutas gestorRutas;
     private GestorVehiculos gestorVehiculos; // Declarar GestorVehiculos
     private GestorPasajeros gestorPasajeros;
+    private GestorConductores gestorConductores;
 
     // trae gestores desde MainFX
     public void setGestorRutas(GestorRutas gestorRutas) {
@@ -34,6 +37,9 @@ public class MenuPrincipalController {
 
     public void setGestorPasajeros(GestorPasajeros gestorPasajeros) { this.gestorPasajeros = gestorPasajeros; }
 
+    public void setGestorConductores(GestorConductores gestorConductores) {
+        this.gestorConductores = gestorConductores;
+    }
 
     @FXML
     private void irAMenuRutas(ActionEvent event) {
@@ -50,6 +56,7 @@ public class MenuPrincipalController {
             Rcontroller.setGestorRutas(gestorRutas);
             Rcontroller.setGestorVehiculos(gestorVehiculos);
             Rcontroller.setGestorPasajeros(gestorPasajeros);
+            Rcontroller.setGestorConductores(gestorConductores); // Pasar GestorConductores
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
@@ -76,6 +83,7 @@ public class MenuPrincipalController {
             controller.setGestorRutas(gestorRutas); // Pasar GestorRutas (si es necesario)
             controller.setGestorVehiculos(gestorVehiculos); // Pasar GestorVehiculos
             controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorConductores(gestorConductores); // Pasar GestorConductores
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Menú de Vehículos");
@@ -99,6 +107,7 @@ public class MenuPrincipalController {
             Pcontroller.setGestorPasajeros(gestorPasajeros);
             Pcontroller.setGestorRutas(gestorRutas);
             Pcontroller.setGestorVehiculos(gestorVehiculos);
+            Pcontroller.setGestorConductores(gestorConductores); // Pasar GestorConductores
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
@@ -112,6 +121,34 @@ public class MenuPrincipalController {
             currentStage.close();
 
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void irMenuConductores(ActionEvent event) { // <-- Nuevo método para abrir el menú de conductores
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuConductores.fxml")); // Asume que tienes este FXML
+            Parent root = loader.load();
+            MenuConductoresController controller = loader.getController();
+
+            // Pasa todos los gestores que el MenuConductoresController podría necesitar
+            controller.setGestorConductores(gestorConductores);
+            controller.setGestorVehiculos(gestorVehiculos); // Si vas a asignar/desasignar vehículos
+            controller.setGestorRutas(gestorRutas); // Si vas a asignar rutas
+            controller.setGestorPasajeros(gestorPasajeros); // Si vas a asignar/desasignar pasajeros
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestión de Conductores");
+            stage.show();
+
+            // Cerrar ventana actual
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar el menú de conductores: " + e.getMessage());
             e.printStackTrace();
         }
     }

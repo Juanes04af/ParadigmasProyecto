@@ -6,6 +6,7 @@ import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -13,6 +14,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import javafx.scene.control.ChoiceDialog;
+
+import java.io.IOException;
 import java.util.Optional;
 import java.util.Random;
 
@@ -21,6 +24,11 @@ public class MenuRutasController {
     private GestorRutas gestorRutas;
     private GestorVehiculos gestorVehiculos; // Añade esta línea
     private GestorPasajeros gestorPasajeros;
+    private GestorConductores gestorConductores;
+
+    public void setGestorConductores(GestorConductores gestorConductores) {
+        this.gestorConductores = gestorConductores;
+    }
 
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
@@ -181,22 +189,30 @@ public class MenuRutasController {
     }
 
     @FXML
-    private void volverMenuPrincipal(ActionEvent event) { // se vincula al boton de volver - el event es la accion de darle click al boton
+    private void volverMenuPrincipal(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuPrincipal.fxml"));
-            Parent root = loader.load(); // se carga la instancia fxml del menu principal
+            Parent root = loader.load();
 
-            MenuPrincipalController controller = loader.getController(); // carga el controlador del menu principal fxml
-            controller.setGestorRutas(gestorRutas); // pasa el gestorRutas actual al nuevo controlador del menu principal para que los datos queden ahi guardados
+            MenuPrincipalController controller = loader.getController();
+            // Pasa todos los gestores de vuelta al MenuPrincipalController
+            controller.setGestorRutas(gestorRutas);
             controller.setGestorVehiculos(gestorVehiculos);
-            controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorPasajeros(gestorPasajeros); // No tienes gestor de pasajeros aquí, o si lo tuvieses, pásalo
+            controller.setGestorConductores(gestorConductores); // ¡Importante!
 
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow(); // Obtiene la ventana actual
-            stage.setScene(new Scene(root)); // la cambia por la del menu principal
-            stage.setTitle("Menú Principal"); // se le pone el titulo
-            stage.show(); // se muestra el menu principal
-        } catch (Exception e) {
-            mostrarMensaje("Error", "No se pudo cargar el menu principal."); // en caso de que algo salga mal al cargar el menu principal, lanza error
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Menu Principal");
+            stage.setResizable(false);
+            stage.show();
+
+            // Cierra la ventana actual
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            mostrarMensaje("Error", "No se pudo cargar el menu principal: " + e.getMessage());
             e.printStackTrace();
         }
     }

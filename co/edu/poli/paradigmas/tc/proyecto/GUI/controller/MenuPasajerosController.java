@@ -6,6 +6,7 @@ import co.edu.poli.paradigmas.tc.proyecto.entities.Pasajeros;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorPasajeros;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorConductores;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +26,11 @@ public class MenuPasajerosController {
     private GestorRutas gestorRutas;
     private GestorVehiculos gestorVehiculos;
     private GestorPasajeros gestorPasajeros;
+    private GestorConductores gestorConductores;
+
+    public void setGestorConductores(GestorConductores gestorConductores) {
+        this.gestorConductores = gestorConductores;
+    }
 
     public void setGestorPasajeros(GestorPasajeros gestorPasajeros) {
         this.gestorPasajeros = gestorPasajeros;
@@ -186,9 +192,11 @@ public class MenuPasajerosController {
             Parent root = loader.load();
 
             MenuPrincipalController controller = loader.getController();
+            // Pasa todos los gestores de vuelta al MenuPrincipalController
             controller.setGestorRutas(gestorRutas);
             controller.setGestorVehiculos(gestorVehiculos);
-            controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorPasajeros(gestorPasajeros); // No tienes gestor de pasajeros aquí, o si lo tuvieses, pásalo
+            controller.setGestorConductores(gestorConductores); // ¡Importante!
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -202,6 +210,7 @@ public class MenuPasajerosController {
 
         } catch (IOException e) {
             mostrarMensaje("Error", "No se pudo cargar el menu principal: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 

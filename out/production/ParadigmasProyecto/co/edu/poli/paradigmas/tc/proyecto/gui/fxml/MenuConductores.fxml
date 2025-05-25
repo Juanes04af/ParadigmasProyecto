@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuConductoresController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label text="Menú de Gestión de Conductores">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <Separator prefWidth="200.0" />
+    <Button onAction="#agregarConductor" prefWidth="200.0" text="Agregar Conductor" />
+    <Button onAction="#buscarConductor" prefWidth="200.0" text="Buscar Conductor" />
+    <Button onAction="#actualizarConductor" prefWidth="200.0" text="Actualizar Conductor" />
+    <Button onAction="#eliminarConductor" prefWidth="200.0" text="Eliminar Conductor" />
+    <Button onAction="#mostrarTodosLosConductores" prefWidth="200.0" text="Mostrar Todos los Conductores" />
+    <Button onAction="#mostrarVehiculosConductor" prefWidth="200.0" text="Mostrar Vehículos de Conductor" />
+    <Button onAction="#asignarVehiculoAConductor" prefWidth="200.0" text="Asignar Vehículo a Conductor" />
+    <Button onAction="#eliminarVehiculoDeConductor" prefWidth="200.0" text="Eliminar Vehículo de Conductor" />
+    <Separator prefWidth="200.0" />
+    <Button onAction="#volverMenuPrincipal" prefWidth="200.0" text="Volver al Menú Principal" />
+</VBox>

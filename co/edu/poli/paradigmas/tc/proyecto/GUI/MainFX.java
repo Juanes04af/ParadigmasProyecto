@@ -29,6 +29,8 @@ public class MainFX extends Application {
             mainController.setGestorRutas(gestorRutas);
             mainController.setGestorVehiculos(gestorVehiculos); // Pasar GestorVehiculos
             mainController.setGestorPasajeros(gestorPasajeros);
+            mainController.setGestorConductores(gestorConductores); // Pasar GestorConductores
+
 
             primaryStage.setTitle("Menú Principal");
             primaryStage.setScene(new Scene(root));
