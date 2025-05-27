@@ -32,7 +32,6 @@ public class MenuTallerController {
     private GestorTaller gestorTaller;
     private GestorBoletos gestorBoletos;
 
-    // Métodos set para recibir los gestores
     public void setGestorBoletos(GestorBoletos gestorBoletos) {
         this.gestorBoletos = gestorBoletos;
         if (this.gestorBoletos == null) {
@@ -79,7 +78,6 @@ public class MenuTallerController {
             return;
         }
 
-
         List<String> placasVehiculos = gestorVehiculos.obtenerListaVehiculos().stream()
                 .map(Vehiculo::getNumeroPlaca)
                 .collect(Collectors.toList());
@@ -100,7 +98,6 @@ public class MenuTallerController {
             return;
         }
 
-
         Optional<String> tipoMantenimientoInput = pedirInput("Agregar Registro", "Ingrese el tipo de mantenimiento (Ej: Preventivo, Correctivo):");
         if (tipoMantenimientoInput.isEmpty()) return;
         String tipoMantenimiento = tipoMantenimientoInput.get();
@@ -116,9 +113,7 @@ public class MenuTallerController {
 
 
         Optional<String> observacionesInput = pedirInput("Agregar Registro", "Ingrese las observaciones adicionales (opcional):");
-        String observaciones = observacionesInput.orElse(""); // Si no se ingresa, será una cadena vacía
-
-
+        String observaciones = observacionesInput.orElse("");
 
         TallerMantenimiento nuevoMantenimiento = new TallerMantenimiento(
                 idRegistro,
@@ -130,7 +125,7 @@ public class MenuTallerController {
         );
         gestorTaller.agregarRegistro(nuevoMantenimiento);
 
-        // Actualizar la disponibilidad del vehículo
+        // Actualizar la disponibilidad
         if (estado.equalsIgnoreCase("En Taller")) {
             vehiculoSeleccionado.setDisponibilidad(false);
         } else {
@@ -159,17 +154,16 @@ public class MenuTallerController {
                 mostrarMensaje("No encontrado", "No se encontró ningún registro de mantenimiento con ese ID.");
             }
         } catch (NumberFormatException e) {
-            mostrarMensaje("Error", "ID inválido. Debe ser un número.");
+            mostrarMensaje("Error", "ID invalido. Debe ser un número.");
         }
     }
 
     @FXML
     private void eliminarRegistroMantenimiento(ActionEvent event) {
         if (gestorTaller == null) {
-            mostrarMensaje("Error", "El gestor de taller no está inicializado.");
+            mostrarMensaje("Error", "El gestor de taller no esta inicializado.");
             return;
         }
-
         Optional<String> idInput = pedirInput("Eliminar Registro", "Ingrese el ID del registro de mantenimiento a eliminar:");
         if (idInput.isEmpty()) return;
 
@@ -188,7 +182,7 @@ public class MenuTallerController {
     @FXML
     private void actualizarEstadoMantenimiento(ActionEvent event) {
         if (gestorTaller == null) {
-            mostrarMensaje("Error", "El gestor de taller no está inicializado.");
+            mostrarMensaje("Error", "El gestor de taller no esta inicializado.");
             return;
         }
 
@@ -286,12 +280,12 @@ public class MenuTallerController {
             } else {
                 Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
                 confirmacion.setTitle("Cancelar");
-                confirmacion.setHeaderText("¿Estás seguro que deseas cancelar?");
+                confirmacion.setHeaderText("¿Estas seguro que deseas cancelar?");
                 confirmacion.setContentText("Si confirmas, se cancelará todo el proceso.");
 
                 Optional<ButtonType> opcion = confirmacion.showAndWait();
                 if (opcion.isPresent() && opcion.get() == ButtonType.OK) {
-                    return Optional.empty(); // Se cancela todo
+                    return Optional.empty();
                 }
             }
         }
@@ -305,7 +299,7 @@ public class MenuTallerController {
         ChoiceDialog<String> dialog = new ChoiceDialog<>(opciones[0], opciones);
         dialog.setTitle(titulo);
         dialog.setHeaderText(header);
-        dialog.setContentText("Seleccione una opción:");
+        dialog.setContentText("Seleccione una opcion:");
         return dialog.showAndWait();
     }
 
