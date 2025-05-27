@@ -72,6 +72,15 @@ public class GestorVehiculos {
         return null;
     }
 
+    public boolean BuscarVehiculoBoolean(String numeroPlaca) {
+        for (Vehiculo vehiculoTemp : listaVehiculos) {
+            if (vehiculoTemp.getNumeroPlaca().equals(numeroPlaca)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * CRUD Eliminar -Elimina el vehiculo con la placa que el usuario ingrese.
      * @param numeroPlaca -Parametro de busqueda para eliminar un determinado vehiculo.

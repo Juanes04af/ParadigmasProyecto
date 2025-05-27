@@ -90,6 +90,14 @@ public class MenuVehiculosController {
             try {
                 int numeroPasajeros = Integer.parseInt(pasajerosStr.get().trim());
                 Rutas ruta = gestorRutas.buscarRutaPorID(idRuta);
+                if(numeroPasajeros <= 0) {
+                    mostrarMensaje("Error", "El número de pasajeros debe ser mayor que cero.");
+                    return;
+                }
+                if(gestorVehiculos.BuscarVehiculoBoolean(numeroPlaca)){
+                    mostrarMensaje("Error", "Ya existe un vehículo con la placa: " + numeroPlaca);
+                    return;
+                }
                 if (ruta != null) {
                     Vehiculo nuevoVehiculo = new Vehiculo(numeroPlaca, modeloVehiculo, (byte) numeroPasajeros, ruta, true, true);
                     gestorVehiculos.agregarVehiculo(nuevoVehiculo);
