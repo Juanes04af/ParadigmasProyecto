@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="522.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuBoletoController">
+   <children>
+      <ImageView fitHeight="296.0" fitWidth="552.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/Boleto.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="76.0" fitWidth="327.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/boletoT.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="145.0" layoutX="353.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/poli.png" />
+         </image>
+      </ImageView>
+      <Button contentDisplay="TOP" layoutX="64.0" layoutY="124.0" onAction="#crearBoleto" prefHeight="66.0" prefWidth="123.0" style="-fx-background-color: #deecf4;" text="Agregar un nuevo Boleto" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="11.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/queue_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="202.0" layoutY="124.0" onAction="#buscarBoleto" prefHeight="66.0" prefWidth="123.0" style="-fx-background-color: #deecf4;" text="Buscar Boleto" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/search_zoom_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="335.0" layoutY="124.0" onAction="#actualizarBoleto" prefHeight="66.0" prefWidth="123.0" style="-fx-background-color: #deecf4;" text="Actualizar Boleto" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/update_arrow_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="125.0" layoutY="199.0" onAction="#eliminarBoleto" prefHeight="66.0" prefWidth="123.0" style="-fx-background-color: #deecf4;" text="Eliminar Boleto" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="11.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/delete_remove_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="263.0" layoutY="199.0" onAction="#mostrarTodosBoletos" prefHeight="66.0" prefWidth="123.0" style="-fx-background-color: #deecf4;" text="Mostrar todos los Boletos" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/view_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="319.0" layoutY="335.0" onAction="#volverMenuPrincipal" prefHeight="66.0" prefWidth="145.0" style="-fx-background-color: #87d0ec;" text="Volver al Menú Principal" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

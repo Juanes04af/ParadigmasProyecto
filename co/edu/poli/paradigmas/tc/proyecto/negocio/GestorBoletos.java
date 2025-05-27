@@ -1,5 +1,6 @@
 package co.edu.poli.paradigmas.tc.proyecto.negocio;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Boleto;
+import co.edu.poli.paradigmas.tc.proyecto.entities.Pasajeros;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
 
 import java.util.ArrayList;
@@ -14,6 +15,10 @@ public class GestorBoletos {
      */
     public static double getPrecioFijo() {
         return precioFijo;
+    }
+
+    public ArrayList<Boleto> getBoletos() {
+        return boletos;
     }
 
     /**
@@ -87,6 +92,20 @@ public class GestorBoletos {
             }
         }
         System.out.println("Boleto no encontrado.");
+    }
+
+    public int generarIdBoleto() {
+        if (boletos.isEmpty()) {
+            return 1; // Comenzamos desde 1
+        } else {
+            int maxId = 0;
+            for (Boleto b : boletos) {
+                if (b.getNumeroID() > maxId) {
+                    maxId = (int) b.getNumeroID();
+                }
+            }
+            return maxId + 1;
+        }
     }
 
 }

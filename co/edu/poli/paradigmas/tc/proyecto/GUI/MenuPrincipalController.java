@@ -1,10 +1,6 @@
 package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
-import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuConductoresController;
-import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuPasajerosController;
-import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController;
-import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuVehiculosController;
-import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuTallerController;
+import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.*;
 import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,25 +17,27 @@ public class MenuPrincipalController {
     private GestorPasajeros gestorPasajeros;
     private GestorConductores gestorConductores;
     private GestorTaller gestorTaller;
+    private GestorBoletos gestorBoletos;
 
 
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
     }
-
-
     public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
         this.gestorVehiculos = gestorVehiculos;
         System.out.println("setGestorVehiculos llamado en MenuPrincipalController con: " + gestorVehiculos);
 
     }
-
+    public void setGestorBoletos(GestorBoletos gestorBoletos) {
+        this.gestorBoletos = gestorBoletos;
+        if (this.gestorBoletos == null) {
+            System.err.println("Alerta: GestorBoletos no se inicializo correctamente.");
+        }
+    }
     public void setGestorPasajeros(GestorPasajeros gestorPasajeros) { this.gestorPasajeros = gestorPasajeros; }
-
     public void setGestorConductores(GestorConductores gestorConductores) {
         this.gestorConductores = gestorConductores;
     }
-
     public void setGestorTaller(GestorTaller gestorTaller) {
         this.gestorTaller = gestorTaller;
     }
@@ -61,6 +59,8 @@ public class MenuPrincipalController {
             Rcontroller.setGestorPasajeros(gestorPasajeros);
             Rcontroller.setGestorConductores(gestorConductores);
             Rcontroller.setGestorTaller(gestorTaller);
+            Rcontroller.setGestorBoletos(gestorBoletos);
+
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
@@ -89,6 +89,8 @@ public class MenuPrincipalController {
             controller.setGestorVehiculos(gestorVehiculos);
             controller.setGestorRutas(gestorRutas);
             controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorBoletos(gestorBoletos);
+
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Menú de Vehículos");
@@ -114,6 +116,8 @@ public class MenuPrincipalController {
             Pcontroller.setGestorVehiculos(gestorVehiculos);
             Pcontroller.setGestorRutas(gestorRutas);
             Pcontroller.setGestorPasajeros(gestorPasajeros);
+            Pcontroller.setGestorBoletos(gestorBoletos);
+
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
@@ -144,6 +148,8 @@ public class MenuPrincipalController {
             controller.setGestorVehiculos(gestorVehiculos);
             controller.setGestorRutas(gestorRutas);
             controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorBoletos(gestorBoletos);
+
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -173,6 +179,38 @@ public class MenuPrincipalController {
             controller.setGestorVehiculos(gestorVehiculos);
             controller.setGestorRutas(gestorRutas);
             controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorBoletos(gestorBoletos);
+
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestión de Taller de Mantenimiento");
+            stage.show();
+
+            // Cerrar ventana actual
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar el menú de taller: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void irMenuBoletos(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuBoleto.fxml"));
+            Parent root = loader.load();
+            MenuBoletoController controller = loader.getController();
+
+
+            controller.setGestorTaller(gestorTaller);
+            controller.setGestorConductores(gestorConductores);
+            controller.setGestorVehiculos(gestorVehiculos);
+            controller.setGestorRutas(gestorRutas);
+            controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorBoletos(gestorBoletos);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

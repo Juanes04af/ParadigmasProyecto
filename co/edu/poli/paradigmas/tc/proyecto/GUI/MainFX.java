@@ -14,6 +14,7 @@ public class MainFX extends Application {
     private GestorVehiculos gestorVehiculos;
     private GestorPasajeros gestorPasajeros;
     private GestorTaller gestorTaller;
+    private GestorBoletos gestorBoletos;
 
     @Override
     public void start(Stage primaryStage) {
@@ -23,6 +24,7 @@ public class MainFX extends Application {
             gestorVehiculos = new GestorVehiculos();
             gestorPasajeros= new GestorPasajeros();
             gestorTaller = new GestorTaller(gestorVehiculos.obtenerListaVehiculos());
+            gestorBoletos = new GestorBoletos();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuPrincipal.fxml"));
             Parent root = loader.load();
@@ -34,6 +36,7 @@ public class MainFX extends Application {
             mainController.setGestorPasajeros(gestorPasajeros);
             mainController.setGestorConductores(gestorConductores);
             mainController.setGestorTaller(gestorTaller);
+            mainController.setGestorBoletos(gestorBoletos);
 
 
             primaryStage.setTitle("Menú Principal");

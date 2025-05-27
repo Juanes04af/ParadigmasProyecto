@@ -1,28 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuConductoresController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-    <Label text="Menú de Gestión de Conductores">
-        <font>
-            <Font name="System Bold" size="24.0" />
-        </font>
-    </Label>
-    <Separator prefWidth="200.0" />
-    <Button onAction="#agregarConductor" prefWidth="200.0" text="Agregar Conductor" />
-    <Button onAction="#buscarConductor" prefWidth="200.0" text="Buscar Conductor" />
-    <Button onAction="#actualizarConductor" prefWidth="200.0" text="Actualizar Conductor" />
-    <Button onAction="#eliminarConductor" prefWidth="200.0" text="Eliminar Conductor" />
-    <Button onAction="#mostrarTodosLosConductores" prefWidth="200.0" text="Mostrar Todos los Conductores" />
-    <Button onAction="#mostrarVehiculosConductor" prefWidth="200.0" text="Mostrar Vehículos de Conductor" />
-    <Button onAction="#asignarVehiculoAConductor" prefWidth="200.0" text="Asignar Vehículo a Conductor" />
-    <Button onAction="#eliminarVehiculoDeConductor" prefWidth="200.0" text="Eliminar Vehículo de Conductor" />
-    <Separator prefWidth="200.0" />
-    <Button onAction="#volverMenuPrincipal" prefWidth="200.0" text="Volver al Menú Principal" />
-</VBox>
+
+<AnchorPane prefHeight="552.0" prefWidth="472.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuConductoresController">
+   <children>
+      <ImageView fitHeight="267.0" fitWidth="592.0" layoutX="-7.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/Img3.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="331.0" layoutX="11.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/conductores.jpg" />
+         </image>
+      </ImageView>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="31.0" layoutY="101.0" onAction="#agregarConductor" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Agregar Conductor" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/queue_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="177.0" layoutY="175.0" onAction="#buscarConductor" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Buscar Conductor" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/search_zoom_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="177.0" layoutY="101.0" onAction="#actualizarConductor" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Actualizar Conductor" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/update_arrow_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="321.0" layoutY="101.0" onAction="#eliminarConductor" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Eliminar Conductor" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/delete_remove_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="96.0" layoutY="253.0" onAction="#mostrarTodosLosConductores" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Mostrar Todos los Conductores" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/view_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="256.0" layoutY="253.0" onAction="#mostrarVehiculosConductor" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Mostrar Vehículos de Conductor" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/view_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="31.0" layoutY="175.0" onAction="#asignarVehiculoAConductor" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Asignar Vehículo a Conductor" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/id_card_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="TOP" layoutX="321.0" layoutY="175.0" onAction="#eliminarVehiculoDeConductor" prefHeight="64.0" prefWidth="130.0" style="-fx-background-color: #deecf4;" text="Eliminar Vehículo de Conductor" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/delete_remove_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="235.0" layoutY="347.0" onAction="#volverMenuPrincipal" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: #87d0ec;" text="Volver al Menú Principal">
+         <font>
+            <Font name="Times New Roman Bold" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="67.0" fitWidth="118.0" layoutX="352.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/poli.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

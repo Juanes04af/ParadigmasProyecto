@@ -21,31 +21,38 @@ import java.util.Random;
 
 public class MenuRutasController {
 
-    private GestorRutas gestorRutas;
-    private GestorVehiculos gestorVehiculos; // Añade esta línea
-    private GestorPasajeros gestorPasajeros;
     private GestorConductores gestorConductores;
+    private GestorVehiculos gestorVehiculos;
+    private GestorRutas gestorRutas;
+    private GestorPasajeros gestorPasajeros;
     private GestorTaller gestorTaller;
+    private GestorBoletos gestorBoletos;
 
+    // Métodos set para recibir los gestores
+    public void setGestorBoletos(GestorBoletos gestorBoletos) {
+        this.gestorBoletos = gestorBoletos;
+        if (this.gestorBoletos == null) {
+            System.err.println("Alerta: GestorBoletos no se inicializo correctamente.");
+        }
+    }
+    public void setGestorConductores(GestorConductores gestorConductores) {
+        this.gestorConductores = gestorConductores;
+        if (this.gestorConductores == null) {
+            System.err.println("Alerta: GestorConductores no se inicializó correctamente.");
+        }
+    }
+    public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
+        this.gestorVehiculos = gestorVehiculos;
+    }
     public void setGestorTaller(GestorTaller gestorTaller) {
         this.gestorTaller = gestorTaller;
     }
-
-    public void setGestorConductores(GestorConductores gestorConductores) {
-        this.gestorConductores = gestorConductores;
-    }
-
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
-    }
-    // Añade este método para recibir el GestorVehiculos
-    public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
-        this.gestorVehiculos = gestorVehiculos;
     }
     public void setGestorPasajeros(GestorPasajeros gestorPasajeros) {
         this.gestorPasajeros = gestorPasajeros;
     }
-
 
     @FXML
     private void agregarRuta(ActionEvent event) {
@@ -206,6 +213,7 @@ public class MenuRutasController {
             controller.setGestorPasajeros(gestorPasajeros);
             controller.setGestorConductores(gestorConductores);
             controller.setGestorTaller(gestorTaller);
+            controller.setGestorBoletos(gestorBoletos);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

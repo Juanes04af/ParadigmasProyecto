@@ -25,39 +25,37 @@ import java.util.stream.Collectors;
 
 public class MenuTallerController {
 
-    private GestorTaller gestorTaller;
-    private GestorVehiculos gestorVehiculos;
-    private GestorPasajeros gestorPasajeros;
     private GestorConductores gestorConductores;
+    private GestorVehiculos gestorVehiculos;
     private GestorRutas gestorRutas;
+    private GestorPasajeros gestorPasajeros;
+    private GestorTaller gestorTaller;
+    private GestorBoletos gestorBoletos;
 
-
-    public MenuTallerController() {
+    // Métodos set para recibir los gestores
+    public void setGestorBoletos(GestorBoletos gestorBoletos) {
+        this.gestorBoletos = gestorBoletos;
+        if (this.gestorBoletos == null) {
+            System.err.println("Alerta: GestorBoletos no se inicializo correctamente.");
+        }
     }
-
     public void setGestorConductores(GestorConductores gestorConductores) {
         this.gestorConductores = gestorConductores;
+        if (this.gestorConductores == null) {
+            System.err.println("Alerta: GestorConductores no se inicializó correctamente.");
+        }
     }
-    public void setGestorPasajeros(GestorPasajeros gestorPasajeros) {
-        this.gestorPasajeros = gestorPasajeros;
+    public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
+        this.gestorVehiculos = gestorVehiculos;
     }
-
+    public void setGestorTaller(GestorTaller gestorTaller) {
+        this.gestorTaller = gestorTaller;
+    }
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
     }
-
-    public void setGestorTaller(GestorTaller gestorTaller) {
-        this.gestorTaller = gestorTaller;
-        if (this.gestorTaller == null) {
-            System.err.println("Alerta: GestorTaller no se inicializó correctamente.");
-        }
-    }
-
-    public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
-        this.gestorVehiculos = gestorVehiculos;
-        if (this.gestorVehiculos == null) {
-            System.err.println("Alerta: GestorVehiculos no se inicializó correctamente.");
-        }
+    public void setGestorPasajeros(GestorPasajeros gestorPasajeros) {
+        this.gestorPasajeros = gestorPasajeros;
     }
 
     @FXML
@@ -245,11 +243,13 @@ public class MenuTallerController {
             Parent root = loader.load();
 
             MenuPrincipalController controller = loader.getController();
+            // Pasa todos los gestores de vuelta al MenuPrincipalController
             controller.setGestorRutas(gestorRutas);
             controller.setGestorVehiculos(gestorVehiculos);
             controller.setGestorPasajeros(gestorPasajeros);
             controller.setGestorConductores(gestorConductores);
             controller.setGestorTaller(gestorTaller);
+            controller.setGestorBoletos(gestorBoletos);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -257,6 +257,7 @@ public class MenuTallerController {
             stage.setResizable(false);
             stage.show();
 
+            // Cierra la ventana actual
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.close();
 
