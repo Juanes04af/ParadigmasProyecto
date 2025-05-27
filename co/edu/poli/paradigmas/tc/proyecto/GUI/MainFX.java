@@ -1,6 +1,7 @@
 package co.edu.poli.paradigmas.tc.proyecto.GUI;
 
 import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
+import java.util.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,7 @@ public class MainFX extends Application {
     private  GestorConductores gestorConductores;
     private GestorVehiculos gestorVehiculos;
     private GestorPasajeros gestorPasajeros;
+    private GestorTaller gestorTaller;
 
     @Override
     public void start(Stage primaryStage) {
@@ -20,6 +22,7 @@ public class MainFX extends Application {
             gestorConductores = new GestorConductores();
             gestorVehiculos = new GestorVehiculos();
             gestorPasajeros= new GestorPasajeros();
+            gestorTaller = new GestorTaller(gestorVehiculos.obtenerListaVehiculos());
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuPrincipal.fxml"));
             Parent root = loader.load();
@@ -27,9 +30,10 @@ public class MainFX extends Application {
             MenuPrincipalController mainController = loader.getController();
             System.out.println("GestorVehiculos en MainFX antes de pasar: " + gestorVehiculos);
             mainController.setGestorRutas(gestorRutas);
-            mainController.setGestorVehiculos(gestorVehiculos); // Pasar GestorVehiculos
+            mainController.setGestorVehiculos(gestorVehiculos);
             mainController.setGestorPasajeros(gestorPasajeros);
-            mainController.setGestorConductores(gestorConductores); // Pasar GestorConductores
+            mainController.setGestorConductores(gestorConductores);
+            mainController.setGestorTaller(gestorTaller);
 
 
             primaryStage.setTitle("Menú Principal");

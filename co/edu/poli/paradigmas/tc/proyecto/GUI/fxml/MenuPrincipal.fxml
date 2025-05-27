@@ -81,7 +81,7 @@
             <Font name="Times New Roman Bold" size="12.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="168.0" layoutY="201.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Taller">
+      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="3.0" layoutX="168.0" layoutY="201.0" mnemonicParsing="false" onAction="#irMenuTaller" prefHeight="70.0" prefWidth="125.0" style="-fx-background-color: #deecf4;" text="Gestionar Taller">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font>

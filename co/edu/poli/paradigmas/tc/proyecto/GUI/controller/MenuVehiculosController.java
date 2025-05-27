@@ -3,10 +3,7 @@ package co.edu.poli.paradigmas.tc.proyecto.GUI.controller;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.MenuPrincipalController;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Rutas;
 import co.edu.poli.paradigmas.tc.proyecto.entities.Vehiculo;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorPasajeros;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorConductores;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +27,11 @@ public class MenuVehiculosController {
     private GestorRutas gestorRutas;
     private GestorPasajeros gestorPasajeros;
     private GestorConductores gestorConductores;
+    private GestorTaller gestorTaller;
+
+    public void setGestorTaller(GestorTaller gestorTaller) {
+        this.gestorTaller = gestorTaller;
+    }
 
     public void setGestorConductores(GestorConductores gestorConductores) {
         this.gestorConductores = gestorConductores;
@@ -188,8 +190,9 @@ public class MenuVehiculosController {
             // Pasa todos los gestores de vuelta al MenuPrincipalController
             controller.setGestorRutas(gestorRutas);
             controller.setGestorVehiculos(gestorVehiculos);
-            controller.setGestorPasajeros(gestorPasajeros); // No tienes gestor de pasajeros aquí, o si lo tuvieses, pásalo
-            controller.setGestorConductores(gestorConductores); // ¡Importante!
+            controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorConductores(gestorConductores);
+            controller.setGestorTaller(gestorTaller);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

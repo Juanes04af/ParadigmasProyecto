@@ -25,6 +25,11 @@ public class MenuRutasController {
     private GestorVehiculos gestorVehiculos; // Añade esta línea
     private GestorPasajeros gestorPasajeros;
     private GestorConductores gestorConductores;
+    private GestorTaller gestorTaller;
+
+    public void setGestorTaller(GestorTaller gestorTaller) {
+        this.gestorTaller = gestorTaller;
+    }
 
     public void setGestorConductores(GestorConductores gestorConductores) {
         this.gestorConductores = gestorConductores;
@@ -198,8 +203,9 @@ public class MenuRutasController {
             // Pasa todos los gestores de vuelta al MenuPrincipalController
             controller.setGestorRutas(gestorRutas);
             controller.setGestorVehiculos(gestorVehiculos);
-            controller.setGestorPasajeros(gestorPasajeros); // No tienes gestor de pasajeros aquí, o si lo tuvieses, pásalo
-            controller.setGestorConductores(gestorConductores); // ¡Importante!
+            controller.setGestorPasajeros(gestorPasajeros);
+            controller.setGestorConductores(gestorConductores);
+            controller.setGestorTaller(gestorTaller);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

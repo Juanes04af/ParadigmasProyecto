@@ -105,4 +105,9 @@ public class GestorTaller {
         System.out.println("No se encontro ningun vehiculo con la placa: " + placa);
         return null;
     }
+
+    public ArrayList<TallerMantenimiento> getRegistrosMantenimiento() {
+        return registrosMantenimiento;
+    }
+
 }

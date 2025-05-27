@@ -4,10 +4,8 @@ import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuConductoresControll
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuPasajerosController;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuRutasController;
 import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuVehiculosController;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorConductores;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorRutas;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorVehiculos;
-import co.edu.poli.paradigmas.tc.proyecto.negocio.GestorPasajeros;
+import co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuTallerController;
+import co.edu.poli.paradigmas.tc.proyecto.negocio.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,16 +17,17 @@ import javafx.scene.Node;
 public class MenuPrincipalController {
 
     private GestorRutas gestorRutas;
-    private GestorVehiculos gestorVehiculos; // Declarar GestorVehiculos
+    private GestorVehiculos gestorVehiculos;
     private GestorPasajeros gestorPasajeros;
     private GestorConductores gestorConductores;
+    private GestorTaller gestorTaller;
 
-    // trae gestores desde MainFX
+
     public void setGestorRutas(GestorRutas gestorRutas) {
         this.gestorRutas = gestorRutas;
     }
 
-    // Método para recibir el GestorVehiculos desde MainFX
+
     public void setGestorVehiculos(GestorVehiculos gestorVehiculos) {
         this.gestorVehiculos = gestorVehiculos;
         System.out.println("setGestorVehiculos llamado en MenuPrincipalController con: " + gestorVehiculos);
@@ -41,22 +40,27 @@ public class MenuPrincipalController {
         this.gestorConductores = gestorConductores;
     }
 
+    public void setGestorTaller(GestorTaller gestorTaller) {
+        this.gestorTaller = gestorTaller;
+    }
+
     @FXML
     private void irAMenuRutas(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuRutas.fxml"));
             Parent root = loader.load();
 
-            // Obtener el controlador de rutas
-            MenuRutasController Rcontroller = loader.getController();
-            System.out.println("MenuRutasController instance created: " + Rcontroller); // Debug
 
-            // Compartir el gestor de rutas
-            System.out.println("GestorRutas in MenuPrincipal: " + gestorRutas); // Debug
+            MenuRutasController Rcontroller = loader.getController();
+            System.out.println("MenuRutasController instance created: " + Rcontroller);
+
+
+            System.out.println("GestorRutas in MenuPrincipal: " + gestorRutas);
             Rcontroller.setGestorRutas(gestorRutas);
             Rcontroller.setGestorVehiculos(gestorVehiculos);
             Rcontroller.setGestorPasajeros(gestorPasajeros);
-            Rcontroller.setGestorConductores(gestorConductores); // Pasar GestorConductores
+            Rcontroller.setGestorConductores(gestorConductores);
+            Rcontroller.setGestorTaller(gestorTaller);
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
@@ -80,10 +84,11 @@ public class MenuPrincipalController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuVehiculos.fxml"));
             Parent root = loader.load();
             MenuVehiculosController controller = loader.getController();
-            controller.setGestorRutas(gestorRutas); // Pasar GestorRutas (si es necesario)
-            controller.setGestorVehiculos(gestorVehiculos); // Pasar GestorVehiculos
+            controller.setGestorTaller(gestorTaller);
+            controller.setGestorConductores(gestorConductores);
+            controller.setGestorVehiculos(gestorVehiculos);
+            controller.setGestorRutas(gestorRutas);
             controller.setGestorPasajeros(gestorPasajeros);
-            controller.setGestorConductores(gestorConductores); // Pasar GestorConductores
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Menú de Vehículos");
@@ -104,10 +109,11 @@ public class MenuPrincipalController {
             Parent root = loader.load();
 
             MenuPasajerosController Pcontroller = loader.getController();
-            Pcontroller.setGestorPasajeros(gestorPasajeros);
-            Pcontroller.setGestorRutas(gestorRutas);
+            Pcontroller.setGestorTaller(gestorTaller);
+            Pcontroller.setGestorConductores(gestorConductores);
             Pcontroller.setGestorVehiculos(gestorVehiculos);
-            Pcontroller.setGestorConductores(gestorConductores); // Pasar GestorConductores
+            Pcontroller.setGestorRutas(gestorRutas);
+            Pcontroller.setGestorPasajeros(gestorPasajeros);
 
             // Mostrar nueva ventana para el menu de rutas
             Stage stage = new Stage();
@@ -126,17 +132,18 @@ public class MenuPrincipalController {
     }
 
     @FXML
-    private void irMenuConductores(ActionEvent event) { // <-- Nuevo método para abrir el menú de conductores
+    private void irMenuConductores(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuConductores.fxml")); // Asume que tienes este FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuConductores.fxml"));
             Parent root = loader.load();
             MenuConductoresController controller = loader.getController();
 
-            // Pasa todos los gestores que el MenuConductoresController podría necesitar
+
+            controller.setGestorTaller(gestorTaller);
             controller.setGestorConductores(gestorConductores);
-            controller.setGestorVehiculos(gestorVehiculos); // Si vas a asignar/desasignar vehículos
-            controller.setGestorRutas(gestorRutas); // Si vas a asignar rutas
-            controller.setGestorPasajeros(gestorPasajeros); // Si vas a asignar/desasignar pasajeros
+            controller.setGestorVehiculos(gestorVehiculos);
+            controller.setGestorRutas(gestorRutas);
+            controller.setGestorPasajeros(gestorPasajeros);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -149,6 +156,35 @@ public class MenuPrincipalController {
 
         } catch (Exception e) {
             System.err.println("Error al cargar el menú de conductores: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void irMenuTaller(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/poli/paradigmas/tc/proyecto/GUI/fxml/MenuTaller.fxml"));
+            Parent root = loader.load();
+            MenuTallerController controller = loader.getController();
+
+
+            controller.setGestorTaller(gestorTaller);
+            controller.setGestorConductores(gestorConductores);
+            controller.setGestorVehiculos(gestorVehiculos);
+            controller.setGestorRutas(gestorRutas);
+            controller.setGestorPasajeros(gestorPasajeros);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestión de Taller de Mantenimiento");
+            stage.show();
+
+            // Cerrar ventana actual
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar el menú de taller: " + e.getMessage());
             e.printStackTrace();
         }
     }

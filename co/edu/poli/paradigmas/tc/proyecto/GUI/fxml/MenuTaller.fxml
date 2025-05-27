@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.paradigmas.tc.proyecto.GUI.controller.MenuTallerController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label text="Menú de Gestión de Taller de Mantenimiento">
+        <font>
+            <Font name="System Bold" size="22.0" />
+        </font>
+    </Label>
+    <Separator prefWidth="200.0" />
+    <Button onAction="#agregarRegistroMantenimiento" prefWidth="250.0" text="Registrar Nuevo Mantenimiento" />
+    <Button onAction="#buscarRegistroMantenimiento" prefWidth="250.0" text="Buscar Registro por ID" />
+    <Button onAction="#actualizarEstadoMantenimiento" prefWidth="250.0" text="Actualizar Estado de Mantenimiento" />
+    <Button onAction="#eliminarRegistroMantenimiento" prefWidth="250.0" text="Eliminar Registro" />
+    <Button onAction="#mostrarTodosLosRegistros" prefWidth="250.0" text="Mostrar Todos los Registros" />
+    <Separator prefWidth="200.0" />
+    <Button onAction="#volverMenuPrincipal" prefWidth="250.0" text="Volver al Menú Principal" />
+</VBox>
